@@ -1,0 +1,110 @@
+[
+ {
+  "id": 111,
+  "slug": "aval-flakes",
+  "name": "Aval / Flakes",
+  "nameTa": "அவல் வகைகள்",
+  "description": "Traditional rice flakes — aval pressed from heirloom paddy varieties.",
+  "count": 17,
+  "image": "/img/Aval-Vagaigal.webp"
+ },
+ {
+  "id": 66,
+  "slug": "rice-grains",
+  "name": "Traditional Rice",
+  "nameTa": "பாரம்பரிய அரிசி வகைகள்",
+  "description": "",
+  "count": 17,
+  "image": "/img/Parambariya-Arisi-Vagaigal.webp"
+ },
+ {
+  "id": 96,
+  "slug": "paruppu-pulses",
+  "name": "Lentils and Pulses",
+  "nameTa": "பருப்பு வகைகள்",
+  "description": "Traditional dals and pulses — Kadalai Paruppu, Thuvaram Paruppu, Ulundhu, Payaru and Kondakadalai.",
+  "count": 12,
+  "image": "/img/Kadalai-Paruppu.webp"
+ },
+ {
+  "id": 97,
+  "slug": "health-mixes",
+  "name": "Health Mixes",
+  "nameTa": "ஆரோக்கிய மாவுகள்",
+  "description": "Traditional kanji and dosai maavu, oottachathu maavu, protein and wellness drink mixes.",
+  "count": 9,
+  "image": "/img/Kali-Kanji-Maavu.webp"
+ },
+ {
+  "id": 95,
+  "slug": "siruthaniyam",
+  "name": "Millets",
+  "nameTa": "சிறுதானியங்கள்",
+  "description": "Traditional small millets — Samai, Thinai, Kuthiraivali, Varagu, Kezhvaragu, Kambu and Cholam.",
+  "count": 7,
+  "image": "/img/Samai-Arisi.webp"
+ },
+ {
+  "id": 58,
+  "slug": "oil-vinegers",
+  "name": "Ghee & Oil",
+  "nameTa": "நெய் & எண்ணெய் வகைகள்",
+  "description": "",
+  "count": 5,
+  "image": "/img/Nallennai.webp"
+ },
+ {
+  "id": 99,
+  "slug": "masala-podi",
+  "name": "Masala & Powders",
+  "nameTa": "மசாலா & பொடி வகைகள்",
+  "description": "Traditional ground masalas and podis — Sambar, Kuzhambu, Rasam and Milagai Podi.",
+  "count": 5,
+  "image": "/img/Sambar-Podi.webp"
+ },
+ {
+  "id": 98,
+  "slug": "natural-sweeteners",
+  "name": "Natural Sweeteners",
+  "nameTa": "இயற்கை இனிப்புகள்",
+  "description": "Naattu Sarkkarai, Karuppatti, Urundai Vellam, Panangkarkandu and Then.",
+  "count": 5,
+  "image": "/img/Karuppatti.webp"
+ },
+ {
+  "id": 110,
+  "slug": "other-rice",
+  "name": "Other Rice",
+  "nameTa": "மற்ற அரிசி வகைகள்",
+  "description": "Everyday table rice varieties — Ponni, Idli Rice and Barley.",
+  "count": 3,
+  "image": "/img/16-product-basmati-rice.webp"
+ },
+ {
+  "id": 100,
+  "slug": "herbal-wellness",
+  "name": "Herbal & Wellness",
+  "nameTa": "மூலிகை & நலவாழ்வு பொருட்கள்",
+  "description": "Traditional herbal and bath-care preparations — Seekkai Podi, Kuliyal Podi and Panchakara Kudineer.",
+  "count": 2,
+  "image": "/img/Seekkai-Podi.webp"
+ },
+ {
+  "id": 109,
+  "slug": "personal-care",
+  "name": "Personal Care",
+  "nameTa": "உடல் பராமரிப்பு",
+  "description": "Traditional bath and hair care preparations used in place of soap and shampoo — Kuliyal Podi and Seekkai Podi.",
+  "count": 2,
+  "image": "/img/nn-personal-care-category.webp"
+ },
+ {
+  "id": 67,
+  "slug": "honey",
+  "name": "Honey",
+  "nameTa": "தேன்",
+  "description": "",
+  "count": 1,
+  "image": "/img/Thean.webp"
+ }
+]

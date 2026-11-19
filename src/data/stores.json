@@ -1,0 +1,18 @@
+[
+ {
+  "id": 16,
+  "slug": "naadunalam",
+  "name": "Naadu Nalam",
+  "phone": "8123456456",
+  "registered": "2026-09-22",
+  "productCount": 54
+ },
+ {
+  "id": 15,
+  "slug": "thaayanbu",
+  "name": "Thaayanbu",
+  "phone": "9176482135",
+  "registered": "2026-09-22",
+  "productCount": 28
+ }
+]

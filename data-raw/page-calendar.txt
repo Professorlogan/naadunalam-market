@@ -1,0 +1,50 @@
+
+<li>  {a:https://naadunalam.fastfilings.in/} Home 
+<li> / 
+<li> Calendar 
+<p> What is on 
+<h1> Calendar 
+<p> A month-by-month view of Naadu Nalam activity — markets, farm visits, tastings and notices about dispatch. Months with nothing against them are simply not scheduled yet. 
+<h2> What is coming up 
+<h3> Our calendar will be updated with upcoming activities and events 
+<p> Nothing is on the calendar yet. The year below is where dates will land as they are confirmed — one line per activity, under the month it falls in. 
+<h2> The year ahead 
+<p> Markets and stalls, farm and producer visits, tastings, and notices about when dispatch pauses will each be listed against their month. 
+<h3> January 
+<p> Pongal season 
+<p> No entries yet 
+<h3> February 
+<p> Cool season 
+<p> No entries yet 
+<h3> March 
+<p> Cool season 
+<p> No entries yet 
+<h3> April 
+<p> Summer 
+<p> No entries yet 
+<h3> May 
+<p> Summer 
+<p> No entries yet 
+<h3> June 
+<p> Summer 
+<p> No entries yet 
+<h3> July 
+<p> South-west monsoon 
+<p> No entries yet 
+<h3> August 
+<p> South-west monsoon 
+<p> No entries yet 
+<h3> September 
+<p> South-west monsoon 
+<p> No entries yet 
+<h3> October 
+<p> North-east monsoon 
+<p> No entries yet 
+<h3> November 
+<p> North-east monsoon 
+<p> No entries yet 
+<h3> December 
+<p> North-east monsoon 
+<p> No entries yet 
+<h2> Something we should put in the diary? 
+<p> If you are organising a market, a farm visit or a food event that fits Naadu Nalam, tell us and we will add it here.  {a:https://naadunalam.fastfilings.in/contact/} Contact us  {a:https://naadunalam.fastfilings.in/events/} See events 

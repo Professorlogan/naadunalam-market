@@ -1,0 +1,78 @@
+NAADU NALAM 
+<h1> Terms of Service 
+<p> These Terms of Service govern your use of the Naadu Nalam website and your purchase of products through the website. Please read them alongside our Privacy Policy, Shipping Policy and Refund Policy, which form part of these terms. 
+<p> Last updated: 25/08/2026 
+<p> On this page 
+<li>  {a:#acceptance} Acceptance of terms 
+<li>  {a:#about} About our website 
+<li>  {a:#account} Account registration 
+<li>  {a:#products} Product information 
+<li>  {a:#pricing} Pricing 
+<li>  {a:#orders} Orders 
+<li>  {a:#payments} Payments 
+<li>  {a:#availability-fresh} Availability of fresh items 
+<li>  {a:#shipping} Shipping & delivery 
+<li>  {a:#returns} Returns & refunds 
+<li>  {a:#responsibilities} User responsibilities 
+<li>  {a:#ip} Intellectual property 
+<li>  {a:#uptime} Website availability 
+<li>  {a:#liability} Limitation of liability 
+<li>  {a:#changes} Changes to these terms 
+<li>  {a:#law} Governing law 
+<li>  {a:#support} Contact us 
+<h2> 1. Acceptance of terms 
+<p> By using the Naadu Nalam website and placing orders with us, you agree to these terms. If you do not agree with them, please do not use the website to place an order. 
+<h2> 2. About our website 
+<p> Naadu Nalam is an online marketplace for traditional and natural food and farm products. 
+<p> Some products are sold by independent sellers who maintain their own storefronts on our marketplace. Where an item is supplied by an independent seller, that seller is responsible for the description, quality and packing of the item, and this is indicated on the product page. Our Refund Policy applies to marketplace orders in the same way as to items we supply directly. 
+<h2> 3. Account registration 
+<p> You may create an account to manage your orders and saved delivery addresses. If you do: 
+<li> You must provide accurate account and delivery information, and keep it up to date. 
+<li> You are responsible for keeping your login details confidential. 
+<li> You are responsible for activity carried out through your account. 
+<p> Tell us promptly if you believe your account has been used without your permission. 
+<h2> 4. Product information 
+<p> We aim to display accurate product descriptions. Product descriptions and images are provided for your information, and availability may change without notice. 
+<p> Fresh produce is a natural product, so size, colour and appearance will vary from the photographs shown. 
+<h2> 5. Pricing 
+<p> Prices are shown in Indian Rupees and include the price you pay for the product. Delivery is charged separately and shown before you confirm your order, as set out in our  {a:https://naadunalam.fastfilings.in/shipping-policy/} Shipping Policy . 
+<p> Prices may change from time to time. Any taxes or charges that apply will be displayed where required before you confirm your order. 
+<p> If a price or description is published in error, we may correct it and cancel any order affected by the mistake, refunding anything you have already paid. 
+<h2> 6. Orders 
+<p> Placing an order is an offer to buy. A contract is formed when we confirm the order. 
+<p> We reserve the right to refuse or cancel an order for fraud prevention, stock availability, or delivery restrictions. Where we cancel an order, anything you have already paid for that order is refunded. 
+<h2> 7. Payments 
+<p> Where you pay by Cash on Delivery , payment falls due in full when the order is handed to you. 
+<p> Where an online payment method is offered, the order is confirmed once payment is authorised. Online payments are completed on the payment provider’s own systems; we do not collect or store your card, UPI or net-banking details. 
+<h2> 8. Availability of fresh items 
+<p> Fresh fruits, vegetables and frozen items are stocked in limited daily quantities. If an item becomes unavailable after you order it, we will contact you and either substitute it with your agreement or refund that item in full. 
+<h2> 9. Shipping and delivery 
+<p> Delivery areas, timelines and charges are set out in our  {a:https://naadunalam.fastfilings.in/shipping-policy/} Shipping Policy . 
+<p> Delivery estimates are not guarantees, and may be affected by weather, local restrictions or courier disruption. 
+<h2> 10. Returns and refunds 
+<p> Because many of our products are perishable, specific rules apply to what can be returned and by when. These are set out in full in our  {a:https://naadunalam.fastfilings.in/refund-policy/} Return & Refund Policy . 
+<h2> 11. User responsibilities 
+<p> When using this website, you agree to: 
+<li> Provide accurate account and delivery information. 
+<li> Use the website lawfully and for its intended purpose. 
+<li> Not misuse the website or interfere with how it works. 
+<li> Not attempt unauthorised access to the website, other accounts or our systems. 
+<li> Not resell products bought here without our permission. 
+<h2> 12. Intellectual property 
+<p> The Naadu Nalam name, logo, site design, photographs and written content belong to us or our licensors and may not be copied or reused without permission. 
+<p> Content supplied by independent sellers for their own product listings remains the responsibility of that seller. 
+<h2> 13. Website availability 
+<p> We aim to keep the website available, but access may occasionally be interrupted by maintenance, technical issues, network problems or other circumstances outside our reasonable control. We do not guarantee uninterrupted access. 
+<h2> 14. Limitation of liability 
+<p> Nothing in these terms limits any liability that cannot be limited under applicable law, including liability for death or personal injury caused by negligence. 
+<p> Subject to that, we are not liable for indirect or consequential loss, and our total liability in respect of any order is limited to the amount paid for that order. 
+<h2> 15. Changes to these terms 
+<p> We may update these terms from time to time. The version published on this page at the time you place an order is the version that applies to that order. 
+<h2> 16. Governing law 
+<p> These terms are governed by the laws of India, and the courts at Chennai, Tamil Nadu have jurisdiction over any dispute arising from them. 
+<h2> Questions about these terms? 
+<p> We typically reply within one business day. 
+<li> Email  {a:mailto:hello@naadunalam.in} hello@naadunalam.in 
+<li> Phone  {a:tel:+919092114630} +91 90921 14630 
+<li> Address Chennai, Tamil Nadu 600001, India 
+<li> Hours Monday to Saturday, 9:00 AM – 6:00 PM. Sunday closed.  {a:https://naadunalam.fastfilings.in/contact/} Contact Us 

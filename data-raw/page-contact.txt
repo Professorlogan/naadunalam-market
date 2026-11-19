@@ -1,0 +1,15 @@
+
+<h1> Contact Us Questions about orders, products, or partnerships? Reach the Naadu Nalam team and we will get back to you soon. 
+<h2> Get in touch Visit our store base in Chennai, or write to us anytime. We typically reply within one business day. 
+<li>  {a:https://maps.google.com/?q=Chennai,+Tamil+Nadu+600001,+India} Chennai, Tamil Nadu 600001, India 
+<li>  {a:tel:+919092114630} +91 90921 14630 
+<li>  {a:mailto:hello@naadunalam.in} hello@naadunalam.in  {a:https://wa.me/919092114630} Chat with us on WhatsApp 
+<h3> Business hours Monday to Saturday: 9:00 AM – 6:00 PM Sunday: Closed 
+<h2> Send a message Tell us how we can help and we will respond by email. 
+<p> 
+<p> Your name 
+<p> Email address 
+<p> How can we help? 
+<p> I agree that Naadu Nalam may use these details to respond to my enquiry, as set out in the  {a:/privacy-policy/} Privacy Policy . 
+<p> 
+<h2> Our location Naadu Nalam is based in Chennai, Tamil Nadu. 

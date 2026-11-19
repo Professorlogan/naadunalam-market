@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+/* Colours are taken from the Naadu Nalam logo: its five elements of nature. */
+@theme {
+  --color-forest: #1b5338;   /* logo lettering */
+  --color-forest-deep: #123a27;
+  --color-leaf: #0f804a;     /* leaves */
+  --color-water: #0c8fc7;    /* water */
+  --color-water-deep: #0a6e9a;
+  --color-sun: #f9b52c;      /* sun */
+  --color-soil: #6b3a2c;     /* soil */
+  --color-soil-deep: #3f2219;
+  --color-sky: #f5f7f2;      /* sky: light surface */
+  --color-mist: #e6e9e1;     /* hairlines */
+  /* Market Colours: soft tints of the five elements, used as banner and tile backgrounds. */
+  --color-mint: #e2f3e7;     /* leaf tint */
+  --color-butter: #fff3d1;   /* sun tint */
+  --color-peach: #fde7d8;    /* soil tint */
+  --color-aqua: #dff0f8;     /* water tint */
+  --color-clay: #f3e4dc;
+  --color-ink: #17271e;
+  --color-muted: #55665c;
+  --font-display: "Catamaran Variable", "Catamaran", system-ui, sans-serif;
+  --font-body: "Noto Sans Tamil Variable", "Noto Sans Tamil", system-ui, sans-serif;
+  --shadow-lift: 0 8px 24px -14px rgb(23 39 30 / 0.28);
+}
+
+@layer base {
+/* Single design: Market Colours. */
+:root { --hero-bg: #e2f3e7; --in-basket: #f2faf4; }
+html { scroll-behavior: smooth; }
+/* Space before the footer, unless the page already ends in a full-width colour band. */
+main { padding-bottom: 2.5rem; overflow-x: clip; }
+main:has(> :last-child:is([class*="bg-forest"], [class*="bg-soil"])),
+main:has(> :last-child > :last-child:is([class*="bg-forest"], [class*="bg-soil"])),
+main:has(> :last-child > :last-child > :last-child:is([class*="bg-forest"], [class*="bg-soil"])) { padding-bottom: 0; }
+body {
+  background: #fff;
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 400;
+  overflow-wrap: anywhere;
+}
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; line-height: 1.12; letter-spacing: -0.01em; color: var(--color-forest-deep); }
+:lang(ta), .ta { line-height: 1.5; letter-spacing: 0; }
+:focus-visible { outline: 3px solid var(--color-water); outline-offset: 2px; border-radius: 4px; }
+::selection { background: var(--color-sun); color: var(--color-ink); }
+}
+
+@layer components {
+  .wrap { width: 100%; max-width: 78rem; margin-inline: auto; padding-inline: 1rem; }
+  @media (min-width: 640px) { .wrap { padding-inline: 1.5rem; } }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; min-height: 2.875rem; padding: 0.55rem 1.35rem; border-radius: 999px; font-family: var(--font-display); font-weight: 600; font-size: 1rem; line-height: 1.2; transition: background-color 0.15s, color 0.15s, border-color 0.15s; cursor: pointer; }
+  .btn-primary { background: var(--color-forest); color: #fff; }
+  .btn-primary:hover { background: var(--color-leaf); }
+  .btn-sun { background: var(--color-sun); color: var(--color-ink); }
+  .btn-sun:hover { background: #ffc54d; }
+  .btn-ghost { border: 1.5px solid var(--color-forest); color: var(--color-forest); background: transparent; }
+  .btn-ghost:hover { background: var(--color-forest); color: #fff; }
+  .btn-light { background: #fff; color: var(--color-forest); }
+  .btn-light:hover { background: var(--color-sun); color: var(--color-ink); }
+  .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .field { width: 100%; min-height: 2.875rem; padding: 0.6rem 0.9rem; border: 1.5px solid var(--color-mist); border-radius: 0.75rem; background: #fff; color: var(--color-ink); }
+  .field:focus { border-color: var(--color-leaf); outline: none; box-shadow: 0 0 0 3px rgb(15 128 74 / 0.18); }
+  .label { display: block; font-weight: 600; margin-bottom: 0.3rem; color: var(--color-forest-deep); }
+  .card { background: #fff; border: 1px solid var(--color-mist); border-radius: 1.25rem; }
+  .link { color: var(--color-water-deep); text-decoration: underline; text-underline-offset: 3px; }
+  .link:hover { color: var(--color-forest); }
+
+  /* Long-form text from the CMS: policies, blog posts, product descriptions. */
+  .prose-nn { max-width: 68ch; }
+  .prose-nn > * + * { margin-top: 1em; }
+  .prose-nn h2 { font-size: 1.5rem; margin-top: 2em; scroll-margin-top: 8rem; }
+  .prose-nn h3 { font-size: 1.25rem; margin-top: 1.6em; }
+  .prose-nn ul { list-style: none; padding: 0; }
+  .prose-nn ul > li { position: relative; padding-left: 1.4rem; margin-top: 0.4em; }
+  .prose-nn ul > li::before { content: ""; position: absolute; left: 0.15rem; top: 0.62em; width: 0.5rem; height: 0.5rem; border-radius: 0 60% 0 60%; background: var(--color-leaf); }
+  .prose-nn ol { list-style: decimal; padding-left: 1.4rem; }
+  .prose-nn a { color: var(--color-water-deep); text-decoration: underline; text-underline-offset: 3px; }
+  .prose-nn strong { color: var(--color-forest-deep); }
+}
+
+/* Motion: looping decorative animations (the entrance animations live in components/motion). */
+@keyframes nn-marquee { to { transform: translateX(-50%); } }
+.nn-marquee-track { animation: nn-marquee 38s linear infinite; }
+.nn-marquee:hover .nn-marquee-track { animation-play-state: paused; }
+@keyframes nn-flow { to { stroke-dashoffset: -88; } }
+.nn-flow { animation: nn-flow 3.2s linear infinite; }
+@keyframes nn-float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-10px) rotate(4deg); } }
+.nn-float { animation: nn-float 6s ease-in-out infinite; }
+@keyframes nn-pulse-ring { 0% { transform: scale(1); opacity: 0.55; } 100% { transform: scale(1.22); opacity: 0; } }
+.nn-pulse-ring { animation: nn-pulse-ring 3.4s ease-out infinite; }
+@keyframes nn-bird { 0% { transform: translate(0, 0); } 50% { transform: translate(14px, -7px); } 100% { transform: translate(0, 0); } }
+.nn-bird { animation: nn-bird 5s ease-in-out infinite; }
+/* Nav links: an underline that grows from the left on hover and stays for the current page. */
+.nn-navlink { position: relative; }
+.nn-navlink::after { content: ""; position: absolute; left: 0.6rem; right: 0.6rem; bottom: 0.55rem; height: 2px; border-radius: 2px; background: var(--color-sun); transform: scaleX(0); transform-origin: left; transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1); }
+.nn-navlink:hover::after, .nn-navlink-on::after, .nn-navlink[aria-expanded="true"]::after { transform: scaleX(1); }
+@keyframes nn-shine { to { transform: translateX(220%) skewX(-18deg); } }
+.btn-primary, .btn-sun { position: relative; overflow: hidden; }
+.btn-primary::after, .btn-sun::after { content: ""; position: absolute; inset: 0 auto 0 -60%; width: 40%; background: rgb(255 255 255 / 0.28); transform: translateX(0) skewX(-18deg); pointer-events: none; }
+.btn-primary:hover::after, .btn-sun:hover::after { animation: nn-shine 0.7s ease-out; }
+.btn { transition: background-color 0.15s, color 0.15s, border-color 0.15s, transform 0.15s; }
+.btn:active { transform: scale(0.96); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+
+/* Home hero: one load sequence, picture settles then the copy rises. */
+@keyframes nn-hero-img { from { transform: scale(1.06); } to { transform: scale(1); } }
+@keyframes nn-hero-copy { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: no-preference) {
+  .nn-hero-img { animation: nn-hero-img 1.6s cubic-bezier(0.19, 1, 0.22, 1) both; }
+  .nn-hero-copy > * { animation: nn-hero-copy 0.8s cubic-bezier(0.19, 1, 0.22, 1) both; }
+  .nn-hero-copy > :nth-child(2) { animation-delay: 0.08s; }
+  .nn-hero-copy > :nth-child(3) { animation-delay: 0.16s; }
+  .nn-hero-copy > :nth-child(4) { animation-delay: 0.24s; }
+}
+
+/* Headings: one weight across the site, lighter than bold. */
+h1, h2 { font-weight: 700 !important; letter-spacing: -0.015em; }

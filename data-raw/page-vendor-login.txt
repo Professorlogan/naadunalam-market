@@ -1,0 +1,16 @@
+
+<h1> Sell on Naadu Nalam 
+<p> Naadu Nalam is a multi-vendor marketplace. If you already have a vendor account, sign in here to reach your dashboard. If you don’t, you can apply to open a shop. 
+<li> Your own storefront at naadunalam.fastfilings.in/store/your-shop 
+<li> Add products, manage stock and track orders from the vendor dashboard 
+<li> Orders on the marketplace are Cash on Delivery at present 
+<h2> Vendor login Username or email address Password Remember Me Log in to dashboard  {a:https://naadunalam.fastfilings.in/my-account/lost-password/} Lost your password? 
+<h2> New here? Apply to sell 
+<p> Fill in your details below to create a vendor account and claim your shop URL. A link to set your password is emailed to you. 
+<p> First Name * 
+<p> Last Name * 
+<p> Email address * A link to set a new password will be sent to your email address. 
+<p> Phone Number * Anti-spam 
+<p> Shop Name * 
+<p> Shop URL * https://naadunalam.fastfilings.in/store/ 
+<p> 
