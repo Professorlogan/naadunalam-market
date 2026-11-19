@@ -11,7 +11,7 @@ export default function EmptyState({ icon: Icon, title, children, actions }: {
     <div className="flex flex-col gap-4 rounded-[1.5rem] border border-mist bg-white p-5 sm:flex-row sm:items-start sm:gap-5 sm:p-7">
       <span aria-hidden className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-mint text-forest"><Icon size={24} strokeWidth={1.75} /></span>
       <div className="min-w-0 max-w-2xl flex-1">
-        <h3 className="text-xl font-bold sm:text-2xl">{title}</h3>
+        <h3 className="t-h4 font-bold">{title}</h3>
         <div className="mt-1.5 text-muted">{children}</div>
         {actions && <div className="mt-5 flex flex-wrap gap-3">{actions}</div>}
       </div>

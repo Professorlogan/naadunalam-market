@@ -35,7 +35,7 @@ export default function Hero() {
             className="ta font-display text-lg font-semibold text-leaf sm:text-xl lg:text-2xl">
             நம்ம மண்ணின் சுவை. நம்ம மக்களின் நலம்.
           </motion.p>
-          <h1 id="home-title" className="mt-3 max-w-[15ch] text-[2.6rem] font-bold leading-[1.04] sm:text-5xl lg:text-6xl xl:text-[4.25rem]">
+          <h1 id="home-title" className="t-h1 mt-3 max-w-[15ch] font-bold">
             <SplitWords text="Naturally grown food, straight from local sellers" delay={0.15} />
           </h1>
           <motion.p initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: EASE, delay: 0.75 }}

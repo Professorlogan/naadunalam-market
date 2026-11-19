@@ -13,6 +13,11 @@ export function SellerMonogram({ monogram, tone, size = "md", className = "" }: 
   monogram: string; tone: string; size?: "sm" | "md" | "lg"; className?: string;
 }) {
   const sizes = { sm: "h-11 w-11 text-xl", md: "h-14 w-14 text-2xl", lg: "h-20 w-20 text-4xl sm:h-24 sm:w-24 sm:text-5xl" };
+  // Naadu Nalam's own store shows the real logo instead of a letter.
+  if (monogram === "N") return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img src="/img/logo.webp" alt="" width={96} height={96} className={`shrink-0 rounded-full bg-white object-contain p-1 ${sizes[size].split(" ").slice(0, 2).join(" ")} ${size === "lg" ? "sm:h-24 sm:w-24" : ""} ${className}`} />
+  );
   return (
     <span aria-hidden className={`grid shrink-0 place-items-center rounded-full font-display font-bold leading-none ${sizes[size]} ${tone} ${className}`}>
       {monogram}

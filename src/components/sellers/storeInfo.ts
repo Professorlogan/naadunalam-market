@@ -83,10 +83,15 @@ export function storeSummary(store: Store) {
   // Newest first: the catalogue has no "added on" date, so the product id (assigned in order of creation) stands in.
   const newest = items.slice(0, 8);
 
+  // Hand-picked lifestyle photos for each store's banner, so the strip never mixes old pack shots with new ones.
+  const curated: Record<string, string[]> = {
+    naadunalam: ["/img/m/hero-rice.webp", "/img/m/farmer-rice.webp", "/img/m/promo-millets.webp", "/img/m/hero-packs.webp"],
+    thaayanbu: ["/img/m/hero-oils.webp", "/img/m/p-honey.webp", "/img/m/promo-health.webp", "/img/m/hero-sweet.webp"],
+  };
   return {
     items,
     cats,
-    collage,
+    collage: curated[store.slug] ?? collage,
     more,
     newest,
     since: monthYear(store.registered),

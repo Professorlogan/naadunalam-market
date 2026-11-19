@@ -5,9 +5,9 @@ import { Reveal } from "../motion";
 export default function SellerCta({ title, text }: { title: string; text: string }) {
   return (
     <section aria-labelledby="seller-cta-title" className="wrap pb-5 pt-8 sm:pb-6 sm:pt-12">
-      <Reveal className="flex flex-col gap-6 rounded-[2rem] bg-butter p-6 sm:p-10 md:flex-row md:items-center md:justify-between">
+      <Reveal className="flex flex-col gap-6 rounded-[2rem] bg-white border border-mist p-6 sm:p-10 md:flex-row md:items-center md:justify-between">
         <div className="max-w-2xl">
-          <h2 id="seller-cta-title" className="text-2xl font-bold text-forest-deep sm:text-3xl">{title}</h2>
+          <h2 id="seller-cta-title" className="t-h3 font-bold text-forest-deep">{title}</h2>
           <p className="mt-2 text-ink/75">{text}</p>
         </div>
         <SellerCtaButtons />

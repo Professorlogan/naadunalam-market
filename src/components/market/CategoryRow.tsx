@@ -8,10 +8,10 @@ export default function CategoryRow() {
   return (
     <section aria-labelledby="cat-title" className="wrap pt-14 sm:pt-20">
       <Reveal className="mb-6 flex items-end justify-between gap-4">
-        <h2 id="cat-title" className="text-3xl sm:text-4xl">Shop by category</h2>
-        <Link href="/shop" className="link font-semibold">All products</Link>
+        <h2 id="cat-title" className="t-h2">Shop by category</h2>
+        <Link href="/shop" className="link shrink-0 whitespace-nowrap font-semibold">All products</Link>
       </Reveal>
-      <ul className="-mx-4 flex snap-x gap-4 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-4 sm:gap-5 sm:overflow-visible sm:px-0 lg:grid-cols-6">
+      <ul className="-mx-4 flex snap-x scroll-px-4 gap-4 overflow-x-auto px-4 pb-2 sm:mx-0 sm:grid sm:grid-cols-4 sm:gap-5 sm:overflow-visible sm:px-0 lg:grid-cols-6">
         {categories.map((c, n) => (
           <li key={c.slug} className="w-[30%] shrink-0 snap-start sm:w-auto">
             <Link href={`/product-category/${c.slug}`} className="group flex flex-col items-center text-center">

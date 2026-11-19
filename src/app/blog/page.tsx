@@ -25,19 +25,19 @@ export default function BlogPage() {
       <section aria-labelledby="more-posts">
         <div className="wrap grid gap-10 pb-4 lg:grid-cols-[minmax(0,1fr)_20rem] lg:gap-14">
           <div>
-            <Reveal><h2 id="more-posts" className="text-3xl font-bold sm:text-4xl">Earlier articles</h2></Reveal>
+            <Reveal><h2 id="more-posts" className="t-h2 font-bold">Earlier articles</h2></Reveal>
             <Stagger as="ul" className="mt-6 grid gap-4">
               {rest.map((p) => <StaggerItem as="li" key={p.slug}><PostRow post={p} /></StaggerItem>)}
             </Stagger>
           </div>
           <aside className="space-y-5 lg:sticky lg:top-32 lg:self-start">
-            <Reveal className="rounded-[1.5rem] bg-butter p-6">
-              <h2 className="text-2xl font-bold text-forest-deep">Shop the ingredients</h2>
+            <Reveal className="rounded-[1.5rem] bg-white border border-mist p-6">
+              <h2 className="t-h3 font-bold text-forest-deep">Shop the ingredients</h2>
               <p className="mt-2 text-ink/75">The rice, millets, oils, honey and podis we write about are all on the marketplace.</p>
               <Link href="/shop" className="btn btn-primary mt-5">Go to the shop</Link>
             </Reveal>
-            <Reveal delay={0.1} className="rounded-[1.5rem] bg-mint p-6">
-              <h2 className="text-xl font-bold">New articles by email</h2>
+            <Reveal delay={0.1} className="rounded-[1.5rem] bg-white border border-mist p-6">
+              <h2 className="t-h4 font-bold">New articles by email</h2>
               {/* The sidebar is narrow from lg up, so the field and button stack there and the placeholder is never clipped. */}
               <div className="mt-4 [&_.btn]:!bg-forest [&_.btn]:!text-white [&_.btn:hover]:!bg-leaf [&_input]:bg-white lg:[&_form]:!flex-col lg:[&_form]:!items-stretch lg:[&_input]:!w-full lg:[&_input]:!flex-none"><NewsletterForm /></div>
             </Reveal>

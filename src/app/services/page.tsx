@@ -5,7 +5,7 @@ import Breadcrumbs from "../../components/Breadcrumbs";
 import LeafList from "../../components/content/LeafList";
 import StepsSequence from "../../components/content/StepsSequence";
 import { Pop, RuleLine, WipeImage } from "../../components/content/fx";
-import { DrawStrip, Reveal, SplitWords, Stagger, StaggerItem, Tilt } from "../../components/motion";
+import { Reveal, SplitWords, Stagger, StaggerItem, Tilt } from "../../components/motion";
 import { values } from "../../components/content/values";
 import { site } from "../../lib/data";
 
@@ -18,9 +18,9 @@ const services = [
   { tint: "bg-mint", icon: Wheat, title: "Traditional and natural products", text: "Explore a carefully selected range of traditional rice, siruthaniyam, pulses, natural sweeteners, spices, oils and other everyday essentials.", link: { href: "/shop", label: "Explore products" } },
   { tint: "bg-butter", icon: Sprout, title: "Traditional food choices", text: "Discover traditional grains and ingredients that are closely connected to Tamil Nadu’s food heritage and everyday cooking.", link: { href: "/product-category/siruthaniyam", label: "Discover millets" } },
   { tint: "bg-peach", icon: Truck, title: "Doorstep delivery", text: "We make it convenient to order your favourite products online and have them delivered to your doorstep.", fact: site.deliveryLine },
-  { tint: "bg-aqua", icon: Banknote, title: "Cash on delivery", text: "Choose Cash on Delivery at checkout.", fact: "Pay when your order arrives" },
+  { tint: "bg-aqua", icon: Banknote, title: "Cash on delivery", text: "Choose Cash on delivery at checkout.", fact: "Pay when your order arrives" },
   { tint: "bg-clay", icon: Tractor, title: "Direct from growers", text: "We aim to create a stronger connection between the people who grow our food and the families who enjoy it.", fact: "Fewer hands between farm and kitchen" },
-  { tint: "bg-mint", icon: Leaf, title: "Natural choices", text: "Discover products selected with a focus on traditional food practices and natural ingredients.", fact: "Always free from chemicals and pesticides" },
+  { tint: "bg-mint", icon: Leaf, title: "Natural choices", text: "Discover products selected with a focus on traditional food practices and natural ingredients.", fact: "Chosen for traditional, low-processing methods" },
 ];
 
 const steps = [
@@ -36,7 +36,7 @@ const kitchen = [
   { slug: "paruppu-pulses", name: "Paruppu and pulses", text: "Kadalai paruppu, thuvaram paruppu, payaru, ulundhu and kondakadalai.", img: "/img/Thuvaram-Paruppu.webp", alt: "Thuvaram paruppu, split pigeon peas (toor dal)" },
   { slug: "health-mixes", name: "Health mixes", text: "Kanji and dosai maavu, oottachathu mixes and ready-to-cook blends.", img: "/img/Pengalukkaana-Oottachathu-Maavu.webp", alt: "Oottachathu maavu, a traditional health mix flour, in a clay bowl" },
   { slug: "natural-sweeteners", name: "Natural sweeteners", text: "Panangkarkandu, urundai vellam and other traditional sweeteners.", img: "/img/Karuppatti.webp", alt: "Karuppatti, traditional palm jaggery, in a clay bowl" },
-  { slug: "masala-podi", name: "Masala and powders", text: "Sambar, kuzhambu, rasam and milagai podi ground the traditional way.", img: "/img/Rasam-Podi.webp", alt: "Rasam podi, traditional Tamil rasam powder" },
+  { slug: "masala-podi", name: "Masala and powders", text: "Sambar, kuzhambu, rasam and milagai podi ground the traditional way.", img: "/img/m/p-sambar.webp", alt: "Rasam podi, traditional Tamil rasam powder" },
   { slug: "oil-vinegers", name: "Oils and ghee", text: "Cold-pressed nallennai, kadalai ennai, thengai ennai and mallamaattu nei.", img: "/img/Mallamaattu-Nei.webp", alt: "Mallamaattu nei, traditional cow ghee" },
   { slug: "herbal-wellness", name: "Natural and herbal", text: "Panchakara kudineer, seekkai podi and other herbal everyday essentials.", img: "/img/Seekkai-Podi.webp", alt: "Seekkai podi, traditional herbal hair wash powder" },
 ];
@@ -56,8 +56,7 @@ export default function ServicesPage() {
         <div className="grid gap-8 rounded-[2rem] bg-gradient-to-br from-mint via-mint to-butter px-6 py-8 sm:px-10 sm:py-10 md:grid-cols-[1fr_auto] md:items-center md:gap-14">
           <div>
             <Reveal y={10}><Breadcrumbs items={[{ label: "How ordering works" }]} /></Reveal>
-            <h1 className="mt-5 max-w-2xl text-4xl font-bold sm:text-5xl lg:text-6xl"><SplitWords text="How ordering works" delay={0.05} /></h1>
-            <DrawStrip className="mt-4 w-28" />
+            <h1 className="t-h1 mt-5 max-w-2xl font-bold"><SplitWords text="How ordering works" delay={0.05} /></h1>
             <Reveal as="p" delay={0.25} y={14} className="mt-5 max-w-xl font-display text-2xl font-semibold leading-snug text-leaf">
               Services that bring goodness closer to you
             </Reveal>
@@ -89,7 +88,7 @@ export default function ServicesPage() {
       {/* How we serve you */}
       <section className="wrap py-12 sm:py-16">
         <Reveal className="max-w-2xl">
-          <h2 className="text-3xl font-bold sm:text-4xl">How we serve you</h2>
+          <h2 className="t-h2 font-bold">How we serve you</h2>
           <p className="mt-3 text-muted">
             From carefully bringing traditional products together to getting them to your doorstep, we focus on making your shopping experience simple and reliable.
           </p>
@@ -101,7 +100,7 @@ export default function ServicesPage() {
                 <Icon aria-hidden size={22} className="transition-transform duration-300 ease-out group-hover:-rotate-12 group-hover:scale-125" />
               </Pop>
               <div>
-                <h3 className="text-xl font-bold">{s.title}</h3>
+                <h3 className="t-h4 font-bold">{s.title}</h3>
                 <p className="mt-1.5 text-muted">{s.text}</p>
                 {/* One trailing line per item, in one style; where it is a link it only gains an underline. */}
                 <p className="mt-1 flex min-h-11 items-center text-[15px] font-semibold text-forest/80">
@@ -117,8 +116,8 @@ export default function ServicesPage() {
 
       {/* The four steps: a real sequence, so it is numbered */}
       <section className="wrap">
-        <div className="rounded-[2rem] bg-butter px-6 py-10 sm:px-10 sm:py-12">
-          <h2 className="text-3xl font-bold text-forest-deep sm:text-4xl"><SplitWords text="Simple from start to finish" inView /></h2>
+        <div className="rounded-[2rem] bg-white border border-mist px-6 py-10 sm:px-10 sm:py-12">
+          <h2 className="t-h2 font-bold text-forest-deep"><SplitWords text="Simple from start to finish" inView /></h2>
           {/* Signature moment: the line draws from step to step and each one lights up in turn. */}
           <StepsSequence steps={steps} />
         </div>
@@ -126,7 +125,7 @@ export default function ServicesPage() {
 
       {/* Categories as photographs */}
       <section className="wrap py-12 sm:py-16">
-        <Reveal><h2 className="text-3xl font-bold sm:text-4xl">Something for every kitchen</h2></Reveal>
+        <Reveal><h2 className="t-h2 font-bold">Something for every kitchen</h2></Reveal>
         <Stagger as="ul" className="mt-8 grid grid-cols-2 gap-x-4 gap-y-8 md:grid-cols-4 md:gap-x-6">
           {kitchen.map((k) => (
             <StaggerItem as="li" key={k.slug}>
@@ -137,7 +136,7 @@ export default function ServicesPage() {
                     <img src={k.img} width={1024} height={1024} loading="lazy" alt={k.alt} className="h-full w-full scale-[1.08] object-cover transition-transform duration-700 ease-out group-hover:scale-[1.14]" />
                   </span>
                 </Tilt>
-                <h3 className="mt-3 text-lg font-bold group-hover:underline sm:text-xl">{k.name}</h3>
+                <h3 className="t-h5 mt-3 font-bold group-hover:underline">{k.name}</h3>
                 <p className="mt-1 text-[15px] leading-snug text-muted">{k.text}</p>
               </Link>
             </StaggerItem>
@@ -149,7 +148,7 @@ export default function ServicesPage() {
       <section className="overflow-x-clip">
         <div className="wrap grid gap-12 py-4 sm:py-6 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-16">
           <div>
-            <Reveal><h2 className="text-3xl font-bold sm:text-4xl">Why choose Naadu Nalam?</h2></Reveal>
+            <Reveal><h2 className="t-h2 font-bold">Why choose Naadu Nalam?</h2></Reveal>
             <Stagger as="dl" gap={0.12} className="mt-6 grid gap-x-10 sm:grid-cols-2">
               {why.map((w) => (
                 <StaggerItem key={w.title} className="relative py-4">
@@ -159,8 +158,8 @@ export default function ServicesPage() {
               ))}
             </Stagger>
           </div>
-          <Reveal x={32} y={0} className="rounded-[2rem] bg-aqua p-6 sm:p-8">
-            <h2 className="text-2xl font-bold">Our values</h2>
+          <Reveal x={32} y={0} className="rounded-[2rem] bg-white border border-mist p-6 sm:p-8">
+            <h2 className="t-h3 font-bold">Our values</h2>
             <Stagger as="ul" gap={0.16} delay={0.2} className="mt-4 divide-y divide-forest/10">
               {values.map((v) => (
                 <StaggerItem as="li" key={v.en} y={16} className="flex flex-col gap-0.5 py-3 sm:flex-row sm:items-baseline sm:justify-between sm:gap-x-4">
@@ -185,7 +184,7 @@ export default function ServicesPage() {
         </WipeImage>
         <div>
         <Reveal>
-          <h2 className="text-3xl font-bold sm:text-4xl">Your convenience matters</h2>
+          <h2 className="t-h2 font-bold">Your convenience matters</h2>
           <p className="mt-4 text-lg">Shopping for traditional and natural products should be simple.</p>
           <p className="mt-3 text-muted">
             That is why we focus on making the experience easy, from discovering products and placing an order to receiving it at your doorstep.
@@ -201,9 +200,9 @@ export default function ServicesPage() {
 
       {/* Help */}
       <section className="wrap pb-12 sm:pb-16">
-        <div className="flex flex-col gap-6 rounded-[2rem] bg-mint px-6 py-10 sm:px-10 md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-col gap-6 rounded-[2rem] bg-white border border-mist px-6 py-10 sm:px-10 md:flex-row md:items-center md:justify-between">
           <Reveal>
-            <h2 className="text-3xl font-bold text-forest-deep">Need help with your order?</h2>
+            <h2 className="t-h2 font-bold text-forest-deep">Need help with your order?</h2>
             <p className="mt-2 text-ink/75">Have a question about a product, order or delivery? We’re here to help.</p>
           </Reveal>
           <Reveal delay={0.15} className="flex shrink-0 flex-wrap gap-3">

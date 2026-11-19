@@ -32,7 +32,7 @@ export default function YearGrid({ months }: { months: Month[] }) {
             {now && (
               <span className="absolute -top-3 right-3 rounded-full bg-leaf px-2.5 py-0.5 text-xs font-semibold leading-5 text-white">This month</span>
             )}
-            <h3 className="text-lg font-bold leading-tight sm:text-2xl">{m.name}</h3>
+            <h3 className="t-h5 font-bold">{m.name}</h3>
             <p className="mt-0.5 text-sm text-muted sm:mt-1">{seasons[m.season].label}</p>
             <p className="mt-2 text-sm text-muted sm:mt-auto sm:pt-4">No entries yet</p>
           </li>

@@ -40,14 +40,14 @@ export default function MyOrders() {
           return (
             <motion.li key={o.number} initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, ease: EASE, delay: Math.min(idx, 6) * 0.07 }}>
               <div className={`overflow-hidden rounded-[1.25rem] border bg-white transition-shadow duration-300 ${isOpen ? "border-leaf/40 shadow-[0_18px_40px_-22px_rgb(23_39_30/0.45)]" : "border-mist"}`}>
-                <h2 className="font-body text-base font-normal">
+                <h2 className="t-h4 font-body font-normal">
                   <button type="button" aria-expanded={isOpen} aria-controls={panel} onClick={() => toggle(o.number)}
                     className="flex min-h-14 w-full cursor-pointer flex-wrap items-center gap-x-8 gap-y-2 px-4 py-4 text-left transition-colors hover:bg-mint/50 sm:px-6">
                     <span className="min-w-0 flex-1 basis-40">
                       <span className="block font-display text-xl font-bold text-forest-deep">Order {o.number}</span>
                       <span className="block text-[15px] text-muted">{orderDate(o.date)} · {items} {items === 1 ? "item" : "items"}</span>
                     </span>
-                    <span className="rounded-full bg-butter px-3 py-1 text-sm font-semibold text-ink">Cash on Delivery</span>
+                    <span className="rounded-full bg-butter px-3 py-1 text-sm font-semibold text-ink">Cash on delivery</span>
                     <span className="whitespace-nowrap font-display text-xl font-bold tabular-nums text-forest-deep">{inr(o.total)}</span>
                     <span className="flex items-center gap-1 rounded-full border border-mist px-3 py-1.5 text-[15px] font-semibold text-leaf">
                       {isOpen ? "Hide details" : "Show details"}

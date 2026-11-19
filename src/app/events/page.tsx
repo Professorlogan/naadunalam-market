@@ -40,7 +40,7 @@ export default function EventsPage() {
       <section className="wrap py-4 sm:py-6">
         <div className="rounded-[2rem] bg-sky grid gap-8 px-6 py-10 sm:px-10 sm:py-12 lg:grid-cols-[20rem_minmax(0,1fr)] lg:gap-14">
           <Reveal>
-            <h2 className="text-3xl font-bold sm:text-4xl">The kinds of events we plan to run</h2>
+            <h2 className="t-h2 font-bold">The kinds of events we plan to run</h2>
             <p className="mt-3 text-muted">None of these are scheduled yet. This is what an entry on this page will look like when one is.</p>
           </Reveal>
           <Stagger as="ul" gap={0.12} className="grid gap-4">
@@ -49,7 +49,7 @@ export default function EventsPage() {
                 <Lift className="flex h-full gap-4 rounded-[1.5rem] border border-mist bg-white p-5 transition-shadow duration-300 hover:shadow-[0_18px_40px_-22px_rgb(23_39_30/0.45)] sm:gap-6 sm:p-6">
                   <Pop delay={0.15 + i * 0.12} className={`grid h-12 w-12 shrink-0 place-items-center rounded-full text-forest sm:h-14 sm:w-14 ${["bg-mint", "bg-butter", "bg-peach", "bg-aqua"][i % 4]}`}><Icon size={24} /></Pop>
                   <div>
-                    <h3 className="text-xl font-bold sm:text-2xl">{title}</h3>
+                    <h3 className="t-h4 font-bold">{title}</h3>
                     <p className="mt-1 max-w-xl text-muted">{text}</p>
                     <p className="mt-2 text-sm text-muted">Not scheduled yet</p>
                   </div>

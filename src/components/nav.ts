@@ -17,10 +17,6 @@ export const footerNav = {
     { label: "About us", href: "/about-us" },
     { label: "How ordering works", href: "/services" },
     { label: "Blog", href: "/blog" },
-    { label: "Collaborators", href: "/collaborators" },
-    { label: "Events", href: "/events" },
-    { label: "Calendar", href: "/calendar" },
-    { label: "Research articles", href: "/research-articles" },
   ],
   Help: [
     { label: "Contact us", href: "/contact" },
@@ -28,7 +24,6 @@ export const footerNav = {
     { label: "Returns and refunds", href: "/refund-policy" },
     { label: "Terms and conditions", href: "/terms" },
     { label: "Privacy policy", href: "/privacy-policy" },
-    { label: "Customer reviews", href: "/testimonials" },
   ],
   "Your account": [
     { label: "My account", href: "/my-account" },
@@ -39,7 +34,7 @@ export const footerNav = {
   ],
   Sell: [
     { label: "Sell on Naadu Nalam", href: "/vendor-login" },
-    { label: "Vendor login", href: "/vendor-login#login" },
+    { label: "Seller login", href: "/vendor-login#login" },
     { label: "Seller dashboard", href: "/dashboard" },
     { label: "All sellers", href: "/store-listing" },
   ],

@@ -6,7 +6,7 @@ export default function Categories() {
   return (
     <section id="categories" aria-labelledby="categories-title" className="wrap scroll-mt-36 py-16 sm:py-24">
       <div className="mb-8 flex items-end justify-between gap-6 sm:mb-10">
-        <h2 id="categories-title" className="text-3xl tracking-[-0.02em] sm:text-[2.75rem]">Shop by category</h2>
+        <h2 id="categories-title" className="t-h2">Shop by category</h2>
         <Link href="/shop" className="link shrink-0 text-base font-semibold">View all products</Link>
       </div>
       <ul className="grid grid-cols-2 gap-3 sm:gap-5 md:grid-cols-3 lg:grid-cols-4">

@@ -215,7 +215,7 @@ export default function CheckoutForm() {
           <Reveal delay={0.1}>
             <fieldset className={`${marketCard} p-5 sm:p-7`}>
               <legend className={legend}>Payment</legend>
-              <label className="relative clear-both flex min-h-11 cursor-pointer items-start gap-3 rounded-[1.25rem] border-2 border-leaf bg-mint/60 p-4 pr-14 ring-4 ring-leaf/15 sm:p-5 sm:pr-16">
+              <label className="relative clear-both flex min-h-11 cursor-pointer items-start gap-3 rounded-[1.25rem] border-2 border-leaf bg-white border border-mist/60 p-4 pr-14 ring-4 ring-leaf/15 sm:p-5 sm:pr-16">
                 {/* The wrapper is exactly one line of the label tall, so the 20px control centres on the first line. */}
                 <span className="flex h-[1lh] shrink-0 items-center">
                   <input type="radio" name="payment" value="cod" checked readOnly aria-describedby="co-pay-hint" className="m-0 h-5 w-5 accent-[#0f804a]" />

@@ -15,7 +15,7 @@ export default function BlogLead({ post }: { post: Post }) {
       </div>
       <div className="px-2 pb-2 sm:px-0 sm:pb-0 md:pr-4">
         <p className="text-sm font-semibold text-leaf">Latest · <time dateTime={post.date}>{longDate(post.date)}</time></p>
-        <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
+        <h2 className="t-h2 mt-3 font-bold">
           <Link href={`/${post.slug}`} className="transition-colors after:absolute after:inset-0 after:content-[''] focus-visible:outline-none group-hover:text-leaf">{post.title}</Link>
         </h2>
         <p className="mt-4 text-lg text-muted">{post.excerpt}</p>

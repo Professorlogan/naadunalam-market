@@ -5,7 +5,7 @@ import Breadcrumbs from "../../components/Breadcrumbs";
 import LeafList from "../../components/content/LeafList";
 import PromiseValues from "../../components/content/PromiseValues";
 import { RuleLine, WipeImage } from "../../components/content/fx";
-import { DrawStrip, Lift, Parallax, Reveal, SplitWords, Stagger, StaggerItem } from "../../components/motion";
+import { Lift, Parallax, Reveal, SplitWords, Stagger, StaggerItem } from "../../components/motion";
 
 export const metadata: Metadata = {
   title: "About us",
@@ -36,7 +36,7 @@ export default function AboutPage() {
         <div className="grid items-center gap-8 overflow-hidden rounded-[2rem] bg-gradient-to-br from-mint via-mint to-butter px-6 py-8 sm:px-10 sm:py-10 md:grid-cols-[1.05fr_1fr] md:gap-12 lg:py-12">
           <div>
             <Reveal y={10}><Breadcrumbs items={[{ label: "About us" }]} /></Reveal>
-            <h1 className="mt-5 text-4xl font-bold sm:text-5xl lg:text-6xl"><SplitWords text="About Naadu Nalam" delay={0.05} /></h1>
+            <h1 className="t-h1 mt-5 font-bold"><SplitWords text="About Naadu Nalam" delay={0.05} /></h1>
             <Reveal as="p" delay={0.25} y={16} className="ta mt-4 font-display text-2xl font-semibold text-leaf sm:text-3xl">
               <span lang="ta">நம்ம மண்ணின் சுவை.<br />நம்ம மக்களின் நலம்.</span>
             </Reveal>
@@ -49,9 +49,9 @@ export default function AboutPage() {
           <Reveal y={0} scale={1.08} className="h-64 overflow-hidden rounded-[1.75rem] sm:h-80 md:h-[26rem]">
             <Parallax amount={26} className="h-full">
               <img
-                src="/img/naadu-nalam-store-banner.webp" width={1536} height={1024}
-                alt="Traditional Tamil Nadu produce: millets, pulses, cold-pressed oils and native vegetables laid on a wooden table before a paddy field"
-                className="h-full w-full scale-[1.14] object-cover"
+                src="/img/m/hero-rice.webp" width={1800} height={972}
+                alt="Karuppu Kavuni, Mappillai Samba and Thooyamalli rice in terracotta bowls on a banana leaf"
+                className="h-full w-full scale-[1.14] object-cover object-[80%_50%]"
               />
             </Parallax>
           </Reveal>
@@ -69,7 +69,7 @@ export default function AboutPage() {
             />
           </WipeImage>
           <Stagger gap={0.1}>
-            <StaggerItem><h2 className="text-3xl font-bold sm:text-4xl">From our soil to your home</h2></StaggerItem>
+            <StaggerItem><h2 className="t-h2 font-bold">From our soil to your home</h2></StaggerItem>
             <StaggerItem as="p" className="mt-4 font-display text-2xl font-semibold text-leaf">Good food begins with good soil.</StaggerItem>
             <StaggerItem className="mt-4 max-w-xl space-y-4 text-lg">
               <p>Tamil Nadu has a rich agricultural heritage filled with traditional grains, rice varieties, native ingredients and time-tested food practices.</p>
@@ -88,7 +88,7 @@ export default function AboutPage() {
       {/* Why: heading held on the left, ruled list on the right */}
       <section className="wrap grid gap-8 py-12 sm:py-16 md:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] md:gap-14">
         <Reveal className="md:sticky md:top-32 md:self-start">
-          <h2 className="text-3xl font-bold sm:text-4xl">Why Naadu Nalam?</h2>
+          <h2 className="t-h2 font-bold">Why Naadu Nalam?</h2>
           <p className="mt-3 max-w-sm text-lg text-muted">Goodness from our land. Goodness for your home.</p>
         </Reveal>
         {/* Each row rises as its rule line draws beneath it. */}
@@ -106,7 +106,7 @@ export default function AboutPage() {
       {/* Product philosophy */}
       <section className="wrap py-4 sm:py-6">
         <div className="rounded-[2rem] bg-sky px-6 py-10 sm:px-10 sm:py-12">
-          <Reveal><h2 className="text-3xl font-bold sm:text-4xl">Our product philosophy</h2></Reveal>
+          <Reveal><h2 className="t-h2 font-bold">Our product philosophy</h2></Reveal>
           <Stagger as="ul" className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {ranges.map((r) => (
               <StaggerItem as="li" key={r.slug}>
@@ -116,7 +116,7 @@ export default function AboutPage() {
                       <img src={r.img} width={1024} height={1024} loading="lazy" alt={r.alt} className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110" />
                     </span>
                     <div>
-                      <h3 className="text-xl font-bold group-hover:underline">{r.name}</h3>
+                      <h3 className="t-h4 font-bold group-hover:underline">{r.name}</h3>
                       <p className="mt-1.5 text-base leading-relaxed text-muted">{r.items.join(" · ")}</p>
                     </div>
                   </Link>
@@ -129,10 +129,10 @@ export default function AboutPage() {
 
       {/* More than a store: peach block beside a big rounded photograph */}
       <section className="wrap py-12 sm:py-16">
-        <div className="grid gap-8 overflow-hidden rounded-[2rem] bg-peach p-6 sm:p-10 md:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] md:items-center md:gap-12">
+        <div className="grid gap-8 overflow-hidden rounded-[2rem] bg-white border border-mist p-6 sm:p-10 md:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] md:items-center md:gap-12">
           <div>
             <Reveal>
-              <h2 className="text-3xl font-bold text-forest-deep sm:text-4xl">More than a store</h2>
+              <h2 className="t-h2 font-bold text-forest-deep">More than a store</h2>
               <p className="mt-2 font-display text-2xl font-semibold text-leaf">We are preserving a way of life.</p>
             </Reveal>
             <Reveal as="p" delay={0.1} className="mt-5 max-w-xl text-lg text-ink/75">
@@ -147,8 +147,8 @@ export default function AboutPage() {
           </div>
           <WipeImage panel="bg-leaf" className="h-72 w-full rounded-[1.75rem] sm:h-96 md:h-full md:min-h-[26rem]">
             <img
-              src="/img/m/farmer.webp" width={1000} height={1250} loading="lazy"
-              alt="A smiling farmer in a straw hat holding a woven basket of greens and vegetables"
+              src="/img/m/farmer-rice.webp" width={1000} height={1250} loading="lazy"
+              alt="A Tamil woman farmer in a paddy field holding a winnowing basket of golden paddy"
               className="h-full w-full object-cover object-top"
             />
           </WipeImage>
@@ -157,8 +157,7 @@ export default function AboutPage() {
 
       {/* Our promise: the three values, large and bilingual */}
       <section className="wrap pb-4 sm:pb-6">
-        <h2 className="text-3xl font-bold sm:text-4xl"><SplitWords text="Our promise" inView /></h2>
-        <DrawStrip className="mt-4 w-28" />
+        <h2 className="t-h2 font-bold"><SplitWords text="Our promise" inView /></h2>
         <PromiseValues />
         <Reveal as="p" x={-24} y={0} className="mt-10 max-w-2xl border-l-4 border-leaf pl-5 text-xl">
           Because when we choose better food, we don’t just nourish ourselves. We support our farmers, our soil and our heritage.
@@ -167,9 +166,9 @@ export default function AboutPage() {
 
       {/* Closing: butter block */}
       <section className="wrap py-12 sm:py-16">
-        <div className="flex flex-col gap-6 rounded-[2rem] bg-butter px-6 py-10 sm:px-10 sm:py-12 lg:flex-row lg:items-end lg:justify-between">
+        <div className="flex flex-col gap-6 rounded-[2rem] bg-white border border-mist px-6 py-10 sm:px-10 sm:py-12 lg:flex-row lg:items-end lg:justify-between">
           <Reveal className="max-w-2xl">
-            <h2 lang="ta" className="ta text-3xl font-bold text-forest-deep sm:text-4xl">நம் மண்ணிலிருந்து, உங்கள் வீட்டிற்கு</h2>
+            <h2 lang="ta" className="t-h2 ta font-bold text-forest-deep">நம் மண்ணிலிருந்து, உங்கள் வீட்டிற்கு</h2>
             <p className="mt-2 font-display text-xl font-semibold text-leaf">Goodness from our land. Goodness for your home.</p>
             <p className="mt-4 text-ink/75">
               Explore traditional rice varieties, siruthaniyam, pulses, cold-pressed oils, natural sweeteners and everyday podis, brought together in one place for your kitchen.

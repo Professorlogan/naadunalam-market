@@ -34,7 +34,7 @@ export default function PickCard({ product: p }: { product: Product }) {
       </div>
       <div className="pt-4">
         {seller && <p className="text-sm text-muted">{seller.name}</p>}
-        <h3 className="mt-0.5 font-body text-[17px] !font-semibold leading-snug text-ink"><Link href={`/product/${p.slug}`} className="hover:text-forest">{p.name}</Link></h3>
+        <h3 className="t-h5 mt-0.5 font-body !font-semibold text-ink"><Link href={`/product/${p.slug}`} className="hover:text-forest">{p.name}</Link></h3>
         {p.nameTa && <p lang="ta" className="ta text-[15px] leading-snug text-muted">{p.nameTa}</p>}
         <p className="mt-2 text-[17px] font-semibold text-forest-deep">{p.variants ? "From " : ""}{inr(p.price)} <span className="text-[15px] font-normal text-muted">· {p.pack}</span></p>
     </div>

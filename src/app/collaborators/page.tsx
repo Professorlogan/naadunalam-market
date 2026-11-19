@@ -19,7 +19,7 @@ const initials = (name: string) => name.split(/\s+/).filter((w) => /^[A-Za-z]/.t
 const points = [
   { icon: Store, title: "Every seller has their own store", text: "Sellers list and manage their own products, stock and orders, and each one has a store page of their own on this site." },
   { icon: Languages, title: "Listed in English and Tamil", text: "Product names and descriptions carry both, so the produce is named the way the people who grow it name it." },
-  { icon: ShoppingBasket, title: "One basket, many sellers", text: "You can order from several sellers in a single basket. Orders on the marketplace are Cash on Delivery at present." },
+  { icon: ShoppingBasket, title: "One basket, many sellers", text: "You can order from several sellers in a single basket. Orders on the marketplace are Cash on delivery at present." },
 ];
 
 export default function CollaboratorsPage() {
@@ -55,7 +55,7 @@ export default function CollaboratorsPage() {
           ))}
           <StaggerItem as="li">
             <Tilt max={6} className="h-full">
-              <Link href="/store-listing" className="group flex h-full min-h-44 flex-col justify-start gap-5 rounded-[1.5rem] bg-butter p-6 text-forest-deep transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_-22px_rgb(23_39_30/0.45)]">
+              <Link href="/store-listing" className="group flex h-full min-h-44 flex-col justify-start gap-5 rounded-[1.5rem] bg-white border border-mist p-6 text-forest-deep transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_-22px_rgb(23_39_30/0.45)]">
                 <Pop delay={0.2 + collaborators.length * 0.09} className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-white text-forest"><Store size={24} /></Pop>
                 <span>
                   <span className="block font-display text-2xl font-bold leading-tight">Browse our sellers</span>
@@ -74,7 +74,7 @@ export default function CollaboratorsPage() {
               <StaggerItem as="li" key={title}>
                 <DrawLine delay={0.1 + i * 0.12} className="h-1 rounded-full bg-leaf" />
                 <Pop delay={0.25 + i * 0.12} className="mt-5 inline-block text-leaf"><Icon size={28} /></Pop>
-                <h3 className="mt-3 text-xl font-bold sm:text-2xl">{title}</h3>
+                <h3 className="t-h4 mt-3 font-bold">{title}</h3>
                 <p className="mt-2 text-muted">{text}</p>
               </StaggerItem>
             ))}

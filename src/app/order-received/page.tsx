@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function OrderReceivedPage() {
   return (
     <>
-      <PageHero title="Order received" crumbs={[{ label: "Checkout", href: "/checkout" }, { label: "Order received" }]} />
+      <PageHero compact title="Order received" titleTa="ஆர்டர் பெறப்பட்டது" intro="Thank you. Your seller will call you to confirm before delivery." crumbs={[{ label: "Checkout", href: "/checkout" }, { label: "Order received" }]} />
       <Suspense fallback={<Skeleton rows={2} label="Loading your order" />}>
         <OrderReceived />
       </Suspense>

@@ -8,9 +8,9 @@ import { categories, products, site } from "../lib/data";
 import { inr } from "../lib/format";
 import { useStore } from "../lib/store";
 import { useFocusTrap } from "./motion/useFocusTrap";
-import { communityNav, mainNav } from "./nav";
+import { mainNav } from "./nav";
 
-function SearchBox({ onDone }: { onDone?: () => void }) {
+function SearchBox({ onDone, autoFocus = false }: { onDone?: () => void; autoFocus?: boolean }) {
   const router = useRouter();
   const id = useId();
   const [q, setQ] = useState("");
@@ -30,7 +30,7 @@ function SearchBox({ onDone }: { onDone?: () => void }) {
   return (
     <form ref={box} role="search" className="relative w-full" onSubmit={(e) => { e.preventDefault(); if (q.trim()) go(`/search?q=${encodeURIComponent(q.trim())}`); }}>
       <label htmlFor={id} className="sr-only">Search products</label>
-      <input id={id} type="search" value={q} autoComplete="off" placeholder="Search rice, millets, oils…"
+      <input id={id} type="search" value={q} autoComplete="off" autoFocus={autoFocus} placeholder="Search rice, millets, oils…"
         onChange={(e) => { setQ(e.target.value); setOpen(true); }} onFocus={() => setOpen(true)}
         className="h-12 w-full rounded-full border-[1.5px] border-mist bg-sky pl-5 pr-14 text-ink placeholder:text-muted focus:border-leaf focus:bg-white focus:outline-none" />
       <button type="submit" aria-label="Search" className="absolute right-1 top-1 grid h-10 w-10 place-items-center rounded-full bg-forest text-white hover:bg-leaf"><Search size={18} /></button>
@@ -55,7 +55,7 @@ function SearchBox({ onDone }: { onDone?: () => void }) {
   );
 }
 
-function Dropdown({ label, children, wide }: { label: string; children: React.ReactNode; wide?: boolean }) {
+function Dropdown({ label, children, wide, on = false }: { label: string; children: React.ReactNode; wide?: boolean; on?: boolean }) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const btn = useRef<HTMLButtonElement>(null);
@@ -75,13 +75,13 @@ function Dropdown({ label, children, wide }: { label: string; children: React.Re
   }, []);
   return (
     <div ref={ref} className="relative">
-      <button ref={btn} type="button" aria-expanded={open} onClick={() => setOpen(!open)} className="nn-navlink flex h-12 items-center gap-1 whitespace-nowrap px-2 text-[15px] font-display font-semibold text-ink lg:px-3 lg:text-base hover:text-leaf">
+      <button ref={btn} type="button" aria-expanded={open} onClick={() => setOpen(!open)} className={`nn-navlink flex h-12 items-center gap-1 whitespace-nowrap px-2 text-[15px] font-display font-semibold lg:px-3 lg:text-base hover:text-leaf ${on ? "text-leaf nn-navlink-on" : "text-ink"}`}>
         {label} <ChevronDown size={16} className={open ? "rotate-180 transition-transform" : "transition-transform"} />
       </button>
       <AnimatePresence>
         {open && (
           <motion.div initial={{ opacity: 0, y: -10, scale: 0.98 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -8, scale: 0.98 }} transition={{ duration: 0.2 }}
-            className={`absolute left-1/2 top-12 z-40 -translate-x-1/2 origin-top-left rounded-2xl border border-mist bg-white p-3 text-ink shadow-lift ${wide ? "w-[min(44rem,90vw)]" : "w-64"}`}>{children}</motion.div>
+            className={`absolute left-1/2 top-12 z-40 -translate-x-1/2 origin-top-left rounded-2xl border border-mist bg-white p-3 text-ink shadow-lift ${wide ? "w-[min(54rem,94vw)]" : "w-64"}`}>{children}</motion.div>
         )}
       </AnimatePresence>
     </div>
@@ -90,9 +90,9 @@ function Dropdown({ label, children, wide }: { label: string; children: React.Re
 
 const notes = [
   "Flat ₹50 delivery across Tamil Nadu",
-  "Cash on Delivery on every order",
-  "Heritage rice, millets and cold-pressed oils from Tamil Nadu sellers",
-  "Grow or make food? Open your own store on Naadu Nalam",
+  "Cash on delivery on every order",
+  "Heritage rice, millets and cold-pressed oils",
+  "Grow or make food? Sell on Naadu Nalam",
 ];
 
 function NoteBar() {
@@ -106,7 +106,7 @@ function NoteBar() {
   const step = (d: number) => setI((n) => (n + d + notes.length) % notes.length);
   return (
     <div className="bg-forest text-white" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
-      <div className="wrap flex h-10 items-center justify-center gap-3 text-sm font-medium">
+      <div className="wrap flex h-10 items-center justify-center gap-3 text-[13px] font-medium sm:text-sm">
         <button type="button" aria-label="Previous message" onClick={() => step(-1)} className="grid h-8 w-8 place-items-center rounded-full hover:bg-white/15"><ChevronLeft size={16} /></button>
         <div className="relative h-6 min-w-0 flex-1 overflow-hidden text-center sm:max-w-xl" aria-live="polite">
           <AnimatePresence mode="wait" initial={false}>
@@ -152,25 +152,25 @@ export default function Header() {
     <header className={`sticky top-0 z-30 bg-white/95 backdrop-blur transition-shadow ${scrolled ? "shadow-[0_6px_24px_-16px_rgb(23_39_30/0.35)]" : "shadow-[0_1px_0_var(--color-mist)]"}`}>
       <a href="#content" className="sr-only focus:not-sr-only focus:absolute focus:left-3 focus:top-3 focus:z-50 focus:rounded-full focus:bg-sun focus:px-4 focus:py-2">Skip to content</a>
       <div className="wrap flex h-[68px] items-center gap-2 md:h-[76px] md:gap-6">
-        <button type="button" aria-label="Open menu" aria-expanded={menu} onClick={() => setMenu(true)} className={`${icon} md:hidden`}><Menu /></button>
+        <button type="button" aria-label="Open menu" aria-expanded={menu} onClick={() => setMenu(true)} className={`${icon} lg:hidden`}><Menu /></button>
         <Link href="/" className="flex shrink-0 items-center gap-2.5" aria-label="Naadu Nalam home">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/img/logo.webp" alt="" width={384} height={372} className="h-11 w-auto md:h-14" />
-          <span className="hidden leading-none sm:block">
-            <span className="block font-display text-[22px] font-bold text-forest">Naadu Nalam</span>
-            <span lang="ta" className="ta block font-display text-[13px] font-semibold text-leaf">நாடு நலம்</span>
+          <span className="block leading-none">
+            <span className="block font-display text-xl font-bold text-forest md:text-2xl">Naadu Nalam</span>
+            <span lang="ta" className="ta block font-display text-[12px] font-semibold text-leaf md:text-[13px]">நாடு நலம்</span>
           </span>
         </Link>
-        <nav aria-label="Main" className="mx-auto hidden items-center md:flex">
+        <nav aria-label="Main" className="mx-auto hidden items-center lg:flex">
           <Link href="/" aria-current={active("/") ? "page" : undefined} className={navCls(active("/"))}>Home</Link>
-          <Dropdown label="Shop" wide>
-            <ul className="grid grid-cols-2 gap-1 lg:grid-cols-3">
+          <Dropdown label="Shop" wide on={["/shop", "/product-category", "/product", "/search"].some((h) => pathname === h || pathname.startsWith(h + "/"))}>
+            <ul className="grid grid-cols-2 gap-1 lg:grid-cols-4">
               {categories.map((c) => (
                 <li key={c.slug}>
                   <Link href={`/product-category/${c.slug}`} className="flex items-center gap-3 rounded-xl p-2 hover:bg-mint">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={c.image} alt="" width={44} height={44} className="h-11 w-11 rounded-full object-cover" />
-                    <span><span className="block font-semibold leading-tight">{c.name}</span><span lang="ta" className="ta block text-sm text-leaf">{c.nameTa}</span></span>
+                    <span className="min-w-0"><span className="block font-semibold leading-tight">{c.name}</span><span lang="ta" className="ta block truncate text-[13px] text-leaf">{c.nameTa}</span></span>
                   </Link>
                 </li>
               ))}
@@ -181,32 +181,32 @@ export default function Header() {
             <Link key={n.href} href={n.href} aria-current={active(n.href) ? "page" : undefined} className={navCls(active(n.href))}>{n.label}</Link>
           ))}
           <Dropdown label="More">
-            <ul>{[{ label: "How ordering works", href: "/services" }, ...communityNav].map((n) => <li key={n.href}><Link href={n.href} className="block rounded-lg px-3 py-2 hover:bg-mint">{n.label}</Link></li>)}</ul>
+            <ul>{[{ label: "How ordering works", href: "/services" }, { label: "Sell on Naadu Nalam", href: "/vendor-login" }, { label: "Shipping policy", href: "/shipping-policy" }, { label: "Returns and refunds", href: "/refund-policy" }].map((n) => <li key={n.href}><Link href={n.href} className="block rounded-lg px-3 py-2 hover:bg-mint">{n.label}</Link></li>)}</ul>
           </Dropdown>
           <Link href="/contact" aria-current={active("/contact") ? "page" : undefined} className={navCls(active("/contact"))}>Contact us</Link>
         </nav>
-        <div className="ml-auto flex items-center gap-0.5 md:ml-0">
+        <div className="ml-auto flex items-center gap-0.5 lg:ml-0">
           <button type="button" aria-label={search ? "Close search" : "Search products"} aria-expanded={search} onClick={() => setSearch(!search)} className={icon}>{search ? <X size={21} /> : <Search size={21} />}</button>
           <Link href="/my-account" aria-label="My account" className={`${icon} hidden sm:grid`}><UserRound size={21} /></Link>
           <Link href="/wishlist" aria-label={`Wishlist, ${ready ? wishlist.length : 0} items`} className={icon}>
-            <Heart size={21} />{ready && <Badge n={wishlist.length} />}
+            <Heart size={21} />{ready && wishlist.length > 0 && <Badge n={wishlist.length} />}
           </Link>
           <button type="button" onClick={() => setDrawerOpen(true)} aria-label={`Open basket, ${ready ? count : 0} items`} className={icon}>
-            <ShoppingCart size={21} />{ready && <Badge n={count} />}
+            <ShoppingCart size={21} />{ready && count > 0 && <Badge n={count} />}
           </button>
         </div>
       </div>
       <AnimatePresence initial={false}>
         {search && (
           <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.22 }} className="border-t border-mist bg-white">
-            <div className="wrap max-w-3xl py-4"><SearchBox onDone={() => setSearch(false)} /></div>
+            <div className="wrap max-w-3xl py-4"><SearchBox autoFocus onDone={() => setSearch(false)} /></div>
           </motion.div>
         )}
       </AnimatePresence>
 
       <AnimatePresence>
       {menu && (
-        <div ref={drawer} className="fixed inset-0 z-50 md:hidden" role="dialog" aria-modal="true" aria-label="Menu">
+        <div ref={drawer} className="fixed inset-0 z-50 lg:hidden" role="dialog" aria-modal="true" aria-label="Menu">
           <motion.button initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }} type="button" tabIndex={-1} aria-label="Close menu" className="absolute inset-0 bg-ink/50" onClick={() => setMenu(false)} />
           <motion.div initial={{ x: "-100%" }} animate={{ x: 0 }} exit={{ x: "-100%" }} transition={{ type: "spring", stiffness: 360, damping: 36 }} className="absolute inset-y-0 left-0 flex w-[min(22rem,88vw)] flex-col overflow-y-auto bg-white">
             <div className="flex items-center justify-between border-b border-mist px-4 py-3">
@@ -225,7 +225,7 @@ export default function Header() {
                 ))}
               </ul>
               <p className="mb-1 mt-5 text-sm font-semibold text-muted">Naadu Nalam</p>
-              <ul>{[...mainNav.slice(1), ...communityNav, { label: "Contact us", href: "/contact" }, { label: "Sell on Naadu Nalam", href: "/vendor-login" }, { label: "My account", href: "/my-account" }].map((n) => <li key={n.href}><Link href={n.href} className="block border-t border-mist py-2.5">{n.label}</Link></li>)}</ul>
+              <ul>{[...mainNav.slice(1), { label: "Contact us", href: "/contact" }, { label: "Sell on Naadu Nalam", href: "/vendor-login" }, { label: "My account", href: "/my-account" }].map((n) => <li key={n.href}><Link href={n.href} className="block border-t border-mist py-2.5">{n.label}</Link></li>)}</ul>
               <a href={site.phoneHref} className="btn btn-ghost mt-5 w-full"><Phone size={18} /> Call {site.phone}</a>
             </div>
           </motion.div>

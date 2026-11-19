@@ -245,7 +245,7 @@
  {
   "id": 2316,
   "slug": "thuya-malli-aval",
-  "name": "Thuya Malli Aval",
+  "name": "Thooyamalli Aval",
   "nameTa": "தூய மல்லி அவல்",
   "sku": "NN-AVL-230",
   "price": 145.0,
@@ -253,12 +253,12 @@
   "onSale": false,
   "pack": "500 g",
   "variants": null,
-  "short": "Aval from Thuya Malli, a small fragrant white paddy. The flakes are thin and soften with a single rinse — the easiest of the set for curd aval, upma and aval mixture. 500 g pack.",
+  "short": "Aval from Thooyamalli, a small fragrant white paddy. The flakes are thin and soften with a single rinse — the easiest of the set for curd aval, upma and aval mixture. 500 g pack.",
   "descriptionHtml": "<p>தூய மல்லி என்னும் சிறிய, வெண்மையான மணமுள்ள நெல்லில் இருந்து இடிக்கப்பட்ட அவல். மெல்லிய அவலாக இருப்பதால் விரைவில் மென்மையாகிவிடும்.</p>\n<h3>சிறப்பம்சங்கள்</h3>\n<ul>\n<li>பாரம்பரிய தூய மல்லி நெல்லில் இருந்து தயாரிக்கப்பட்டது</li>\n<li>மெல்லிய, மென்மையான அவல்; இயற்கையான மணம் கொண்டது</li>\n<li>இயற்கை விவசாய முறையில் விளைவிக்கப்பட்ட நெல்</li>\n</ul>\n<p><strong>பயன்படுத்தும் முறை:</strong> நீரில் ஒரு முறை அலசினாலே போதும்; ஊறவைக்கத் தேவையில்லை. தயிர் அவல், அவல் உப்புமா, அவல் மிக்சர் ஆகியவற்றுக்கு ஏற்றது. காற்றுப் புகாத பாத்திரத்தில் சேமிக்கவும்.</p>",
   "images": [
    {
     "src": "/img/Thooya-Malli-Aval-pdf.jpg",
-    "alt": "Thuya Malli Aval"
+    "alt": "Thooyamalli Aval"
    }
   ],
   "categories": [
@@ -681,7 +681,7 @@
  {
   "id": 1470,
   "slug": "thooyamalli-rice",
-  "name": "Thuya Malli Rice",
+  "name": "Thooyamalli Rice",
   "nameTa": "தூய மல்லி அரிசி",
   "sku": "NN-RIC-217",
   "price": 175.0,
@@ -689,12 +689,12 @@
   "onSale": false,
   "pack": "1 kg",
   "variants": null,
-  "short": "Thuya Malli, a fine white heirloom rice named for its jasmine-like grain, with a light natural fragrance. Cooks soft and separate — suited to everyday meals, biryani and pongal. 1 kg pack.",
+  "short": "Thooyamalli, a fine white heirloom rice named for its jasmine-like grain, with a light natural fragrance. Cooks soft and separate — suited to everyday meals, biryani and pongal. 1 kg pack.",
   "descriptionHtml": "<p>தூய மல்லி மல்லிக்கை போன்ற மெல்லிய வெள்ளை பருக்கையால் அந்தப் பெயரைப் பெற்ற பாரம்பரிய அரிசி. இயல்பான மணம் கொண்டது.</p>\n<h3>சிறப்பம்சங்கள்</h3>\n<ul>\n<li>மெல்லிய வெள்ளை நிற பருக்கை</li>\n<li>சமைத்தால் ஒட்டாமல் தனித்து நிற்கும்</li>\n<li>இயற்கை விவசாய முறையில் விளைவிக்கப்பட்டது</li>\n</ul>\n<p><strong>சமைக்கும் முறை:</strong> ஒரு பங்கு அரிசிக்கு இரண்டு பங்கு நீர் விட்டு வேகவைக்கவும். அன்றாட சாதம், பிரியாணி, பொங்கல் என அனைத்திற்கும் ஏற்றது.</p>",
   "images": [
    {
     "src": "/img/Thooya-Malli-Rice-1-pdf.jpg",
-    "alt": "Thuya Malli Rice"
+    "alt": "Thooyamalli Rice"
    }
   ],
   "categories": [

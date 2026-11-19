@@ -26,7 +26,7 @@ export default function PolicyPage({ slug }: { slug: string }) {
         )}
       </PageHero>
 
-      <div className="wrap pb-4 pt-8 sm:pb-6 sm:pt-12 lg:grid lg:grid-cols-[18rem_minmax(0,1fr)] lg:items-start lg:gap-12">
+      <div className="wrap pb-4 pt-8 sm:pb-6 sm:pt-12 lg:grid lg:grid-cols-[19rem_minmax(0,1fr)] lg:items-start lg:gap-12">
         {toc.length > 0 && <PolicyToc toc={toc} />}
 
         <div className="min-w-0">
@@ -36,7 +36,7 @@ export default function PolicyPage({ slug }: { slug: string }) {
           <HeadingReveal scope="#policy-text" />
 
           <nav aria-labelledby="policy-more" className="mt-10">
-            <Reveal><h2 id="policy-more" className="text-2xl font-bold">Other policies</h2></Reveal>
+            <Reveal><h2 id="policy-more" className="t-h3 font-bold">Other policies</h2></Reveal>
             <Stagger as="ul" gap={0.08} className="mt-4 flex flex-wrap gap-3">
               {others.map(([s, p]) => (
                 <StaggerItem as="li" key={s} y={14}><Link href={`/${s}`} className="inline-flex min-h-11 items-center rounded-full border border-mist bg-white px-5 font-semibold text-forest-deep transition-colors hover:border-leaf hover:text-leaf">{p.title}</Link></StaggerItem>

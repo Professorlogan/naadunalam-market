@@ -27,8 +27,8 @@ export default function ContactPage() {
       <div className="overflow-x-clip">
       <section className="wrap grid gap-8 py-10 sm:py-14 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-10">
         <Reveal x={-48} y={0} className="flex flex-col gap-4">
-          <div className="rounded-[1.5rem] bg-mint p-6 sm:p-8">
-            <h2 className="text-3xl font-bold text-forest-deep">Get in touch</h2>
+          <div className="rounded-[1.5rem] bg-white border border-mist p-6 sm:p-8">
+            <h2 className="t-h2 font-bold text-forest-deep">Get in touch</h2>
             <p className="mt-3 text-ink/75">
               Visit our store base in Chennai, or write to us anytime. We typically reply within one business day.
             </p>
@@ -52,10 +52,10 @@ export default function ContactPage() {
             </div>
           </div>
           {/* On wide screens the cards are as tall as the form beside them. */}
-          <div className="flex items-start gap-4 rounded-[1.5rem] border border-mist bg-white p-6 sm:p-8 lg:flex-1">
+          <div className="flex items-start gap-4 rounded-[1.5rem] border border-mist bg-white p-6 sm:p-8">
             <span className={`${disc} bg-mint`}><Clock aria-hidden size={20} /></span>
             <div className="min-w-0 flex-1">
-              <h3 className="text-xl font-bold">Business hours</h3>
+              <h3 className="t-h4 font-bold">Business hours</h3>
               <dl className="mt-3 grid gap-x-6 gap-y-0.5 sm:grid-cols-[auto_1fr] sm:gap-y-1">
                 <dt className="text-muted">Monday to Saturday</dt><dd className="mb-2 font-semibold text-forest-deep sm:mb-0">9:00 AM – 6:00 PM</dd>
                 <dt className="text-muted">Sunday</dt><dd className="font-semibold text-forest-deep">Closed</dd>
@@ -65,7 +65,7 @@ export default function ContactPage() {
         </Reveal>
 
         <Reveal x={48} y={0} delay={0.1} className="rounded-[1.5rem] border border-mist bg-white p-6 shadow-[0_18px_40px_-28px_rgb(23_39_30/0.35)] sm:p-8">
-          <h2 className="text-3xl font-bold">Send a message</h2>
+          <h2 className="t-h2 font-bold">Send a message</h2>
           <p className="mb-6 mt-2 text-muted">Tell us how we can help and we will respond by email.</p>
           <ContactForm />
         </Reveal>
@@ -74,9 +74,9 @@ export default function ContactPage() {
 
       {/* -mb-10 cancels the page's default space before the footer, so no empty band follows this section. */}
       <section className="wrap pb-4">
-        <div className="flex flex-col gap-5 rounded-[2rem] bg-butter px-6 py-10 sm:px-10 sm:py-12 md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-col gap-5 rounded-[2rem] bg-white border border-mist px-6 py-10 sm:px-10 sm:py-12 md:flex-row md:items-center md:justify-between">
           <Reveal>
-            <h2 className="text-3xl font-bold">Our location</h2>
+            <h2 className="t-h2 font-bold">Our location</h2>
             <p className="mt-2 text-ink/75">Naadu Nalam is based in Chennai, Tamil Nadu.</p>
             <address className="mt-3 font-display text-xl font-semibold not-italic text-forest-deep">{site.address}</address>
           </Reveal>

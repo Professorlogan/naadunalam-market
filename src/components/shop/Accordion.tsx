@@ -13,7 +13,7 @@ export default function Accordion({ title, icon, defaultOpen = false, children }
   const id = useId();
   return (
     <div className="rounded-[1.25rem] border border-mist bg-white px-4 sm:px-5">
-      <h2 className="font-body text-base font-semibold">
+      <h2 className="t-h4 font-body font-semibold">
         <button type="button" id={`${id}-b`} aria-expanded={open} aria-controls={`${id}-p`} onClick={() => setOpen((v) => !v)}
           className="flex min-h-16 w-full items-center gap-3 text-left text-forest-deep transition-colors duration-150 hover:text-leaf">
           <span aria-hidden className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-mint text-forest">{icon}</span>

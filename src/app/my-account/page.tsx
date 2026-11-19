@@ -18,12 +18,12 @@ export default function MyAccountPage() {
         intro="Sign in or register as a customer. You do not need an account to shop: your basket, wishlist and orders are kept in this browser." />
 
       <section className="wrap py-8 sm:py-12">
-        <h2 className="mb-4 text-2xl font-bold text-forest-deep sm:text-3xl"><SplitWords text="Your shopping" inView /></h2>
+        <h2 className="t-h3 mb-4 font-bold text-forest-deep"><SplitWords text="Your shopping" inView /></h2>
         <AccountLinks />
       </section>
 
       <section className="wrap pb-2">
-        <div className="rounded-[2rem] bg-aqua p-4 sm:p-8 lg:p-10">
+        <div className="rounded-[2rem] bg-white border border-mist p-4 sm:p-8 lg:p-10">
           <AccountForms />
         </div>
       </section>

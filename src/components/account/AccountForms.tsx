@@ -56,7 +56,7 @@ function ProtoForm({ form, title, intro, submitLabel, validate, done, children }
   };
   return (
     <section aria-labelledby={`${form}-title`} className="flex h-full flex-col rounded-[1.5rem] border border-mist bg-white p-5 sm:p-8">
-      <h2 id={`${form}-title`} className="text-2xl font-bold text-forest-deep sm:text-3xl">{title}</h2>
+      <h2 id={`${form}-title`} className="t-h3 font-bold text-forest-deep">{title}</h2>
       <p className="mt-2 text-muted">{intro}</p>
       <form noValidate onSubmit={submit} className="mt-5 flex flex-1 flex-col gap-5">
         {children(errors, shake)}
@@ -66,7 +66,7 @@ function ProtoForm({ form, title, intro, submitLabel, validate, done, children }
         <div aria-live="polite">
           <AnimatePresence initial={false}>
             {notice && (
-              <motion.p key="notice" className="mt-4 rounded-[1.25rem] bg-butter px-4 py-3"
+              <motion.p key="notice" className="mt-4 rounded-[1.25rem] bg-white border border-mist px-4 py-3"
                 initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.3, ease: EASE }}>
                 <strong className="font-semibold">{NOTICE}.</strong> {done}
               </motion.p>

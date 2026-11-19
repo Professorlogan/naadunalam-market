@@ -212,7 +212,7 @@ function CatalogueView({ lockedCategory, items, featuredLabel = "Featured", urlQ
       <aside aria-label="Filters" className={`hidden lg:block ${sideFits ? "sticky top-36" : ""}`}>
         <div ref={side} className="rounded-[1.5rem] bg-sky px-5 py-4">
           <div className="flex min-h-9 items-center justify-between">
-            <h2 className="font-display text-lg font-bold text-forest-deep">Filters</h2>
+            <h2 className="t-h4 font-display font-bold text-forest-deep">Filters</h2>
             {chips.length > 0 && <button type="button" className="link text-sm" onClick={clearAll}>Clear all</button>}
           </div>
           <FilterPanel idPrefix="side" {...panelProps} />
@@ -242,16 +242,16 @@ function CatalogueView({ lockedCategory, items, featuredLabel = "Featured", urlQ
             </button>
             <label htmlFor="catalogue-sort" className="sr-only lg:not-sr-only lg:shrink-0 lg:text-sm lg:text-muted">Sort by</label>
             <select id="catalogue-sort" value={sort} onChange={(e) => changeSort(e.target.value as SortKey)}
-              className="field h-11 !min-h-11 !w-auto min-w-0 flex-1 basis-0 !rounded-full !py-0 !pl-3.5 !pr-2 text-sm font-semibold sm:min-w-[12.5rem] sm:flex-none sm:basis-auto sm:!px-4 sm:text-[15px]">
+              className="field h-11 !min-h-11 !w-auto min-w-0 flex-1 basis-0 !rounded-full !py-0 !pl-3.5 !pr-2 text-sm font-medium sm:min-w-[12.5rem] sm:flex-none sm:basis-auto sm:!px-4 sm:text-[15px]">
               {SORTS.map((s) => <option key={s.id} value={s.id}>{s.id === "featured" ? featuredLabel : s.label}</option>)}
             </select>
           </div>
         </div>
 
         {results.length === 0 && (
-          <div className="mt-5 rounded-[1.5rem] bg-butter p-6 sm:p-8">
+          <div className="mt-5 rounded-[1.5rem] bg-white border border-mist p-6 sm:p-8">
             <span aria-hidden className="mb-4 grid h-12 w-12 place-items-center rounded-full bg-white text-forest"><SearchX size={24} /></span>
-            <h2 className="font-display text-xl font-bold text-forest-deep">Nothing matches those filters</h2>
+            <h2 className="t-h4 font-display font-bold text-forest-deep">Nothing matches those filters</h2>
             <p className="mt-2 max-w-xl text-[15px] text-muted">
               Try removing a filter. Most products come in one pack size, so combining pack size, price and seller narrows things quickly.
             </p>
@@ -264,7 +264,7 @@ function CatalogueView({ lockedCategory, items, featuredLabel = "Featured", urlQ
 
         {/* Two columns on phones, three from 768px, four from 1280px beside the filter panel. */}
         {results.length > 0 && (
-          <ul className="mt-4 grid grid-cols-2 gap-x-3 gap-y-8 md:grid-cols-3 md:gap-x-5 md:gap-y-10 xl:grid-cols-4">
+          <ul className="mt-4 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3 lg:gap-5 xl:grid-cols-4">
             {visible.map((p, i) => <li key={p.id}><ProductCard product={p} priority={i < 4} /></li>)}
           </ul>
         )}
@@ -288,7 +288,7 @@ function CatalogueView({ lockedCategory, items, featuredLabel = "Featured", urlQ
               <motion.div ref={panel} className="absolute inset-y-0 left-0 flex w-[min(23rem,100vw)] flex-col overflow-hidden rounded-r-[1.5rem] bg-sky shadow-[0_18px_40px_-22px_rgb(23_39_30/0.45)]"
                 initial={{ x: "-100%" }} animate={{ x: 0 }} exit={{ x: "-100%" }} transition={{ duration: 0.25, ease: "easeOut" }}>
                 <div className="flex items-center justify-between px-5 py-2.5">
-                  <h2 id="filter-drawer-title" className="font-display text-lg font-bold text-forest-deep">Filter and sort</h2>
+                  <h2 id="filter-drawer-title" className="t-h4 font-display font-bold text-forest-deep">Filter and sort</h2>
                   <button type="button" aria-label="Close filters" onClick={closeDrawer} className="grid h-11 w-11 place-items-center rounded-full bg-white text-forest transition-colors duration-150 hover:text-leaf"><X aria-hidden /></button>
                 </div>
                 <div className="flex-1 overflow-y-auto overscroll-contain px-5 pb-6">

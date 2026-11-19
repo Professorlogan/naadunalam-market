@@ -1,6 +1,6 @@
 const items = [
   ["Flat ₹50 delivery", "Anywhere in Tamil Nadu"],
-  ["Cash on Delivery", "Pay when your order arrives"],
+  ["Cash on delivery", "Pay when your order arrives"],
   ["Named sellers", "Every product shows who sells it"],
   ["Price and pack size", "Shown on every listing"],
 ];

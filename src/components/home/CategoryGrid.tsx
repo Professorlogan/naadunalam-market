@@ -6,7 +6,7 @@ export default function CategoryGrid() {
   return (
     <section id="categories" aria-labelledby="categories-title" className="wrap scroll-mt-36 py-8 sm:py-10">
       <div className="mb-5 flex items-end justify-between gap-4">
-        <h2 id="categories-title" className="text-2xl font-bold sm:text-[1.75rem]">Shop by category</h2>
+        <h2 id="categories-title" className="t-h3 font-bold">Shop by category</h2>
         <Link href="/shop" className="link text-[15px] font-semibold">View all products</Link>
       </div>
       <ul className="grid grid-cols-3 gap-x-3 gap-y-6 sm:grid-cols-4 md:grid-cols-6">

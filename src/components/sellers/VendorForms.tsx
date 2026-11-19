@@ -65,7 +65,7 @@ function Notice({ title, children }: { title: string; children: React.ReactNode 
     <motion.div ref={ref} role="status" tabIndex={-1}
       initial={{ opacity: 0, y: 18, scale: 0.97 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -8 }}
       transition={{ duration: 0.45, ease: EASE }}
-      className="flex scroll-my-32 gap-3 rounded-[1.25rem] bg-aqua p-4 text-ink sm:p-5">
+      className="flex scroll-my-32 gap-3 rounded-[1.25rem] bg-white border border-mist p-4 text-ink sm:p-5">
       <motion.span aria-hidden className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-white text-water-deep" initial={{ scale: 0, rotate: -40 }} animate={{ scale: 1, rotate: 0 }}
         transition={{ type: "spring", stiffness: 420, damping: 14, delay: 0.15 }}>
         <Info size={22} />

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function WishlistPage() {
   return (
     <>
-      <PageHero title="My wishlist" titleTa="என் விருப்பப் பட்டியல்" crumbs={[{ label: "Wishlist" }]}
+      <PageHero compact title="My wishlist" titleTa="என் விருப்பப் பட்டியல்" crumbs={[{ label: "Wishlist" }]}
         intro="Your favourite traditional products, all in one place." />
       <WishlistView />
     </>

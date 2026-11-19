@@ -62,7 +62,7 @@ export default function BuyBox({ product: p }: Props) {
   return (
     <div>
       <p className="flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
-        <AnimatedNumber value={price} format={inr} className="font-display text-[36px] font-bold leading-none tabular-nums text-forest-deep sm:text-[42px]" />
+        <AnimatedNumber value={price} format={inr} className="font-display text-4xl font-bold leading-none tabular-nums text-forest-deep" />
         <span className="text-base text-muted">{pack}</span>
       </p>
       {per && <p className="mt-1 text-sm text-muted">{per}</p>}
@@ -113,14 +113,14 @@ export default function BuyBox({ product: p }: Props) {
           </button>
         )}
         <button type="button" disabled={!p.inStock} onClick={buyNow} className="btn btn-ghost !min-h-12 w-full !rounded-full">Buy now</button>
-        <p aria-live="polite" className={line ? "flex items-center justify-between gap-3 text-sm" : "sr-only"}>
+        <div aria-live="polite">
           {line && (
-            <>
+            <p className="flex min-h-11 items-center justify-between gap-3 text-sm">
               <span className="flex items-center gap-1.5 font-semibold text-leaf"><Check size={16} aria-hidden />In your basket</span>
               <Link href="/cart" className="link inline-flex min-h-11 items-center font-semibold">View basket</Link>
-            </>
+            </p>
           )}
-        </p>
+        </div>
       </div>
 
       <div className="mt-2 flex flex-wrap gap-x-1 gap-y-1">
@@ -171,7 +171,7 @@ function BasketStepper({ qty, max, name, onChange, className }: {
 }) {
   const side = "grid h-12 w-12 shrink-0 place-items-center rounded-full transition-colors duration-150 hover:bg-forest disabled:opacity-40";
   return (
-    <div role="group" aria-label={`Quantity of ${name} in basket`} className={`flex items-center justify-between rounded-full bg-leaf text-white ${className}`}>
+    <div role="group" aria-label={`Quantity of ${name} in basket`} className={`flex items-center justify-between rounded-full bg-forest text-white ${className}`}>
       <button type="button" aria-label={qty <= 1 ? `Remove ${name} from basket` : `Remove one ${name}`} onClick={() => onChange(qty - 1)} className={side}><Minus size={18} aria-hidden /></button>
       <span aria-live="polite" className="font-semibold tabular-nums">{qty}</span>
       <button type="button" aria-label={`Add one more ${name}`} disabled={qty >= max} onClick={() => onChange(qty + 1)} className={side}><Plus size={18} aria-hidden /></button>

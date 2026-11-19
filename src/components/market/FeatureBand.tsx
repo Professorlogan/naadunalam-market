@@ -18,7 +18,7 @@ export default function FeatureBand({ img, alt, eyebrow, title, text, cta, href,
         </Reveal>
         <Reveal y={24} delay={0.1}>
           <p className="text-sm font-bold uppercase tracking-[0.14em] text-leaf">{eyebrow}</p>
-          <h2 className="mt-3 text-3xl leading-tight sm:text-[2.75rem]">{title}</h2>
+          <h2 className="t-h2 mt-3">{title}</h2>
           <p className="mt-4 max-w-lg text-lg text-ink/75">{text}</p>
           {children}
           <div className="mt-7 flex flex-wrap gap-3">

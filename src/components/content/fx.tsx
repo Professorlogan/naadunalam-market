@@ -8,7 +8,7 @@ import { animate, motion, useReducedMotion } from "motion/react";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { EASE } from "../motion";
 
-const VIEW = { once: true, margin: "0px 0px -8% 0px" } as const;
+const VIEW = { once: true, amount: 0, margin: "0px 0px 0px 0px" } as const;
 const SPRING = { type: "spring", stiffness: 420, damping: 18 } as const;
 
 /** A hairline that draws from the left. Position it with classes (e.g. "absolute inset-x-0 bottom-0 h-px bg-mist"). */
@@ -50,11 +50,11 @@ export function StepNumeral({ n, className = "" }: { n: number; className?: stri
 }
 
 /** Image reveal: a coloured panel wipes away while the picture settles from a slight zoom. */
-export function WipeImage({ children, className = "", panel = "bg-leaf" }: { children: ReactNode; className?: string; panel?: string }) {
+// Gentle settle-in zoom only; nothing ever covers the image, so it can never get stuck hidden.
+export function WipeImage({ children, className = "" }: { children: ReactNode; className?: string; panel?: string }) {
   return (
     <motion.div className={`relative overflow-hidden ${className}`} initial="hidden" whileInView="show" viewport={VIEW}>
       <motion.div className="h-full" variants={{ hidden: { scale: 1.14 }, show: { scale: 1, transition: { duration: 1.1, ease: EASE } } }}>{children}</motion.div>
-      <motion.span aria-hidden className={`pointer-events-none absolute inset-0 origin-right ${panel}`} variants={{ hidden: { scaleX: 1 }, show: { scaleX: 0, transition: { duration: 0.8, ease: EASE, delay: 0.05 } } }} />
     </motion.div>
   );
 }

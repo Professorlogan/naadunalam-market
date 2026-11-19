@@ -41,7 +41,7 @@ function TocList({ toc, active, marker, onPick }: { toc: TocItem[]; active: stri
             <a href={`#${t.id}`} aria-current={on ? "location" : undefined} onClick={onPick}
               title={t.label}
               className={`relative flex h-11 items-center rounded-full px-4 transition-colors duration-200 hover:text-leaf ${on ? "font-semibold text-forest" : "text-forest-deep"}`}>
-              <span className="truncate">{t.label}</span>
+              <span className="min-w-0">{t.label}</span>
             </a>
           </li>
         );
@@ -76,9 +76,9 @@ export default function PolicyToc({ toc }: { toc: TocItem[] }) {
         </motion.nav>
       </details>
       <aside className="hidden lg:sticky lg:top-28 lg:block">
-        <motion.nav aria-labelledby="policy-toc" className="max-h-[calc(100vh-8.5rem)] overflow-y-auto rounded-[1.5rem] bg-sky p-4"
+        <motion.nav aria-labelledby="policy-toc" className="max-h-[calc(100vh-8.5rem)] overflow-y-auto rounded-[1.5rem] bg-white border border-mist p-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           initial={{ opacity: 0, x: -18 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, ease: EASE, delay: 0.3 }}>
-          <h2 id="policy-toc" className="px-3 pb-2 pt-1 text-lg font-semibold">On this page</h2>
+          <h2 id="policy-toc" className="t-h4 px-3 pb-2 pt-1 font-semibold">On this page</h2>
           <TocList toc={toc} active={active} marker={`${marker}-d`} />
         </motion.nav>
       </aside>

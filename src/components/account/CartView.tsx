@@ -18,7 +18,7 @@ export default function CartView() {
       <section className="wrap pb-6 pt-10 sm:pb-8 sm:pt-14">
         <div className={emptyCard}>
           <IconDisc className="mb-6" />
-          <h2 className="text-2xl font-bold text-forest-deep sm:text-3xl">Your basket is empty</h2>
+          <h2 className="t-h3 font-bold text-forest-deep">Your basket is empty</h2>
           <p className="mt-3 max-w-[46ch] text-muted">Add rice, millets, oils or anything else from any seller. You check out once, and pay by cash when the order arrives.</p>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
             <Link href="/shop" className="btn btn-primary">Start shopping</Link>
@@ -51,7 +51,7 @@ export default function CartView() {
                   <motion.div key={g.slug} className="overflow-hidden" {...collapse}>
                     <section aria-label={`Your ${g.name} order`} className="mb-6">
                       <div className="mb-3 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 rounded-full bg-sky px-5 py-2.5 sm:px-6">
-                        <h2 className="text-lg font-bold sm:text-xl">Your <SellerLink slug={g.slug} name={g.name} /> order</h2>
+                        <h2 className="t-h4 font-bold">Your <SellerLink slug={g.slug} name={g.name} /> order</h2>
                         <p className="text-[15px] text-muted">
                           {items} {items === 1 ? "item" : "items"} · <span className="whitespace-nowrap font-semibold tabular-nums text-forest-deep">{inr(sellerTotal)}</span>
                           <span className="sr-only"> subtotal</span>

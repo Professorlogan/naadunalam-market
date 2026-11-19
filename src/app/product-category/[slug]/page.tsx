@@ -47,8 +47,8 @@ export default async function CategoryPage({ params }: Props) {
         <Catalogue lockedCategory={c.slug} />
       </section>
       <section aria-labelledby="other-categories" className="wrap pb-10 sm:pb-14">
-        <div className="rounded-[2rem] bg-peach px-6 py-7 sm:px-10">
-          <h2 id="other-categories" className="mb-4 font-display text-2xl font-bold text-forest-deep">Browse categories</h2>
+        <div className="rounded-[2rem] bg-white border border-mist px-6 py-7 sm:px-10">
+          <h2 id="other-categories" className="t-h3 mb-4 font-display font-bold text-forest-deep">Browse categories</h2>
           <CategoryLinks current={c.slug} label="Browse categories" />
         </div>
       </section>

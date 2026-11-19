@@ -7,8 +7,8 @@ export default function BlogStrip() {
   return (
     <section aria-labelledby="blog-title" className="wrap pt-14 sm:pt-20">
       <Reveal className="mb-6 flex items-end justify-between gap-4">
-        <h2 id="blog-title" className="text-3xl sm:text-4xl">From our kitchen notes</h2>
-        <Link href="/blog" className="link font-semibold">All articles</Link>
+        <h2 id="blog-title" className="t-h2">From our kitchen notes</h2>
+        <Link href="/blog" className="link shrink-0 whitespace-nowrap font-semibold">All articles</Link>
       </Reveal>
       <ul className="grid gap-5 md:grid-cols-3">
         {list.map((p) => (

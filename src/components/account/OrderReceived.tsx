@@ -50,7 +50,7 @@ export default function OrderReceived() {
               <LeafBurst />
             </span>
             <motion.div className="min-w-0 flex-1" initial={{ opacity: 0, x: -14 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, ease: EASE, delay: 0.5 }}>
-              <h2 className="text-2xl font-bold text-forest-deep sm:text-3xl">Thank you, {order.customer.name}. Your order is in.</h2>
+              <h2 className="t-h3 font-bold text-forest-deep">Thank you, {order.customer.name}. Your order is in.</h2>
               <p lang="ta" className="ta mt-1 font-display text-lg text-leaf">நன்றி</p>
             </motion.div>
             <motion.dl className="grid w-full grid-cols-2 gap-x-6 gap-y-3 rounded-[1.25rem] bg-white p-4 sm:w-auto sm:grid-cols-3 sm:px-6" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.8 }}>
@@ -67,9 +67,9 @@ export default function OrderReceived() {
       </section>
 
       <section className="wrap pb-6 sm:pb-8">
-        <div className="rounded-[2rem] bg-butter px-5 pb-8 pt-10 sm:px-8 sm:pb-10 sm:pt-12 lg:px-10">
-          <h2 className="text-3xl font-bold text-forest-deep sm:text-4xl"><SplitWords text="What happens next" inView /></h2>
-          <motion.ol className="mt-6 grid gap-6 md:grid-cols-3" initial="hidden" whileInView="show" viewport={{ once: true, margin: "0px 0px -8% 0px" }}
+        <div className="rounded-[2rem] bg-white border border-mist px-5 pb-8 pt-10 sm:px-8 sm:pb-10 sm:pt-12 lg:px-10">
+          <h2 className="t-h2 font-bold text-forest-deep"><SplitWords text="What happens next" inView /></h2>
+          <motion.ol className="mt-6 grid gap-6 md:grid-cols-3" initial="hidden" whileInView="show" viewport={{ once: true, amount: 0 }}
             variants={{ hidden: {}, show: { transition: { staggerChildren: 0.22, delayChildren: 0.15 } } }}>
             {steps.map((s, i) => (
               <motion.li key={s.title} className="relative flex gap-4 md:block" variants={{ hidden: { opacity: 0, y: 22 }, show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: EASE } } }}>
@@ -80,7 +80,7 @@ export default function OrderReceived() {
                 )}
                 <span aria-hidden className="relative grid h-11 w-11 shrink-0 place-items-center rounded-full bg-leaf font-display text-2xl font-bold leading-none text-white">{i + 1}</span>
                 <div className="md:mt-3">
-                  <h3 className="text-xl font-bold">{s.title}</h3>
+                  <h3 className="t-h4 font-bold">{s.title}</h3>
                   <p className="mt-1.5 text-muted">{s.text}</p>
                 </div>
               </motion.li>

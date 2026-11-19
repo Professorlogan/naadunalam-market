@@ -10,7 +10,7 @@ export default function Sellers() {
         <img src="/img/Parambariya-Arisi-Vagaigal.webp" alt="A jute sack of mixed traditional rice varieties on a wooden floor" width={1024} height={1024} loading="lazy" className="h-full w-full object-cover" />
       </div>
       <div>
-        <h2 id="sellers-title" className="text-3xl tracking-[-0.02em] sm:text-[2.75rem]">Many sellers. One basket.</h2>
+        <h2 id="sellers-title" className="t-h2">Many sellers. One basket.</h2>
         <p className="mt-5 max-w-lg text-lg leading-relaxed text-muted">Naadu Nalam is a marketplace, not a single shop. Each grower and small producer runs their own storefront, and you check out once.</p>
         <ul className="mt-8 border-b border-mist">
           {stores.map((s) => (

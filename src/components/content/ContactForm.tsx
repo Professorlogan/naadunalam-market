@@ -170,7 +170,7 @@ export default function ContactForm() {
               </span>
               <span>
                 I agree that Naadu Nalam may use these details to respond to my enquiry, as set out in the{" "}
-                <Link href="/privacy-policy" className="link">Privacy Policy</Link>.
+                <Link href="/privacy-policy" className="link">Privacy policy</Link>.
               </span>
             </label>
             {err("consent")}

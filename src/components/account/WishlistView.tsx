@@ -46,7 +46,7 @@ export default function WishlistView() {
         {saved.length === 0 ? (
           <Reveal className={emptyCard}>
             <IconDisc icon={Heart} tint="bg-peach" className="mb-6" />
-            <h2 className="text-2xl font-bold text-forest-deep sm:text-3xl">Your wishlist is empty</h2>
+            <h2 className="t-h3 font-bold text-forest-deep">Your wishlist is empty</h2>
             <p className="mt-3 max-w-[46ch] text-muted">Save the products you love and come back to them any time. They will be waiting right here. Tap the heart on any product to save it.</p>
             <p className="mt-7"><Link href="/shop" className="btn btn-primary">Start shopping</Link></p>
           </Reveal>
@@ -94,7 +94,7 @@ export default function WishlistView() {
                       )}
                     </Link>
                     <div className="min-w-0">
-                      <h2 className="text-lg font-semibold leading-snug"><Link href={`/product/${p.slug}`} className="-my-1.5 inline-block py-1.5 hover:text-leaf">{p.name}</Link></h2>
+                      <h2 className="t-h4 font-semibold"><Link href={`/product/${p.slug}`} className="-my-1.5 inline-block py-1.5 hover:text-leaf">{p.name}</Link></h2>
                       {p.nameTa && <p lang="ta" className="ta line-clamp-2 whitespace-normal text-[15px] text-leaf">{p.nameTa}</p>}
                       {seller && <p className="mt-0.5 text-sm text-muted">Sold by <Link href={`/store/${seller.slug}`} className="-my-3 inline-block py-3 hover:text-forest hover:underline">{seller.name}</Link></p>}
                     </div>
@@ -131,7 +131,7 @@ export default function WishlistView() {
 
       {suggestions.length > 0 && (
         <section className="wrap pb-6 sm:pb-8">
-          <div className="rounded-[2rem] bg-mint px-5 pb-8 pt-10 sm:px-8 sm:pb-10 sm:pt-12 lg:px-10">
+          <div className="rounded-[2rem] bg-white border border-mist px-5 pb-8 pt-10 sm:px-8 sm:pb-10 sm:pt-12 lg:px-10">
             <SectionHeading title="You may also like" intro="Explore more healthy choices" href="/shop" linkLabel="View all products" />
             {/* Keeps the card's "In your basket" badge clear of the heart button on narrow cards. */}
             <ProductGrid products={suggestions} className="[&_article>span.absolute]:max-w-[calc(100%-4.75rem)] [&_article>span.absolute]:rounded-xl [&_article>span.absolute]:text-xs [&_article>span.absolute]:leading-tight" />

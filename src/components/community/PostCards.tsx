@@ -26,7 +26,7 @@ export function PostLead({ post }: { post: Post }) {
       </div>
       <div className="flex flex-col justify-center p-6 sm:p-10">
         <p className="text-sm font-semibold text-leaf">Latest · <time dateTime={post.date}>{longDate(post.date)}</time></p>
-        <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
+        <h2 className="t-h2 mt-3 font-bold">
           <Link href={`/${post.slug}`} aria-label={post.title} className={`${stretched} transition-colors group-hover:text-leaf`}><SplitWords text={post.title} delay={0.15} /></Link>
         </h2>
         <p className="mt-4 text-lg text-muted">{post.excerpt}</p>
@@ -45,7 +45,7 @@ export function PostRow({ post }: { post: Post }) {
       </div>
       <div className="min-w-0 self-center">
         <time dateTime={post.date} className="text-sm text-muted">{longDate(post.date)}</time>
-        <h3 className="mt-1 text-xl font-bold sm:text-2xl">
+        <h3 className="t-h4 mt-1 font-bold">
           <Link href={`/${post.slug}`} className={`${stretched} ${draw} group-hover:text-leaf`}>{post.title}</Link>
         </h3>
         <p className="mt-2 hidden text-muted sm:block">{post.excerpt}</p>

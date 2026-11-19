@@ -49,7 +49,7 @@ export default function CompareView() {
       <section className="wrap pb-6 pt-10 sm:pb-8 sm:pt-14">
         <Reveal className={emptyCard}>
           <IconDisc icon={GitCompareArrows} tint="bg-aqua" className="mb-6" />
-          <h2 className="text-2xl font-bold text-forest-deep sm:text-3xl">Nothing to compare yet</h2>
+          <h2 className="t-h3 font-bold text-forest-deep">Nothing to compare yet</h2>
           <p className="mt-3 max-w-[52ch] text-muted">
             Every product card in the shop has a compare button, the one with two arrows{" "}
             <GitCompareArrows size={18} aria-hidden className="inline align-[-3px] text-forest" /> under the heart. Tap it on up to {COMPARE_MAX} products,

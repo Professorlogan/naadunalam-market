@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function CartPage() {
   return (
     <>
-      <PageHero title="Your basket" titleTa="உங்கள் கூடை" crumbs={[{ label: "Shop", href: "/shop" }, { label: "Basket" }]}
+      <PageHero compact title="Your basket" titleTa="உங்கள் கூடை" crumbs={[{ label: "Shop", href: "/shop" }, { label: "Basket" }]}
         intro={`Products from different sellers go through one checkout. ${site.deliveryLine}.`} />
       <CartView />
     </>

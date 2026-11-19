@@ -8,7 +8,7 @@ import { EASE } from "../motion";
 export function Pop({ children, className, delay = 0 }: { children?: ReactNode; className?: string; delay?: number }) {
   return (
     <motion.span aria-hidden className={className} initial={{ scale: 0.4, opacity: 0 }} whileInView={{ scale: 1, opacity: 1 }}
-      viewport={{ once: true, margin: "0px 0px -6% 0px" }} transition={{ type: "spring", stiffness: 420, damping: 16, delay }}>
+      viewport={{ once: true, amount: 0 }} transition={{ type: "spring", stiffness: 420, damping: 16, delay }}>
       {children}
     </motion.span>
   );
@@ -26,7 +26,7 @@ export function SettleImage({ src, width, height, className }: { src: string; wi
 export function DrawLine({ className, delay = 0 }: { className?: string; delay?: number }) {
   return (
     <motion.span aria-hidden className={`block origin-left ${className ?? ""}`} initial={{ scaleX: 0 }} whileInView={{ scaleX: 1 }}
-      viewport={{ once: true, margin: "0px 0px -8% 0px" }} transition={{ duration: 0.7, ease: EASE, delay }} />
+      viewport={{ once: true, amount: 0 }} transition={{ duration: 0.7, ease: EASE, delay }} />
   );
 }
 

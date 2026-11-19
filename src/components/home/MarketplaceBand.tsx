@@ -14,7 +14,7 @@ export default function MarketplaceBand() {
     <section aria-labelledby="marketplace-title" className="bg-forest text-white">
       <div className="wrap grid gap-10 py-12 sm:py-16 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:gap-16">
         <div>
-          <h2 id="marketplace-title" className="text-4xl font-bold !text-white sm:text-5xl"><SplitWords inView text="Many sellers. One basket." /></h2>
+          <h2 id="marketplace-title" className="t-h2 font-bold !text-white"><SplitWords inView text="Many sellers. One basket." /></h2>
           <p className="mt-4 max-w-xl text-lg text-white/85">
             Naadu Nalam is a marketplace, not a single shop. Independent growers, home producers and small brands each run
             their own storefront here — you browse them side by side and check out once.
@@ -25,7 +25,7 @@ export default function MarketplaceBand() {
           </div>
         </div>
         <Reveal x={40} y={0}>
-          <h3 className="text-xl font-semibold !text-white">Stores open on the marketplace today</h3>
+          <h3 className="t-h4 font-semibold !text-white">Stores open on the marketplace today</h3>
           <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
             {stores.map((s) => (
               <li key={s.slug}>
@@ -45,7 +45,7 @@ export default function MarketplaceBand() {
           {points.map((p) => (
             <StaggerItem as="li" key={p.title} className="relative pl-6">
               <span aria-hidden className="absolute left-0 top-[0.45rem] h-3 w-3 rounded-[0_60%_0_60%] bg-sun" />
-              <h3 className="text-lg font-semibold !text-white">{p.title}</h3>
+              <h3 className="t-h5 font-semibold !text-white">{p.title}</h3>
               <p className="mt-1 text-base leading-snug text-white/80">{p.text}</p>
             </StaggerItem>
           ))}

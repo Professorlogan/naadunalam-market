@@ -17,7 +17,7 @@ export default function ProductCard({ product: p, priority = false }: { product:
   const line = ready && !p.variants ? cart.find((l) => l.id === p.id && l.variantId === undefined) : undefined;
   const label = /-pdf\.|11-product-turmeric/.test(p.images[0]?.src ?? ""); // pack-label artwork: show whole on a tint
   return (
-    <article className="group relative flex h-full flex-col rounded-[1.25rem] border border-mist bg-white p-2.5 transition-[box-shadow,transform,border-color] duration-300 hover:-translate-y-1 hover:border-transparent hover:shadow-[0_18px_40px_-22px_rgb(23_39_30/0.45)] sm:p-3">
+    <article className="group relative flex h-full flex-col rounded-[1.25rem] border border-mist bg-white p-2.5 transition-[box-shadow,border-color] duration-300 hover:border-transparent hover:shadow-[0_18px_40px_-22px_rgb(23_39_30/0.45)] sm:p-3">
       <div className="relative">
         <Link href={`/product/${p.slug}`} className={`block aspect-square overflow-hidden rounded-2xl ${label ? "bg-butter" : "bg-sky"}`}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -35,7 +35,7 @@ export default function ProductCard({ product: p, priority = false }: { product:
         <h3 className="mt-1 line-clamp-2 font-display text-[15px] !font-semibold leading-snug text-forest-deep sm:text-base">
           <Link href={`/product/${p.slug}`} className="hover:text-leaf">{p.name}</Link>
         </h3>
-        {p.nameTa && <p lang="ta" className="ta line-clamp-1 text-[13px] text-muted">{p.nameTa}</p>}
+        {p.nameTa && <p lang="ta" className="ta line-clamp-2 min-h-[2.6em] text-[13px] leading-[1.3] text-muted">{p.nameTa}</p>}
         <div className="mt-auto flex items-end justify-between gap-2 pt-3">
           <p className="leading-tight">
             <span className="block font-display text-lg font-bold text-forest-deep">{p.variants ? "From " : ""}{inr(p.price)}</span>

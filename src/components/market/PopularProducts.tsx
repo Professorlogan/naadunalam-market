@@ -23,13 +23,15 @@ export default function PopularProducts() {
       return [...withPhoto, ...products.filter((p) => !productPhotos[p.slug])].slice(0, 8);
     }
     const inCat = productsInCategory(tab);
-    return [...inCat.filter((p) => productPhotos[p.slug]), ...inCat.filter((p) => !productPhotos[p.slug])].slice(0, 8);
+    const sorted = [...inCat.filter((p) => productPhotos[p.slug]), ...inCat.filter((p) => !productPhotos[p.slug])];
+    // Full rows only: 4 or 8 cards, never a lone card on the last row.
+    return sorted.slice(0, sorted.length >= 8 ? 8 : 4);
   }, [tab]);
   const more = tab === "picks" ? "/shop" : `/product-category/${tab}`;
   return (
     <section aria-labelledby="popular-title" className="wrap pt-14 sm:pt-20">
       <div className="mb-7 flex flex-wrap items-end justify-between gap-x-8 gap-y-4">
-        <h2 id="popular-title" className="text-3xl sm:text-4xl">Popular products</h2>
+        <h2 id="popular-title" className="t-h2">Popular products</h2>
         <div role="tablist" aria-label="Filter popular products" className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:px-0">
           {tabs.map((t) => {
             const on = t.id === tab;

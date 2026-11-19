@@ -49,7 +49,7 @@ export default async function CollaboratorPage({ params }: Props) {
           </EmptyState>
         </div>
         <aside aria-labelledby="other-collaborators">
-          <Reveal><h2 id="other-collaborators" className="text-2xl font-bold">Other collaborators</h2></Reveal>
+          <Reveal><h2 id="other-collaborators" className="t-h3 font-bold">Other collaborators</h2></Reveal>
           <Stagger as="ul" gap={0.08} className="mt-4 divide-y divide-mist border-y border-mist">
             {others.map((o) => (
               <StaggerItem as="li" key={o.slug} y={16}>

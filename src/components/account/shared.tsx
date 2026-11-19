@@ -33,7 +33,7 @@ export function per100(price: number, pack: string) {
   const unit = m[2].toLowerCase();
   const base = unit === "kg" || unit === "l" ? n * 1000 : n;
   const per = unit === "g" || unit === "kg" ? "100 g" : "100 ml";
-  return { value: Math.round((price / base) * 100 * 100) / 100, per };
+  return { value: Math.round((price / base) * 100), per }; // whole rupees, same as the product page
 }
 
 export const lineKey = (l: CartLine) => `${l.id}-${l.variantId ?? 0}`;
@@ -90,7 +90,7 @@ export function EmptyState({ title, text, children, icon, tint }: { title: strin
     <section className="wrap pb-6 pt-10 sm:pb-8 sm:pt-14">
       <Reveal className={emptyCard}>
         <IconDisc icon={icon} tint={tint} className="mb-6" />
-        <h2 className="text-2xl font-bold text-forest-deep sm:text-3xl">{title}</h2>
+        <h2 className="t-h3 font-bold text-forest-deep">{title}</h2>
         <p className="mt-3 max-w-[46ch] text-muted">{text}</p>
         <div className="mt-7 flex flex-wrap justify-center gap-3">{children}</div>
       </Reveal>
@@ -110,9 +110,11 @@ export function Totals({ subtotal, delivery, total }: { subtotal: number; delive
   );
 }
 
+/** Shown only when NEXT_PUBLIC_SHOW_PROTOTYPE_NOTES=1 (for internal testing); hidden on the client-facing build. */
 export function PrototypeNote({ children }: { children: React.ReactNode }) {
+  if (process.env.NEXT_PUBLIC_SHOW_PROTOTYPE_NOTES !== "1") return null;
   return (
-    <p role="note" className="rounded-[1.25rem] bg-butter px-5 py-3.5 text-base text-ink">
+    <p role="note" className="rounded-[1.25rem] bg-white border border-mist px-5 py-3.5 text-base text-ink">
       <strong className="font-semibold">Prototype. </strong>{children}
     </p>
   );

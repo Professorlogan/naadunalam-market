@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function ComparePage() {
   return (
     <>
-      <PageHero title="Compare products" titleTa="பொருட்களை ஒப்பிடுங்கள்" crumbs={[{ label: "Shop", href: "/shop" }, { label: "Compare" }]}
+      <PageHero compact title="Compare products" titleTa="பொருட்களை ஒப்பிடுங்கள்" crumbs={[{ label: "Shop", href: "/shop" }, { label: "Compare" }]}
         intro="Put up to four products next to each other and see which pack is the better buy." />
       <CompareView />
     </>

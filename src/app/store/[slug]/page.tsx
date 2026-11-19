@@ -2,11 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Breadcrumbs from "../../../components/Breadcrumbs";
-import SellerTrustCard from "../../../components/sellers/SellerTrustCard";
 import StoreBanner from "../../../components/sellers/StoreBanner";
 import StoreProducts from "../../../components/sellers/StoreProducts";
 import StoreTabs from "../../../components/sellers/StoreTabs";
-import StorySlot from "../../../components/sellers/StorySlot";
 import { storeSummary } from "../../../components/sellers/storeInfo";
 import { getStore, stores } from "../../../lib/data";
 
@@ -44,10 +42,10 @@ export default async function StorePage({ params }: Props) {
   const story = (
     <section className="wrap grid gap-10 py-10 sm:py-12 lg:grid-cols-[minmax(0,1fr)_22rem] lg:gap-14" aria-labelledby="store-story">
       <div className="min-w-0">
-        <h2 id="store-story" className="text-2xl font-bold sm:text-[1.75rem]">Our story</h2>
-        <div className="mt-4"><StorySlot name={store.name} /></div>
+        <h2 id="store-story" className="t-h3 font-bold">About {store.name}</h2>
+        <p className="mt-4 max-w-2xl text-lg text-ink/75">{store.name} has been selling on Naadu Nalam since {s.since}, with {s.items.length} products across {s.cats.length} {s.cats.length === 1 ? "category" : "categories"}. Every product ships through the same Naadu Nalam basket and checkout.</p>
 
-        <h3 className="mt-10 text-lg font-bold">What {store.name} sells</h3>
+        <h3 className="t-h5 mt-10 font-bold">What {store.name} sells</h3>
         <ul className="mt-3 grid gap-2 sm:grid-cols-2">
           {s.cats.map((c) => (
             <li key={c.slug}>
@@ -65,7 +63,6 @@ export default async function StorePage({ params }: Props) {
       </div>
 
       <div className="space-y-5">
-        <SellerTrustCard slug={store.slug} />
         <p className="text-[15px] text-muted">
           Seller phone{" "}
           <a href={s.phone.href} className="inline-flex min-h-11 items-center tabular-nums text-ink hover:underline" aria-label={`Call ${store.name} on ${s.phone.label}`}>
@@ -84,14 +81,14 @@ export default async function StorePage({ params }: Props) {
     <>
       {/* Pastel rounded store block: photo tiles, monogram, the store name big, and its facts as white chips. */}
       <header className="wrap pt-4 sm:pt-6">
-        <div className="rounded-[2rem] bg-mint p-4 sm:p-6 lg:p-8">
+        <div className="rounded-[2rem] bg-gradient-to-br from-mint via-mint to-butter p-4 sm:p-6 lg:p-8">
           <div className="px-2 sm:px-0"><Breadcrumbs items={[{ label: "Sellers", href: "/store-listing" }, { label: store.name }]} /></div>
           {/* Nothing around the banner clips, so the round monogram shows in full where it overlaps the cover. */}
           <div className="mt-5">
             <StoreBanner images={s.collage} monogram={s.monogram} tone={s.tone} />
           </div>
           <div className="px-2 pb-2 pt-14 sm:px-0 sm:pt-16">
-            <h1 className="text-4xl font-bold sm:text-5xl lg:text-6xl">{store.name}</h1>
+            <h1 className="t-h1 font-bold">{store.name}</h1>
             <dl className="mt-5 flex flex-wrap gap-3">
               {stats.map((st) => (
                 <div key={st.label} className="rounded-[1.25rem] bg-white px-4 py-2.5">
@@ -105,12 +102,12 @@ export default async function StorePage({ params }: Props) {
       </header>
 
       <StoreTabs label={`${store.name} store`} tabs={[
-        { key: "products", label: "Products", panel: <StoreProducts products={s.items} newest={s.newest} cats={s.cats} storeName={store.name} /> },
-        { key: "story", label: "Our story", panel: story },
+        { key: "products", label: "Products", panel: <StoreProducts products={s.items} newest={[]} cats={s.cats} storeName={store.name} /> },
+        { key: "story", label: "About the store", panel: story },
       ]} />
 
       <section className="wrap pb-4">
-        <div className="flex flex-wrap items-center justify-between gap-4 rounded-[2rem] bg-butter px-6 py-7 sm:px-10">
+        <div className="flex flex-wrap items-center justify-between gap-4 rounded-[2rem] bg-white border border-mist px-6 py-7 sm:px-10">
           <p className="text-lg text-forest-deep">Looking for something else? See every seller on the marketplace.</p>
           <Link href="/store-listing" className="btn btn-primary">See all sellers</Link>
         </div>

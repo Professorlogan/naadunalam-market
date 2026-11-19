@@ -12,7 +12,7 @@ export default function WhyTrust() {
     <section aria-labelledby="trust-title" className="wrap py-12 sm:py-16">
       <div className="grid gap-x-12 gap-y-6 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,2fr)]">
         <Reveal>
-          <h2 id="trust-title" className="text-3xl font-bold sm:text-4xl">Built around trust, not volume</h2>
+          <h2 id="trust-title" className="t-h2 font-bold">Built around trust, not volume</h2>
           <p lang="ta" className="ta mt-2 font-display text-lg font-medium text-leaf">நம்ம மக்களின் நலம்</p>
         </Reveal>
         <Stagger as="dl" gap={0.1} className="grid gap-x-10 gap-y-7 sm:grid-cols-2">

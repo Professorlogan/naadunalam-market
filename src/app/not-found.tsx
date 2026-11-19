@@ -20,7 +20,7 @@ export default function NotFound() {
           <NotFoundArt className="mx-auto w-full max-w-[17rem] sm:max-w-sm lg:order-2 lg:max-w-none" />
           <div>
             <Reveal as="p" y={10} className="font-display text-xl font-bold text-leaf">Error 404</Reveal>
-            <h1 className="mt-2 max-w-2xl text-4xl font-bold sm:text-5xl"><SplitWords text="We could not find that page" delay={0.1} /></h1>
+            <h1 className="t-h1 mt-2 max-w-2xl font-bold"><SplitWords text="We could not find that page" delay={0.1} /></h1>
             <Reveal as="p" delay={0.3} y={14} className="mt-4 max-w-xl text-lg text-ink/75">
               The link may be old, or the address may have a typing mistake. Search for a product, or pick up from the shop.
             </Reveal>
@@ -33,7 +33,7 @@ export default function NotFound() {
         </div>
       </section>
       <section className="wrap py-10 sm:py-14">
-        <Reveal><h2 className="text-2xl font-bold sm:text-3xl">Browse a category</h2></Reveal>
+        <Reveal><h2 className="t-h3 font-bold">Browse a category</h2></Reveal>
         <Stagger as="ul" gap={0.08} className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
           {top.map((c) => (
             <StaggerItem as="li" key={c.slug}>

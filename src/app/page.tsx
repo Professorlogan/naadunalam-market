@@ -21,7 +21,7 @@ export default function Home() {
       <PromoTiles />
       <CategoryRow />
       <FeatureBand
-        img="/img/m/farmer.webp" alt="A Tamil woman farmer smiling in her field"
+        img="/img/m/farmer-rice.webp" alt="A Tamil woman farmer in a paddy field holding a winnowing basket of golden paddy"
         eyebrow="Many sellers. One basket." title="Bought straight from the people who grow it"
         text="Naadu Nalam is a marketplace, not a single shop. Each grower and small producer runs their own store, and you check out once."
         cta="Meet our sellers" href="/store-listing" second={{ label: "Sell on Naadu Nalam", href: "/vendor-login" }}>

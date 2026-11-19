@@ -38,7 +38,7 @@ export default function FreshPicks() {
     <section aria-labelledby="fresh-picks-title" className="border-y border-mist bg-white">
       <div className="wrap py-12 sm:py-16">
         <Reveal className="mb-5 max-w-2xl sm:mb-6">
-          <h2 id="fresh-picks-title" className="text-3xl font-bold sm:text-4xl">Fresh picks from our sellers</h2>
+          <h2 id="fresh-picks-title" className="t-h2 font-bold">Fresh picks from our sellers</h2>
           <p className="mt-2 text-muted">Choose a category to see what is listed right now.</p>
         </Reveal>
         <div role="group" aria-label="Filter fresh picks by category" className="mb-6 flex flex-wrap gap-2">

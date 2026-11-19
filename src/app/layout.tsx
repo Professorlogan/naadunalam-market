@@ -5,6 +5,7 @@ import "./globals.css";
 import CartDrawer from "../components/CartDrawer";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import MobileTabBar from "../components/MobileTabBar";
 import { MotionProvider, ScrollProgress } from "../components/motion";
 import { StoreProvider } from "../lib/store";
 
@@ -26,6 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main id="content">{children}</main>
           <Footer />
           <CartDrawer />
+          <MobileTabBar />
         </StoreProvider>
         </MotionProvider>
       </body>

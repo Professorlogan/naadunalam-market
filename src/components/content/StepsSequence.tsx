@@ -12,7 +12,7 @@ const BEAT = 0.45; // seconds between one step lighting up and the next
  */
 export default function StepsSequence({ steps }: { steps: { title: string; text: string }[] }) {
   const ref = useRef<HTMLOListElement>(null);
-  const run = useInView(ref, { once: true, margin: "0px 0px -18% 0px" });
+  const run = useInView(ref, { once: true, amount: 0 });
   const state = run ? "show" : "hidden";
   return (
     <ol ref={ref} className="mt-8 grid gap-4 lg:grid-cols-4 lg:gap-5">
@@ -41,7 +41,7 @@ export default function StepsSequence({ steps }: { steps: { title: string; text:
             </div>
             <motion.div className="lg:mt-4" initial={false} animate={state}
               variants={{ hidden: { opacity: 0, y: 18 }, show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE, delay: at + 0.08 } } }}>
-              <h3 className="text-2xl font-bold text-forest-deep"><span className="sr-only">Step {i + 1}: </span>{s.title}</h3>
+              <h3 className="t-h3 font-bold text-forest-deep"><span className="sr-only">Step {i + 1}: </span>{s.title}</h3>
               <p className="mt-1.5 text-ink/75">{s.text}</p>
             </motion.div>
           </li>

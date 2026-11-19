@@ -111,8 +111,11 @@ export default async function ProductPage({ params }: Props) {
 
           <div className="min-w-0 md:sticky md:top-28 lg:top-36">
             {seller && (
-              <div className="mb-4 flex items-center gap-3 rounded-[1.5rem] bg-butter px-4 py-3 sm:px-5">
-                <span aria-hidden className={`grid h-11 w-11 shrink-0 place-items-center rounded-full font-display text-lg font-bold text-white ${avatar}`}>{seller.name.charAt(0).toUpperCase()}</span>
+              <div className="mb-4 flex items-center gap-3 rounded-[1.5rem] bg-white border border-mist px-4 py-3 sm:px-5">
+                {seller.slug === "naadunalam"
+                  // eslint-disable-next-line @next/next/no-img-element
+                  ? <img src="/img/logo.webp" alt="" width={44} height={44} className="h-11 w-11 shrink-0 rounded-full border border-mist bg-white object-contain p-0.5" />
+                  : <span aria-hidden className={`grid h-11 w-11 shrink-0 place-items-center rounded-full font-display text-lg font-bold text-white ${avatar}`}>{seller.name.charAt(0).toUpperCase()}</span>}
                 <p className="min-w-0 flex-1 leading-snug">
                   <span className="block text-[15px] text-muted">Sold by <Link href={`/store/${seller.slug}`} className="font-semibold text-ink hover:text-leaf hover:underline">{seller.name}</Link></span>
                   <span className="block text-sm text-muted">{countLabel}</span>
@@ -122,7 +125,7 @@ export default async function ProductPage({ params }: Props) {
             )}
 
             <div className="rounded-[1.5rem] border border-mist bg-white p-5 sm:p-7">
-              <h1 className="text-[30px] font-bold leading-tight text-forest-deep sm:text-[36px]">{p.name}</h1>
+              <h1 className="t-h1 font-bold text-forest-deep">{p.name}</h1>
               {p.nameTa && <p lang="ta" className="ta mt-1 font-display text-xl font-semibold text-leaf">{p.nameTa}</p>}
 
               <div className="mt-5">
@@ -137,8 +140,8 @@ export default async function ProductPage({ params }: Props) {
       <section aria-label="Product information">
         <div className="wrap grid items-start gap-6 py-8 sm:py-10 lg:grid-cols-[22rem_minmax(0,1fr)] lg:gap-10">
           {/* A pastel panel beside the accordion stack; its heading sits on the first accordion title's line. */}
-          <div className="rounded-[1.5rem] bg-aqua px-5 py-2 sm:px-6">
-            <h2 className="flex min-h-16 items-center font-display text-lg font-bold text-forest-deep">Product details</h2>
+          <div className="rounded-[1.5rem] bg-white border border-mist px-5 py-2 sm:px-6">
+            <h2 className="t-h4 flex min-h-16 items-center font-display font-bold text-forest-deep">Product details</h2>
             <table className="w-full text-left text-[15px]">
               <tbody className="divide-y divide-white">
                 {seller && <tr><th scope="row" className={TH}>Sold by</th><td className={TD}><Link href={`/store/${seller.slug}`} className="link">{seller.name}</Link></td></tr>}
@@ -212,7 +215,7 @@ export default async function ProductPage({ params }: Props) {
         </div>
       )}
       {category && inCategory.length > 0 && (
-        <div className="wrap my-4"><div className="rounded-[2rem] bg-mint/60">
+        <div className="my-4"><div>
           <ProductRail id="more-in-category" title={`More in ${category.name}`} titleTa={category.nameTa} href={`/product-category/${category.slug}`} products={inCategory} />
         </div></div>
       )}

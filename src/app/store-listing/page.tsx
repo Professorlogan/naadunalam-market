@@ -38,7 +38,7 @@ export default function StoreListingPage() {
                   <div className="flex flex-col p-5 sm:p-7 lg:p-9">
                     <div className="flex items-center gap-3.5">
                       <SellerMonogram monogram={s.monogram} tone={s.tone} />
-                      <h2 className="text-2xl font-bold sm:text-[1.75rem]">
+                      <h2 className="t-h3 font-bold">
                         <Link href={`/store/${store.slug}`} className="hover:underline">{store.name}</Link>
                       </h2>
                     </div>
@@ -67,9 +67,9 @@ export default function StoreListingPage() {
       </section>
 
       <section className="wrap">
-        <div className="grid gap-6 rounded-[2rem] bg-aqua px-6 py-10 sm:px-10 sm:py-12 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-12">
+        <div className="grid gap-6 rounded-[2rem] bg-white border border-mist px-6 py-10 sm:px-10 sm:py-12 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-12">
           <div>
-            <h2 className="text-2xl font-bold sm:text-[1.75rem]">How sellers work on Naadu Nalam</h2>
+            <h2 className="t-h3 font-bold">How sellers work on Naadu Nalam</h2>
             <p className="mt-2 text-ink/75">One marketplace, several stores. You shop in one place, and every product is listed by a named store.</p>
           </div>
           <ul className="grid gap-2">
@@ -79,16 +79,16 @@ export default function StoreListingPage() {
       </section>
 
       <section className="wrap py-10 sm:py-12">
-        <div className="flex flex-col gap-5 rounded-[2rem] bg-butter px-6 py-10 sm:px-10 sm:py-12 md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-col gap-5 rounded-[2rem] bg-white border border-mist px-6 py-10 sm:px-10 sm:py-12 md:flex-row md:items-center md:justify-between">
           <div className="max-w-2xl">
-            <h2 className="text-2xl font-bold text-forest-deep sm:text-[1.75rem]">Grow or make something worth sharing?</h2>
+            <h2 className="t-h3 font-bold text-forest-deep">Grow or make something worth sharing?</h2>
             <p className="mt-2 text-ink/75">
               Apply to open your own storefront on Naadu Nalam, then add products, manage stock and track orders from the vendor dashboard.
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
             <Link href="/vendor-login" className="btn btn-primary">Become a seller</Link>
-            <Link href="/vendor-login#login" className="btn btn-ghost">Vendor login</Link>
+            <Link href="/vendor-login#login" className="btn btn-ghost">Seller login</Link>
           </div>
         </div>
       </section>

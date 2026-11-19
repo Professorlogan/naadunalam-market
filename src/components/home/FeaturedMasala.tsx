@@ -47,7 +47,7 @@ export default function FeaturedMasala() {
         <div>
           <Reveal>
             <p className="font-semibold text-soil">Featured category</p>
-            <h2 id="featured-title" className="mt-1 text-3xl font-bold sm:text-4xl">{cat.name}, ground for the everyday Tamil kitchen</h2>
+            <h2 id="featured-title" className="t-h2 mt-1 font-bold">{cat.name}, ground for the everyday Tamil kitchen</h2>
             <p lang="ta" className="ta mt-1 font-display text-xl font-medium text-leaf">{cat.nameTa}</p>
             <p className="mt-3 text-muted">
               The powders behind sambar, kuzhambu and rasam, plus chilli and turmeric — {items.length} listed on the

@@ -49,24 +49,24 @@ export function OrderDetail({ order }: { order: Order }) {
   return (
     <div className="grid gap-6 md:grid-cols-[minmax(0,1fr)_18rem]">
       <div>
-        <h3 className="text-xl font-bold">Items</h3>
+        <h3 className="t-h4 font-bold">Items</h3>
         <div className="mt-1"><OrderItems order={order} /></div>
         <div className="mt-3 border-t border-mist pt-4"><Totals subtotal={order.subtotal} delivery={order.delivery} total={order.total} /></div>
       </div>
-      <div className="space-y-5 self-start rounded-[1.5rem] bg-mint p-5 sm:p-6">
+      <div className="space-y-5 self-start rounded-[1.5rem] bg-white border border-mist p-5 sm:p-6">
         <div>
-          <h3 className="text-xl font-bold">Deliver to</h3>
+          <h3 className="t-h4 font-bold">Deliver to</h3>
           <div className="mt-2"><OrderAddress order={order} /></div>
         </div>
         {order.customer.notes && (
           <div>
-            <h3 className="text-xl font-bold">Your note</h3>
+            <h3 className="t-h4 font-bold">Your note</h3>
             <p className="mt-2 whitespace-pre-line text-muted">{order.customer.notes}</p>
           </div>
         )}
         <div>
-          <h3 className="text-xl font-bold">Payment</h3>
-          <p className="mt-2">Cash on Delivery: {inr(order.total)} due when the order arrives.</p>
+          <h3 className="t-h4 font-bold">Payment</h3>
+          <p className="mt-2">Cash on delivery: {inr(order.total)} due when the order arrives.</p>
         </div>
       </div>
     </div>

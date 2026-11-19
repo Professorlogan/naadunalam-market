@@ -17,23 +17,23 @@ export default function SearchResults() {
       {q === "" ? (
         <div className="rounded-[1.5rem] bg-sky p-6 sm:p-8">
           <SearchBox initial="" label="Search the shop" />
-          <h2 className="mt-6 font-display text-2xl font-bold text-forest-deep">What are you looking for?</h2>
+          <h2 className="t-h3 mt-6 font-display font-bold text-forest-deep">What are you looking for?</h2>
           <p className="mt-2 max-w-2xl text-[15px] text-muted">
             Search by English name, Tamil name or product code, for example “samba”, “அவல்” or “NN-TUR-001”. Or pick a category.
           </p>
           <div className="mt-4"><CategoryLinks label="Browse by category" /></div>
         </div>
       ) : results.length === 0 ? (
-        <div className="rounded-[1.5rem] bg-butter p-6 sm:p-8">
+        <div className="rounded-[1.5rem] bg-white border border-mist p-6 sm:p-8">
           <span aria-hidden className="mb-4 grid h-12 w-12 place-items-center rounded-full bg-white text-forest"><SearchX size={24} /></span>
-          <h2 role="status" className="font-display text-2xl font-bold text-forest-deep">No products match “{q}”</h2>
+          <h2 role="status" className="t-h3 font-display font-bold text-forest-deep">No products match “{q}”</h2>
           <div className="mt-4"><SearchBox key={q} initial={q} label="Search again" /></div>
           <ul className="prose-nn mt-3 text-[15px] text-muted">
             <li>Check the spelling, or try a shorter word such as “samba” instead of the full variety name.</li>
             <li>Try the other language: every product has an English and a Tamil name.</li>
             <li>Many names have several spellings in English (kavuni / kauni, aval / poha). The Tamil name is the surest match.</li>
           </ul>
-          <h3 className="mt-6 font-display text-lg font-bold text-forest-deep">Browse by category instead</h3>
+          <h3 className="t-h5 mt-6 font-display font-bold text-forest-deep">Browse by category instead</h3>
           <div className="mt-3"><CategoryLinks label="Browse by category" /></div>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link href="/shop" className="btn btn-primary">Shop all {products.length} products</Link>
@@ -42,8 +42,9 @@ export default function SearchResults() {
         </div>
       ) : (
         <div>
+          <div className="mb-6 max-w-xl"><SearchBox key={q} initial={q} label="Search again" /></div>
           <p role="status" className="mb-5 flex flex-wrap items-baseline gap-x-3 gap-y-1">
-            <span className="font-display text-2xl font-bold text-forest-deep">Results for “{q}”</span>
+            <span className="t-h3 font-display font-bold text-forest-deep">Results for “{q}”</span>
             <span className="text-[15px] text-muted">{results.length} {results.length === 1 ? "product" : "products"}</span>
           </p>
           <Catalogue key={q} items={results} featuredLabel="Best match" />

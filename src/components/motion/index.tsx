@@ -8,7 +8,8 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, type ReactNode, type PointerEvent as RPointerEvent } from "react";
 
 export const EASE = [0.22, 1, 0.36, 1] as const;
-const VIEW = { once: true, margin: "0px 0px -8% 0px" } as const;
+// Trigger as soon as any part is on screen, so content can never stay hidden near the bottom of a page.
+const VIEW = { once: true, amount: 0, margin: "0px 0px 0px 0px" } as const;
 
 /**
  * Shopping pages stay calm: entrance animations are switched off there and only quick
@@ -84,7 +85,7 @@ export function SplitWords({ text, className, delay = 0, inView = false }: { tex
 /** Counts up to a number when it scrolls into view. */
 export function CountUp({ to, className, prefix = "", suffix = "" }: { to: number; className?: string; prefix?: string; suffix?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const seen = useInView(ref, { once: true, margin: "0px 0px -10% 0px" });
+  const seen = useInView(ref, { once: true, amount: 0 });
   const reduce = useReducedMotion();
   useEffect(() => {
     if (!seen || !ref.current) return;

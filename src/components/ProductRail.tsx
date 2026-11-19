@@ -19,7 +19,7 @@ export default function ProductRail({ title, titleTa, blurb, href, linkLabel = "
     <section aria-labelledby={id} className="wrap grid gap-x-8 gap-y-4 py-10 lg:grid-cols-[15rem_minmax(0,1fr)]">
       <div className="flex flex-wrap items-end justify-between gap-3 lg:flex-col lg:items-start lg:justify-start">
         <div>
-          <h2 id={id} className="font-display text-2xl font-bold text-forest-deep [text-wrap:balance] sm:text-3xl">{title}</h2>
+          <h2 id={id} className="t-h3 font-display font-bold text-forest-deep [text-wrap:balance]">{title}</h2>
           {titleTa && <p lang="ta" className="ta mt-0.5 text-[15px] font-medium text-leaf">{titleTa}</p>}
           {blurb && <p className="mt-2 text-[15px] text-muted max-lg:hidden">{blurb}</p>}
         </div>

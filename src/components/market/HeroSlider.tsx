@@ -53,14 +53,14 @@ export default function HeroSlider() {
       <div className={`relative overflow-hidden rounded-[2rem] transition-colors duration-700 ${s.bg}`}>
         <AnimatePresence mode="popLayout" initial={false}>
           <motion.div key={i} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.6 }}
-            className="relative grid min-h-[30rem] md:min-h-[27rem] lg:min-h-[32rem]" role="group" aria-roledescription="slide" aria-label={`${i + 1} of ${slides.length}`}>
+            className="relative grid min-h-[34rem] sm:min-h-[40rem] lg:min-h-[32rem]" role="group" aria-roledescription="slide" aria-label={`${i + 1} of ${slides.length}`}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <motion.img src={s.img} alt={s.alt} width={1600} height={900} fetchPriority={i === 0 ? "high" : "auto"}
-              initial={{ scale: 1.06 }} animate={{ scale: 1 }} transition={{ duration: 1.4, ease: [0.19, 1, 0.22, 1] }}
-              className="absolute inset-x-0 bottom-0 h-[58%] w-full object-cover object-[72%_50%] md:inset-0 md:h-full" />
-            <div className="relative z-10 flex flex-col justify-start px-6 pb-8 pt-8 sm:px-10 md:max-w-[52%] md:justify-center md:py-12 lg:px-14">
+              initial={{ scale: 1.08 }} animate={{ scale: 1 }} transition={{ duration: 7, ease: "linear" }}
+              className="absolute inset-x-0 bottom-0 h-[48%] w-full object-cover object-[78%_60%] [mask-image:linear-gradient(to_bottom,transparent,black_22%)] sm:h-[52%] lg:inset-0 lg:h-full lg:[mask-image:none]" />
+            <div className="relative z-10 flex flex-col justify-start px-6 pb-8 pt-8 sm:px-10 sm:pt-12 lg:max-w-[52%] lg:justify-center lg:py-12 lg:px-14">
               <motion.p initial={{ y: 16, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.15, duration: 0.6 }} className={`text-sm font-bold uppercase tracking-[0.12em] ${s.accent}`}>{s.eyebrow}</motion.p>
-              <motion.h2 initial={{ y: 22, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.25, duration: 0.7 }} className="mt-3 text-[2.1rem] leading-[1.05] sm:text-5xl lg:text-[3.6rem]">{s.title}</motion.h2>
+              <motion.h2 initial={{ y: 22, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.25, duration: 0.7 }} className="mt-3 text-4xl font-bold leading-[1.04] tracking-[-0.02em] sm:text-5xl lg:text-6xl">{s.title}</motion.h2>
               <motion.p initial={{ y: 22, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.35, duration: 0.7 }} className="mt-4 max-w-md text-base text-ink/75 sm:text-lg">{s.text}</motion.p>
               <motion.div initial={{ y: 22, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.45, duration: 0.7 }} className="mt-6">
                 <Link href={s.href} className="btn btn-primary">{s.cta} <ChevronRight size={18} /></Link>
@@ -68,12 +68,14 @@ export default function HeroSlider() {
             </div>
           </motion.div>
         </AnimatePresence>
-        <button type="button" aria-label="Previous slide" onClick={() => go(-1)} className="absolute left-3 top-1/2 z-20 hidden h-11 w-11 -translate-y-1/2 place-items-center rounded-full bg-white text-ink shadow-md transition hover:bg-forest hover:text-white md:grid"><ChevronLeft size={20} /></button>
-        <button type="button" aria-label="Next slide" onClick={() => go(1)} className="absolute right-3 top-1/2 z-20 hidden h-11 w-11 -translate-y-1/2 place-items-center rounded-full bg-white text-ink shadow-md transition hover:bg-forest hover:text-white md:grid"><ChevronRight size={20} /></button>
+        <button type="button" aria-label="Previous slide" onClick={() => go(-1)} className="absolute left-3 top-1/2 z-20 hidden h-11 w-11 -translate-y-1/2 place-items-center rounded-full bg-white text-ink shadow-md transition hover:bg-forest hover:text-white lg:grid"><ChevronLeft size={20} /></button>
+        <button type="button" aria-label="Next slide" onClick={() => go(1)} className="absolute right-3 top-1/2 z-20 hidden h-11 w-11 -translate-y-1/2 place-items-center rounded-full bg-white text-ink shadow-md transition hover:bg-forest hover:text-white lg:grid"><ChevronRight size={20} /></button>
         <div className="absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 gap-2 rounded-full bg-white/80 px-3 py-2 backdrop-blur">
           {slides.map((sl, n) => (
             <button key={sl.href} type="button" aria-label={`Show slide ${n + 1}: ${sl.eyebrow}`} aria-current={n === i} onClick={() => setI(n)}
-              className={`h-2.5 rounded-full transition-all duration-300 ${n === i ? "w-7 bg-forest" : "w-2.5 bg-forest/30 hover:bg-forest/60"}`} />
+              className={`relative h-2.5 overflow-hidden rounded-full transition-all duration-300 ${n === i ? "w-9 bg-forest/25" : "w-2.5 bg-forest/30 hover:bg-forest/60"}`}>
+              {n === i && <motion.span key={`${i}-${paused}`} aria-hidden className="absolute inset-y-0 left-0 rounded-full bg-forest" initial={{ width: paused || reduce ? "100%" : "0%" }} animate={{ width: "100%" }} transition={{ duration: paused || reduce ? 0 : 6.5, ease: "linear" }} />}
+            </button>
           ))}
         </div>
       </div>

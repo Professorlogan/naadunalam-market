@@ -28,7 +28,7 @@ export default function CartDrawer() {
           <motion.button initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }} type="button" tabIndex={-1} aria-label="Close basket" className="absolute inset-0 bg-ink/50" onClick={() => setDrawerOpen(false)} />
           <motion.div initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }} transition={{ duration: 0.28, ease: [0.2, 0.75, 0.25, 1] }} className="absolute inset-y-0 right-0 flex w-[min(29rem,100vw)] flex-col overflow-hidden bg-white shadow-[0_0_60px_-20px_rgb(23_39_30/0.5)] sm:rounded-l-[1.75rem]">
             <div className="flex items-center justify-between border-b border-mist px-5 py-4 sm:px-6">
-              <h2 className="text-2xl font-bold text-forest-deep">Your basket</h2>
+              <h2 className="t-h3 font-bold text-forest-deep">Your basket</h2>
               <button type="button" aria-label="Close basket" onClick={() => setDrawerOpen(false)} className="grid h-11 w-11 place-items-center rounded-full border border-mist text-forest transition-colors hover:bg-mint"><X size={20} /></button>
             </div>
             {cart.length === 0 ? (
@@ -43,7 +43,7 @@ export default function CartDrawer() {
                 <div className="flex-1 space-y-5 overflow-y-auto overflow-x-hidden px-4 py-5 sm:px-5">
                   {stores.filter((st) => cart.some((l) => lineInfo(l)?.product.vendor === st.slug)).map((st) => (
                     <section key={st.slug} aria-label={`From ${st.name}`} >
-                      <h3 className="mb-2.5 px-1 font-body text-sm font-semibold text-muted">From <Link href={`/store/${st.slug}`} className="font-bold text-leaf hover:underline">{st.name}</Link></h3>
+                      <h3 className="t-h5 mb-2.5 px-1 font-body font-semibold text-muted">From <Link href={`/store/${st.slug}`} className="font-bold text-leaf hover:underline">{st.name}</Link></h3>
                       <ul className="space-y-2.5">
                         <AnimatePresence initial={false}>{cart.map((l) => {
                           const i = lineInfo(l); if (!i || i.product.vendor !== st.slug) return null;

@@ -18,6 +18,7 @@ export default function StoreProducts({ products, newest, cats, storeName }: {
   const [cat, setCat] = useState<string>("all");
   const [sort, setSort] = useState<Sort>("default");
   const [query, setQuery] = useState("");
+  const [limit, setLimit] = useState(12);
 
   const q = query.trim().toLowerCase();
   const matched = useMemo(
@@ -40,7 +41,7 @@ export default function StoreProducts({ products, newest, cats, storeName }: {
   const pill = (value: string, label: string, count: number) => {
     const active = cat === value;
     return (
-      <button key={value} type="button" aria-pressed={active} onClick={() => setCat(value)}
+      <button key={value} type="button" aria-pressed={active} onClick={() => { setCat(value); setLimit(12); }}
         className={`inline-flex min-h-11 shrink-0 items-center gap-2 rounded-full border px-4 text-[15px] font-semibold transition-colors duration-150 ${
           active ? "border-leaf bg-leaf text-white" : "border-mist bg-white text-forest-deep hover:text-leaf"}`}>
         {label} <span className={`text-sm font-normal tabular-nums ${active ? "text-white/80" : "text-muted"}`}>{count}</span>
@@ -58,7 +59,7 @@ export default function StoreProducts({ products, newest, cats, storeName }: {
       )}
 
       <section className="wrap py-10 sm:py-12" aria-labelledby="store-all">
-        <h2 id="store-all" className="text-2xl font-bold sm:text-[1.75rem]">All products from {storeName}</h2>
+        <h2 id="store-all" className="t-h3 font-bold">All products from {storeName}</h2>
 
         <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <div className="relative w-full sm:max-w-sm">
@@ -93,12 +94,20 @@ export default function StoreProducts({ products, newest, cats, storeName }: {
         )}
 
         <p role="status" className="mt-4 text-[15px] text-muted">
-          Showing <span className="font-semibold tabular-nums text-forest-deep">{shown.length}</span> of {products.length}{" "}
+          Showing <span className="font-semibold tabular-nums text-forest-deep">{Math.min(limit, shown.length)}</span> of {shown.length}{" "}
           {products.length === 1 ? "product" : "products"}{q && <> for “{query.trim()}”</>}
         </p>
 
         {shown.length > 0 ? (
-          <ProductGrid products={shown} className="mt-4" />
+          <>
+            <ProductGrid products={shown.slice(0, limit)} className="mt-4" />
+            {shown.length > limit && (
+              <div className="mt-8 flex flex-col items-center gap-2">
+                <button type="button" className="btn btn-ghost !rounded-full" onClick={() => setLimit((n) => n + 12)}>Show more products</button>
+                <p className="text-sm text-muted">{shown.length - limit} more to see</p>
+              </div>
+            )}
+          </>
         ) : (
           <div className="card mt-4 p-6">
             <p>{q ? `No ${storeName} products match “${query.trim()}”${cat !== "all" ? " in this category" : ""}.` : "No products in this category right now."}</p>

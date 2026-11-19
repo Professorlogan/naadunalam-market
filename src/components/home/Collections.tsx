@@ -14,7 +14,7 @@ export default function Collections() {
     <section aria-labelledby="collections-title" className="wrap py-12 sm:py-16">
       <div className="grid gap-x-12 gap-y-6 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,2fr)]">
         <Reveal>
-          <h2 id="collections-title" className="text-3xl font-bold sm:text-4xl">Collections built around real cooking</h2>
+          <h2 id="collections-title" className="t-h2 font-bold">Collections built around real cooking</h2>
           <p className="mt-3 text-muted">Four staples an Indian kitchen keeps stocked — each one a live category on the marketplace.</p>
         </Reveal>
         <Stagger as="ul" gap={0.1} className="grid border-t border-mist md:grid-cols-2 md:gap-x-10">
@@ -25,7 +25,7 @@ export default function Collections() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={c.image} alt="" width={300} height={300} loading="lazy" className="h-20 w-20 shrink-0 rounded-full object-cover ring-4 ring-white transition-[scale,rotate] duration-500 group-hover:rotate-6 group-hover:scale-110 sm:h-28 sm:w-28" />
                 <div className="min-w-0">
-                  <h3 className="text-xl font-semibold">{c.title}</h3>
+                  <h3 className="t-h4 font-semibold">{c.title}</h3>
                   {cat && <p lang="ta" className="ta hidden text-sm text-leaf sm:block">{cat.nameTa}</p>}
                   <p className="mt-1 text-base leading-snug text-muted">{c.text}</p>
                   <Link href={`/product-category/${c.slug}`} className="link mt-1.5 inline-flex min-h-11 items-center font-semibold after:absolute after:inset-0">

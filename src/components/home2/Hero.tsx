@@ -11,7 +11,7 @@ export default function Hero() {
       <div className="wrap py-10 sm:py-14 lg:flex lg:min-h-[38rem] lg:items-center lg:py-24">
         <div className="nn-hero-copy max-w-xl">
           <p lang="ta" className="ta text-lg font-medium text-leaf sm:text-xl">நம்ம மண்ணின் சுவை. நம்ம மக்களின் நலம்.</p>
-          <h1 id="hero-title" className="mt-4 text-[2.6rem] !font-medium leading-[1.04] tracking-[-0.02em] sm:text-6xl lg:text-[4.25rem]">Naturally grown food, straight from local sellers</h1>
+          <h1 id="hero-title" className="t-h1 mt-4 !font-medium">Naturally grown food, straight from local sellers</h1>
           <p className="mt-6 max-w-md text-lg leading-relaxed text-ink/80">Native rice, millets, pulses, cold-pressed oils and ground masalas from independent Tamil Nadu growers, in one marketplace.</p>
           <div className="mt-8 flex flex-wrap items-center gap-x-7 gap-y-4">
             <Link href="/shop" className="btn btn-primary !min-h-[3.25rem] !px-8 text-[17px]">Shop the marketplace</Link>

@@ -38,7 +38,7 @@ export const site = {
   hours: "Monday to Saturday, 9:00 AM – 6:00 PM",
   deliveryFee: 50,
   deliveryLine: "Flat ₹50 delivery across Tamil Nadu",
-  payment: "Cash on Delivery",
+  payment: "Cash on delivery",
 };
 
 export const collaborators = [
