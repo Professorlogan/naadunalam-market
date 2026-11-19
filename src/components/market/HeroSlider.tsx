@@ -6,6 +6,13 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const slides = [
   {
+    bg: "bg-mint", accent: "text-leaf", img: "/img/m/hero-packs.webp",
+    alt: "Naadu Nalam pouches of Karuppu Kavuni rice, Mappillai Samba rice, pearl millet and toor dal with bowls of each grain",
+    eyebrow: "From the Naadu Nalam store", title: "Heritage grains, packed with care",
+    text: "Karuppu Kavuni, Mappillai Samba, pearl millet, toor dal and more, cleaned and packed by Naadu Nalam.",
+    cta: "Shop the Naadu Nalam store", href: "/store/naadunalam",
+  },
+  {
     bg: "bg-mint", accent: "text-leaf", img: "/img/m/hero-rice.webp",
     alt: "Black Karuppu Kavuni, red Mappillai Samba and white Thooyamalli rice in terracotta bowls on a banana leaf",
     eyebrow: "Heritage rice of Tamil Nadu", title: "Rice the way our grandparents ate it",
