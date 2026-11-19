@@ -29,8 +29,8 @@ export default function ResearchArticlesPage() {
           <p>We have not published any research yet. When the first pieces are ready, each one will appear here with its title, date, a short summary and a link to read it in full.</p>
         </EmptyState>
       </section>
-      <section className="border-y border-mist bg-white">
-        <div className="wrap py-12 sm:py-16">
+      <section className="wrap py-4 sm:py-6">
+        <div className="rounded-[2rem] bg-sky px-6 py-10 sm:px-10 sm:py-12">
           <SectionHeading
             title="From the blog in the meantime"
             intro="These are practical guides rather than research, but they cover the same foods — how to tell one honey from another, why cold-pressed oil tastes different, which rice suits which meal."
@@ -44,8 +44,8 @@ export default function ResearchArticlesPage() {
       <ClosingBand
         title="Working on something we should read?"
         actions={<>
-          <Link href="/contact" className="btn btn-sun">Contact us</Link>
-          <Link href="/about-us" className="btn btn-light">About Naadu Nalam</Link>
+          <Link href="/contact" className="btn btn-primary">Contact us</Link>
+          <Link href="/about-us" className="btn btn-ghost">About Naadu Nalam</Link>
         </>}
       >
         If you research Tamil Nadu food systems, traditional crops or nutrition and would like your work published here, we would like to hear from you.

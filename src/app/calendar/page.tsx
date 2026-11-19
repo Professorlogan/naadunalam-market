@@ -41,8 +41,8 @@ export default function CalendarPage() {
           <p>Nothing is on the calendar yet. The year below is where dates will land as they are confirmed — one line per activity, under the month it falls in.</p>
         </EmptyState>
       </section>
-      <section className="border-y border-mist bg-white">
-        <div className="wrap py-12 sm:py-16">
+      <section className="wrap py-4 sm:py-6">
+        <div className="rounded-[2rem] bg-sky px-6 py-10 sm:px-10 sm:py-12">
           <SectionHeading
             title="The year ahead"
             intro="Markets and stalls, farm and producer visits, tastings, and notices about when dispatch pauses will each be listed against their month."
@@ -53,8 +53,8 @@ export default function CalendarPage() {
       <ClosingBand
         title="Something we should put in the diary?"
         actions={<>
-          <Link href="/contact" className="btn btn-sun">Contact us</Link>
-          <Link href="/events" className="btn btn-light">See events</Link>
+          <Link href="/contact" className="btn btn-primary">Contact us</Link>
+          <Link href="/events" className="btn btn-ghost">See events</Link>
         </>}
       >
         If you are organising a market, a farm visit or a food event that fits Naadu Nalam, tell us and we will add it here.

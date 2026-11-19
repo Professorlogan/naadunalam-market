@@ -77,7 +77,7 @@ export default function ContactForm() {
           <motion.h3 variants={rise} className="mt-3 text-2xl font-bold">Your message passed every check, {sent.name.trim().split(/\s+/)[0]}</motion.h3>
           <motion.p variants={rise} className="mt-2">
             This site is a prototype, so the form is not connected yet and <strong>nothing has been sent</strong>. Until it is,
-            please reach us by phone, WhatsApp or email using the details on this page.
+            please reach us by phone, Telegram or email using the details on this page.
           </motion.p>
           <motion.dl variants={rise} className="mt-4 grid gap-x-4 gap-y-1 text-base sm:grid-cols-[6rem_1fr]">
             <dt className="font-semibold text-forest-deep">Topic</dt><dd>{sent.topic}</dd>

@@ -1,8 +1,9 @@
 import Link from "next/link";
+import { ShoppingBasket, type LucideIcon } from "lucide-react";
 import { getStore } from "../../lib/data";
 import { lineInfo, type CartLine } from "../../lib/store";
 import { Reveal } from "../motion";
-import { EmptyArt, Ticker } from "./fx";
+import { Ticker } from "./fx";
 
 export type ResolvedLine = { line: CartLine; info: NonNullable<ReturnType<typeof lineInfo>> };
 
@@ -60,20 +61,38 @@ export function Skeleton({ rows = 3, label = "Loading your saved items" }: { row
   );
 }
 
-/** Every empty state on the account pages: a plain white card, centred, at most 640px wide. */
-export const emptyCard = "card mx-auto max-w-[640px] p-6 sm:p-8";
+/** Every empty state on the account pages: a white rounded card, centred, at most 640px wide. */
+export const emptyCard = "mx-auto flex max-w-[640px] flex-col items-center rounded-[1.75rem] border border-mist bg-white p-7 text-center sm:p-10";
 /** Heading of the totals column on the basket and checkout pages. */
-export const summaryTitle = "mb-4 text-2xl font-bold";
+export const summaryTitle = "mb-4 text-2xl font-bold text-forest-deep";
+/** White rounded card used for line items, form sections and lists. */
+export const marketCard = "rounded-[1.25rem] border border-mist bg-white";
+/** Pastel side panel (summaries, info panels). Add a tint: bg-mint, bg-butter, bg-aqua… */
+export const pastelPanel = "rounded-[1.5rem] p-5 sm:p-7";
+/** Small round icon button (remove, close). */
+export const roundIconBtn = "grid h-11 min-h-11 w-11 min-w-11 shrink-0 place-items-center rounded-full border border-mist bg-white text-muted transition-colors duration-150 hover:border-soil/40 hover:bg-peach hover:text-soil";
+/** Wrapper that tints the shared quantity stepper leaf/forest. */
+export const stepperTint = "inline-flex [&>div]:border-leaf/35 [&>div]:bg-mint/60 [&_button]:text-forest [&_button:hover]:bg-leaf [&_button:hover]:text-white";
+
+/** Large pastel disc holding an icon, the head of every empty and success state. */
+export function IconDisc({ icon: Icon = ShoppingBasket, tint = "bg-mint", className = "" }: { icon?: LucideIcon; tint?: string; className?: string }) {
+  return (
+    <span aria-hidden className={`grid h-24 w-24 place-items-center rounded-full ${tint} text-forest ${className}`}>
+      <Icon size={40} strokeWidth={1.75} />
+    </span>
+  );
+}
 /** Text buttons in the toolbars above the basket, wishlist and comparison. */
 export const toolLink = "link min-h-11 px-1 text-[15px] font-semibold";
 
-export function EmptyState({ title, text, children }: { title: string; text: string; children: React.ReactNode }) {
+export function EmptyState({ title, text, children, icon, tint }: { title: string; text: string; children: React.ReactNode; icon?: LucideIcon; tint?: string }) {
   return (
     <section className="wrap pb-6 pt-10 sm:pb-8 sm:pt-14">
       <Reveal className={emptyCard}>
-        <h2 className="text-2xl font-bold sm:text-3xl">{title}</h2>
-        <p className="mt-3 text-muted">{text}</p>
-        <div className="mt-6 flex flex-wrap gap-3">{children}</div>
+        <IconDisc icon={icon} tint={tint} className="mb-6" />
+        <h2 className="text-2xl font-bold text-forest-deep sm:text-3xl">{title}</h2>
+        <p className="mt-3 max-w-[46ch] text-muted">{text}</p>
+        <div className="mt-7 flex flex-wrap justify-center gap-3">{children}</div>
       </Reveal>
     </section>
   );
@@ -93,7 +112,7 @@ export function Totals({ subtotal, delivery, total }: { subtotal: number; delive
 
 export function PrototypeNote({ children }: { children: React.ReactNode }) {
   return (
-    <p role="note" className="rounded-xl border border-sun bg-sun/15 px-4 py-3 text-base text-ink">
+    <p role="note" className="rounded-[1.25rem] bg-butter px-5 py-3.5 text-base text-ink">
       <strong className="font-semibold">Prototype. </strong>{children}
     </p>
   );

@@ -8,9 +8,9 @@ import { inr } from "../../lib/format";
 import { COMPARE_MAX, useStore } from "../../lib/store";
 import type { Product } from "../../lib/types";
 import { EASE, Reveal } from "../motion";
-import { emptyCard, per100, Skeleton, toolLink } from "./shared";
+import { emptyCard, IconDisc, per100, Skeleton, toolLink } from "./shared";
 
-const rowHead = "sticky left-0 z-10 w-[84px] min-w-[84px] border-r border-mist bg-sky px-2 py-3 text-left align-top text-sm font-semibold text-forest-deep sm:w-40 sm:min-w-40 sm:px-4 sm:text-[15px]";
+const rowHead = "sticky left-0 z-10 w-[84px] min-w-[84px] border-r border-mist bg-mint px-2 py-3 text-left align-top text-sm font-semibold text-forest-deep sm:w-40 sm:min-w-40 sm:px-4 sm:text-[15px]";
 const cell = "px-2 py-3 align-top sm:px-4";
 /** Columns fade and grow in, fade out when removed, and the remaining ones slide across to close the gap. */
 const column = {
@@ -48,13 +48,14 @@ export default function CompareView() {
     return (
       <section className="wrap pb-6 pt-10 sm:pb-8 sm:pt-14">
         <Reveal className={emptyCard}>
-          <h2 className="text-2xl font-bold sm:text-3xl">Nothing to compare yet</h2>
-          <p className="mt-3 text-muted">
+          <IconDisc icon={GitCompareArrows} tint="bg-aqua" className="mb-6" />
+          <h2 className="text-2xl font-bold text-forest-deep sm:text-3xl">Nothing to compare yet</h2>
+          <p className="mt-3 max-w-[52ch] text-muted">
             Every product card in the shop has a compare button, the one with two arrows{" "}
             <GitCompareArrows size={18} aria-hidden className="inline align-[-3px] text-forest" /> under the heart. Tap it on up to {COMPARE_MAX} products,
             then come back here to see price, pack size, unit price, seller and stock side by side.
           </p>
-          <p className="mt-6"><Link href="/shop" className="btn btn-primary">Choose products to compare</Link></p>
+          <p className="mt-7"><Link href="/shop" className="btn btn-primary">Choose products to compare</Link></p>
         </Reveal>
       </section>
     );
@@ -83,7 +84,7 @@ export default function CompareView() {
             <span className="font-semibold tabular-nums">{inr(u.value)}</span> <span className="block whitespace-nowrap text-sm text-muted sm:inline sm:text-base">per {u.per}</span>
             <AnimatePresence initial={false}>
               {best.has(p.id) && (
-                <motion.span key="best" className="mt-1.5 flex w-fit items-center gap-1 whitespace-nowrap rounded-full bg-sun px-2 py-1 text-sm font-semibold text-ink"
+                <motion.span key="best" className="mt-1.5 flex w-fit items-center gap-1 whitespace-nowrap rounded-full bg-butter px-2.5 py-1 text-sm font-semibold text-ink"
                   initial={{ opacity: 0, scale: 0.5, y: 6 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: 0.6 }} transition={{ type: "spring", stiffness: 420, damping: 18, delay: 0.25 }}>
                   <motion.span aria-hidden className="grid" animate={{ rotate: [0, -14, 12, 0] }} transition={{ duration: 0.7, delay: 0.55 }}><BadgeCheck size={16} /></motion.span>
                   Best value
@@ -131,7 +132,7 @@ export default function CompareView() {
           <motion.span key={items.length} aria-hidden className="grid text-forest" animate={{ x: [0, 8, 0, 8, 0] }} transition={{ duration: 1.6, ease: "easeInOut", delay: 0.6 }}><ArrowRight size={16} /></motion.span>
         )}
       </p>
-      <motion.div ref={scroller} layoutScroll role="region" aria-label="Product comparison" aria-describedby={overflows ? "compare-scroll-hint" : undefined} tabIndex={0} className="card overflow-x-auto"
+      <motion.div ref={scroller} layoutScroll role="region" aria-label="Product comparison" aria-describedby={overflows ? "compare-scroll-hint" : undefined} tabIndex={0} className="overflow-x-auto rounded-[1.5rem] border border-mist bg-white"
         initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, ease: EASE, delay: 0.1 }}>
         {/* Fixed layout with equal product columns, so every image is the same size and the titles line up across columns. */}
         <table className="w-full min-w-[calc(84px+var(--n)*136px)] table-fixed border-collapse text-left sm:min-w-[calc(10rem+var(--n)*13rem)]" style={{ "--n": items.length } as React.CSSProperties}>
@@ -149,10 +150,10 @@ export default function CompareView() {
                   <div className="relative max-w-[180px]">
                     <Link href={`/product/${p.slug}`} className="block overflow-hidden rounded-xl">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={p.images[0]?.src} alt={p.images[0]?.alt ?? p.name} width={180} height={180} className="aspect-square w-full bg-sky object-cover" />
+                      <img src={p.images[0]?.src} alt={p.images[0]?.alt ?? p.name} width={180} height={180} className="aspect-square w-full bg-sky object-cover transition-transform duration-300 hover:scale-105" />
                     </Link>
                     <button type="button" aria-label={`Remove ${p.name} from compare`} onClick={() => toggleCompare(p.id)}
-                      className="absolute right-1 top-1 grid h-11 w-11 place-items-center rounded-full bg-white/95 text-forest hover:bg-sun">
+                      className="absolute right-1.5 top-1.5 grid h-11 w-11 place-items-center rounded-full border border-mist bg-white text-forest shadow-sm transition-colors hover:bg-peach hover:text-soil">
                       <X size={18} />
                     </button>
                   </div>
@@ -165,7 +166,7 @@ export default function CompareView() {
           </thead>
           <tbody>
             {rows.map((r) => (
-              <tr key={r.label} className="border-b border-mist transition-colors duration-200 hover:bg-sun/10">
+              <tr key={r.label} className="border-b border-mist transition-colors duration-200 hover:bg-butter/50">
                 <th scope="row" className={rowHead}>{r.label}</th>
                 <AnimatePresence initial={false}>
                   {items.map((p) => <motion.td key={p.id} className={cell} {...column}>{r.render(p)}</motion.td>)}

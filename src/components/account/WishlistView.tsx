@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { Check, ShoppingBasket, Trash2 } from "lucide-react";
+import { Check, Heart, ShoppingBasket, Trash2 } from "lucide-react";
 import { getProductById, getStore, products } from "../../lib/data";
 import { inr } from "../../lib/format";
 import { useStore } from "../../lib/store";
@@ -10,8 +10,8 @@ import type { Product } from "../../lib/types";
 import { EASE, Reveal } from "../motion";
 import ProductGrid from "../ProductGrid";
 import SectionHeading from "../SectionHeading";
-import { EmptyArt, useCollapse } from "./fx";
-import { emptyCard, Skeleton, toolLink } from "./shared";
+import { useCollapse } from "./fx";
+import { emptyCard, IconDisc, marketCard, roundIconBtn, Skeleton, toolLink } from "./shared";
 
 function stockLabel(p: Product) {
   if (!p.inStock) return { text: "Sold out", cls: "text-soil" };
@@ -45,10 +45,10 @@ export default function WishlistView() {
       <section className="wrap pb-8 pt-8 sm:pb-10 sm:pt-12">
         {saved.length === 0 ? (
           <Reveal className={emptyCard}>
-            <EmptyArt />
-            <h2 className="text-2xl font-bold sm:text-3xl">Your wishlist is empty</h2>
-            <p className="mt-3 text-muted">Save the products you love and come back to them any time. They will be waiting right here. Tap the heart on any product to save it.</p>
-            <p className="mt-6"><Link href="/shop" className="btn btn-primary">Start shopping</Link></p>
+            <IconDisc icon={Heart} tint="bg-peach" className="mb-6" />
+            <h2 className="text-2xl font-bold text-forest-deep sm:text-3xl">Your wishlist is empty</h2>
+            <p className="mt-3 max-w-[46ch] text-muted">Save the products you love and come back to them any time. They will be waiting right here. Tap the heart on any product to save it.</p>
+            <p className="mt-7"><Link href="/shop" className="btn btn-primary">Start shopping</Link></p>
           </Reveal>
         ) : (
           <>
@@ -71,14 +71,14 @@ export default function WishlistView() {
                 </AnimatePresence>
               </div>
             </div>
-            <motion.ul className="card overflow-hidden" initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, ease: EASE }}>
+            <motion.ul className="space-y-3" initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, ease: EASE }}>
               <AnimatePresence initial={false}>
               {saved.map((p) => {
                 const seller = getStore(p.vendor);
                 const stock = stockLabel(p);
                 const order = direct.indexOf(p);
                 return (
-                  <motion.li key={p.id} className="overflow-hidden border-mist [&:not(:first-child)]:border-t" {...collapse}>
+                  <motion.li key={p.id} className={`overflow-hidden ${marketCard} transition-shadow duration-200 hover:shadow-[0_18px_40px_-22px_rgb(23_39_30/0.45)]`} {...collapse}>
                   <div className="grid grid-cols-[5.5rem_minmax(0,1fr)] gap-x-4 gap-y-3 p-4 sm:px-6 md:grid-cols-[6.5rem_minmax(0,1fr)_8rem_7rem_auto] md:items-center">
                     <Link href={`/product/${p.slug}`} className="relative row-span-2 self-start md:row-span-1">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -113,8 +113,8 @@ export default function WishlistView() {
                           </button>
                         )}
                         <motion.button type="button" aria-label={`Remove ${p.name} from wishlist`} onClick={() => toggleWishlist(p.id)} whileHover={{ scale: 1.1, rotate: -8 }} whileTap={{ scale: 0.88 }}
-                          className="grid h-11 min-h-11 w-11 min-w-11 shrink-0 place-items-center rounded-full text-muted hover:bg-sky hover:text-soil">
-                          <Trash2 size={18} />
+                          className={roundIconBtn}>
+                          <Trash2 size={17} />
                         </motion.button>
                       </div>
                     </div>
@@ -130,8 +130,8 @@ export default function WishlistView() {
       </section>
 
       {suggestions.length > 0 && (
-        <section className="border-t border-mist bg-white">
-          <div className="wrap pb-6 pt-10 sm:pb-8 sm:pt-14">
+        <section className="wrap pb-6 sm:pb-8">
+          <div className="rounded-[2rem] bg-mint px-5 pb-8 pt-10 sm:px-8 sm:pb-10 sm:pt-12 lg:px-10">
             <SectionHeading title="You may also like" intro="Explore more healthy choices" href="/shop" linkLabel="View all products" />
             {/* Keeps the card's "In your basket" badge clear of the heart button on narrow cards. */}
             <ProductGrid products={suggestions} className="[&_article>span.absolute]:max-w-[calc(100%-4.75rem)] [&_article>span.absolute]:rounded-xl [&_article>span.absolute]:text-xs [&_article>span.absolute]:leading-tight" />

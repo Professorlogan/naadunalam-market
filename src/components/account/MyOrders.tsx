@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Package } from "lucide-react";
 import { inr } from "../../lib/format";
 import { useStore } from "../../lib/store";
 import { EASE, Reveal } from "../motion";
@@ -18,8 +18,8 @@ export default function MyOrders() {
   if (!ready) return <Skeleton label="Loading your orders" />;
   if (orders.length === 0) {
     return (
-      <EmptyState title="You have not placed an order yet" text="When you place an order it appears here with its items, total and delivery address. Orders in this prototype are saved in this browser only.">
-        <Link href="/shop" className="btn btn-primary">Browse the shop</Link>
+      <EmptyState icon={Package} tint="bg-aqua" title="You have not placed an order yet" text="When you place an order it appears here with its items, total and delivery address. Orders in this prototype are saved in this browser only.">
+        <Link href="/shop" className="btn btn-primary">Start shopping</Link>
         <Link href="/cart" className="btn btn-ghost">Open your basket</Link>
       </EmptyState>
     );
@@ -39,17 +39,17 @@ export default function MyOrders() {
           const panel = `order-${o.number}`;
           return (
             <motion.li key={o.number} initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55, ease: EASE, delay: Math.min(idx, 6) * 0.07 }}>
-              <div className={`card overflow-hidden transition-shadow duration-300 ${isOpen ? "shadow-lift" : ""}`}>
+              <div className={`overflow-hidden rounded-[1.25rem] border bg-white transition-shadow duration-300 ${isOpen ? "border-leaf/40 shadow-[0_18px_40px_-22px_rgb(23_39_30/0.45)]" : "border-mist"}`}>
                 <h2 className="font-body text-base font-normal">
                   <button type="button" aria-expanded={isOpen} aria-controls={panel} onClick={() => toggle(o.number)}
-                    className="flex min-h-14 w-full cursor-pointer flex-wrap items-center gap-x-8 gap-y-2 px-4 py-4 text-left transition-colors hover:bg-sky sm:px-6">
+                    className="flex min-h-14 w-full cursor-pointer flex-wrap items-center gap-x-8 gap-y-2 px-4 py-4 text-left transition-colors hover:bg-mint/50 sm:px-6">
                     <span className="min-w-0 flex-1 basis-40">
                       <span className="block font-display text-xl font-bold text-forest-deep">Order {o.number}</span>
                       <span className="block text-[15px] text-muted">{orderDate(o.date)} · {items} {items === 1 ? "item" : "items"}</span>
                     </span>
-                    <span className="rounded-full bg-sun/25 px-3 py-1 text-sm font-semibold text-ink">Cash on Delivery</span>
+                    <span className="rounded-full bg-butter px-3 py-1 text-sm font-semibold text-ink">Cash on Delivery</span>
                     <span className="whitespace-nowrap font-display text-xl font-bold tabular-nums text-forest-deep">{inr(o.total)}</span>
-                    <span className="flex items-center gap-1 text-[15px] font-semibold text-water-deep">
+                    <span className="flex items-center gap-1 rounded-full border border-mist px-3 py-1.5 text-[15px] font-semibold text-leaf">
                       {isOpen ? "Hide details" : "Show details"}
                       <motion.span aria-hidden className="grid" animate={{ rotate: isOpen ? 180 : 0 }} transition={{ type: "spring", stiffness: 320, damping: 24 }}><ChevronDown size={18} /></motion.span>
                     </span>

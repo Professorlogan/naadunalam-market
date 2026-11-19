@@ -21,7 +21,8 @@ export function SellerMonogram({ monogram, tone, size = "md", className = "" }: 
 }
 
 /**
- * Storefront cover made from the seller's own product photos, with the round monogram avatar overlapping its lower edge.
+ * Storefront cover made from the seller's own product photos as rounded tiles, with the round monogram avatar overlapping
+ * its lower edge. Sits inside the pastel store header block (mint), so the avatar ring matches it.
  * Still images only. The avatar sits outside the clipped photo strip, so it is never cut off; leave about 3rem of
  * space below the banner for it.
  */
@@ -32,12 +33,12 @@ export default function StoreBanner({ images, monogram, tone, className = "" }: 
   return (
     <div className="relative">
       {/* Equal tiles that always fill the full width, however many photos there are; the fourth joins from 640px. */}
-      <div className={`flex h-36 w-full gap-px overflow-hidden bg-mist sm:h-48 lg:h-56 ${className}`}>
+      <div className={`flex h-36 w-full gap-2 overflow-hidden rounded-[1.5rem] sm:h-48 sm:gap-3 lg:h-56 ${className}`}>
         {photos.map((src, i) => (
-          <div key={src} className={`min-w-0 flex-1 basis-0 overflow-hidden bg-white ${i === 3 ? "hidden sm:block" : ""}`}><Tile src={src} eager /></div>
+          <div key={src} className={`min-w-0 flex-1 basis-0 overflow-hidden rounded-[1.25rem] bg-white ${i === 3 ? "hidden sm:block" : ""}`}><Tile src={src} eager /></div>
         ))}
       </div>
-      <SellerMonogram monogram={monogram} tone={tone} size="lg" className="absolute -bottom-10 left-4 z-10 border-4 border-white sm:-bottom-12 sm:left-6" />
+      <SellerMonogram monogram={monogram} tone={tone} size="lg" className="absolute -bottom-10 left-4 z-10 border-4 border-mint sm:-bottom-12 sm:left-6" />
     </div>
   );
 }

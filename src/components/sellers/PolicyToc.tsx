@@ -36,11 +36,11 @@ function TocList({ toc, active, marker, onPick }: { toc: TocItem[]; active: stri
         const on = t.id === active;
         return (
           <li key={t.id} className="relative">
-            {on && <motion.span layoutId={marker} aria-hidden className="absolute inset-0 rounded-lg bg-sky" transition={{ type: "spring", stiffness: 420, damping: 36 }} />}
-            {on && <motion.span layoutId={`${marker}-bar`} aria-hidden className="absolute inset-y-1.5 left-0 w-1 rounded-full bg-leaf" transition={{ type: "spring", stiffness: 420, damping: 36 }} />}
+            {on && <motion.span layoutId={marker} aria-hidden className="absolute inset-0 rounded-full bg-white" transition={{ type: "spring", stiffness: 420, damping: 36 }} />}
+            {on && <motion.span layoutId={`${marker}-bar`} aria-hidden className="absolute inset-y-2.5 left-1.5 w-1.5 rounded-full bg-leaf" transition={{ type: "spring", stiffness: 420, damping: 36 }} />}
             <a href={`#${t.id}`} aria-current={on ? "location" : undefined} onClick={onPick}
               title={t.label}
-              className={`relative flex h-11 items-center rounded-lg px-3 transition-colors duration-200 hover:text-leaf ${on ? "font-semibold text-forest" : "text-forest-deep"}`}>
+              className={`relative flex h-11 items-center rounded-full px-4 transition-colors duration-200 hover:text-leaf ${on ? "font-semibold text-forest" : "text-forest-deep"}`}>
               <span className="truncate">{t.label}</span>
             </a>
           </li>
@@ -64,19 +64,19 @@ export default function PolicyToc({ toc }: { toc: TocItem[] }) {
 
   return (
     <>
-      <details className="card group mb-8 lg:hidden" onToggle={(e) => setOpen(e.currentTarget.open)}>
-        <summary className="flex min-h-12 cursor-pointer list-none items-center gap-3 px-4 font-display text-lg font-semibold text-forest-deep [&::-webkit-details-marker]:hidden">
+      <details className="group mb-8 rounded-[1.5rem] bg-sky lg:hidden" onToggle={(e) => setOpen(e.currentTarget.open)}>
+        <summary className="flex min-h-12 cursor-pointer list-none items-center gap-3 px-5 font-display text-lg font-semibold text-forest-deep [&::-webkit-details-marker]:hidden">
           <span>On this page</span>
           {current && !open && <span className="min-w-0 flex-1 truncate text-base font-normal text-muted">{current.label}</span>}
           <ChevronDown aria-hidden size={20} className="ml-auto shrink-0 transition-transform duration-300 group-open:rotate-180" />
         </summary>
-        <motion.nav aria-label="On this page" className="origin-top border-t border-mist p-2"
+        <motion.nav aria-label="On this page" className="origin-top border-t border-forest/10 p-2"
           initial={false} animate={open ? { opacity: [0, 1], y: [-12, 0], scaleY: [0.94, 1] } : {}} transition={{ duration: 0.34, ease: EASE }}>
           <TocList toc={toc} active={active} marker={`${marker}-m`} />
         </motion.nav>
       </details>
       <aside className="hidden lg:sticky lg:top-28 lg:block">
-        <motion.nav aria-labelledby="policy-toc" className="max-h-[calc(100vh-8.5rem)] overflow-y-auto rounded-xl border border-mist bg-white p-3"
+        <motion.nav aria-labelledby="policy-toc" className="max-h-[calc(100vh-8.5rem)] overflow-y-auto rounded-[1.5rem] bg-sky p-4"
           initial={{ opacity: 0, x: -18 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, ease: EASE, delay: 0.3 }}>
           <h2 id="policy-toc" className="px-3 pb-2 pt-1 text-lg font-semibold">On this page</h2>
           <TocList toc={toc} active={active} marker={`${marker}-d`} />

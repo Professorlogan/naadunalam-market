@@ -62,28 +62,28 @@ export default function TestimonialsPage() {
       </section>
 
       {/* Review policy */}
-      <section className="bg-forest text-white">
-        <div className="wrap grid gap-10 py-12 sm:py-16 lg:grid-cols-2 lg:gap-16">
+      <section className="wrap py-4 sm:py-6">
+        <div className="grid gap-10 rounded-[2rem] bg-peach px-6 py-10 sm:px-10 sm:py-12 lg:grid-cols-2 lg:gap-16">
           {/* Both columns are stretched to one height: the quotation sits on the same baseline as the last rule. */}
           <Reveal className="flex flex-col">
-            <h2 className="text-3xl font-bold !text-white sm:text-4xl">Our promise on reviews</h2>
-            <p className="mt-4 font-display text-2xl font-semibold leading-snug text-sun sm:text-3xl">
+            <h2 className="text-3xl font-bold text-forest-deep sm:text-4xl">Our promise on reviews</h2>
+            <p className="mt-4 font-display text-2xl font-semibold leading-snug text-leaf sm:text-3xl">
               We would rather show you nothing than show you reviews we wrote ourselves.
             </p>
-            <figure className="mt-6 border-l-4 border-sun pl-5 lg:mt-auto">
-              <blockquote className="text-lg text-white/90">
+            <figure className="mt-6 border-l-4 border-leaf pl-5 lg:mt-auto">
+              <blockquote className="text-lg text-ink/85">
                 Every review on this site comes from a real customer, published unedited, including the critical ones.
               </blockquote>
-              <figcaption className="mt-2 text-white/75">Naadu Nalam, our review policy</figcaption>
+              <figcaption className="mt-2 text-muted">Naadu Nalam, our review policy</figcaption>
             </figure>
           </Reveal>
           <div className="flex flex-col">
-            <Reveal><h2 className="text-2xl font-bold !text-white">How we handle reviews</h2></Reveal>
+            <Reveal><h2 className="text-2xl font-bold text-forest-deep">How we handle reviews</h2></Reveal>
             <Stagger as="dl" gap={0.14} className="mt-4 flex flex-1 flex-col justify-between">
               {rules.map((r, i) => (
                 <StaggerItem key={r.title} className="relative py-4">
-                  <dt className="font-display text-xl font-bold">{i === 0 && <RuleLine className="absolute inset-x-0 top-0 h-px bg-white/25" />}{r.title}</dt>
-                  <dd className="mt-1 text-white/85">{r.text}<RuleLine className="absolute inset-x-0 bottom-0 h-px bg-white/25" /></dd>
+                  <dt className="font-display text-xl font-bold text-forest-deep">{i === 0 && <RuleLine className="absolute inset-x-0 top-0 h-px bg-forest/20" />}{r.title}</dt>
+                  <dd className="mt-1 text-ink/75">{r.text}<RuleLine className="absolute inset-x-0 bottom-0 h-px bg-forest/20" /></dd>
                 </StaggerItem>
               ))}
             </Stagger>
@@ -119,7 +119,7 @@ export default function TestimonialsPage() {
         <Stagger as="dl" gap={0.12} className="mt-7 grid gap-x-10 sm:grid-cols-2 lg:grid-cols-4">
           {reasons.map((r) => (
             <StaggerItem key={r.title} className="relative py-4">
-              <dt className="font-display text-xl font-bold text-forest-deep"><RuleLine className="absolute inset-x-0 top-0 h-0.5 bg-forest" />{r.title}</dt>
+              <dt className="font-display text-xl font-bold text-forest-deep"><RuleLine className="absolute inset-x-0 top-0 h-0.5 bg-leaf" />{r.title}</dt>
               <dd className="mt-1 text-muted">{r.text}</dd>
             </StaggerItem>
           ))}
@@ -153,7 +153,7 @@ export default function TestimonialsPage() {
             <Link href="/shop" className="btn btn-primary mt-6">Find the product you bought</Link>
           </Reveal>
           <Reveal delay={0.15} className="md:self-start">
-          <aside className="rounded-2xl border-l-4 border-sun bg-sky p-6">
+          <aside className="rounded-[1.5rem] bg-butter p-6">
             <h3 className="text-xl font-bold">Something wrong with an order?</h3>
             <p className="mt-2">
               A review is a slow way to get a problem solved. If an item arrived damaged, spoiled or incorrect,{" "}
@@ -165,15 +165,15 @@ export default function TestimonialsPage() {
         </div>
       </section>
 
-      <section className="bg-forest text-white">
-        <div className="wrap flex flex-col gap-6 py-12 md:flex-row md:items-center md:justify-between">
+      <section className="wrap pb-4 pt-12 sm:pt-16">
+        <div className="flex flex-col gap-6 rounded-[2rem] bg-mint px-6 py-10 sm:px-10 md:flex-row md:items-center md:justify-between">
           <Reveal className="max-w-2xl">
-            <h2 className="text-3xl font-bold !text-white">Ready to discover Naadu Nalam?</h2>
-            <p className="mt-2 text-white/85">Explore our collection of traditional and natural products and become part of our growing community.</p>
+            <h2 className="text-3xl font-bold text-forest-deep">Ready to discover Naadu Nalam?</h2>
+            <p className="mt-2 text-ink/75">Explore our collection of traditional and natural products and become part of our growing community.</p>
           </Reveal>
           <Reveal delay={0.15} className="flex shrink-0 flex-wrap gap-3">
-            <Link href="/shop" className="btn btn-sun">Shop now</Link>
-            <Link href="/contact" className="btn btn-light">Contact us</Link>
+            <Link href="/shop" className="btn btn-primary">Shop now</Link>
+            <Link href="/contact" className="btn btn-ghost">Contact us</Link>
           </Reveal>
         </div>
       </section>

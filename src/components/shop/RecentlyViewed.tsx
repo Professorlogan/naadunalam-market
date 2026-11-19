@@ -25,7 +25,7 @@ export default function RecentlyViewed({ currentId }: { currentId: number }) {
 
   if (list.length < 2) return null;
   return (
-    <div className="border-t border-mist">
+    <div>
       <ProductRail id="recently-viewed" title="Recently viewed" blurb="Products you opened on this device." products={list} />
     </div>
   );

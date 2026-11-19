@@ -27,20 +27,20 @@ const steps = [
 export default function VendorLoginPage() {
   return (
     <>
-      <PageHero tone="forest" title="Sell on Naadu Nalam" titleTa="நாடு நலத்தில் விற்பனை செய்யுங்கள்" crumbs={[{ label: "Sell on Naadu Nalam" }]}
+      <PageHero title="Sell on Naadu Nalam" titleTa="நாடு நலத்தில் விற்பனை செய்யுங்கள்" crumbs={[{ label: "Sell on Naadu Nalam" }]}
         intro="Naadu Nalam is a multi-vendor marketplace. If you already have a vendor account, sign in to reach your dashboard. If you don’t, you can apply to open a shop.">
-        <a href="#apply" className="btn btn-sun">Apply to sell</a>
-        <a href="#login" className="btn btn-light">Vendor login</a>
+        <a href="#apply" className="btn btn-primary">Apply to sell</a>
+        <a href="#login" className="btn btn-ghost">Vendor login</a>
       </PageHero>
 
       <section className="wrap py-12 sm:py-16">
-        <h2 className="text-3xl font-bold sm:text-4xl"><SplitWords text="What you get as a seller" inView /></h2>
-        <Stagger as="ul" gap={0.12} className="mt-6 divide-y divide-mist rounded-3xl border border-mist bg-white md:grid md:grid-cols-3 md:divide-x md:divide-y-0">
+        <h2 className="text-3xl font-bold text-forest-deep sm:text-4xl"><SplitWords text="What you get as a seller" inView /></h2>
+        <Stagger as="ul" gap={0.12} className="mt-6 grid gap-4 md:grid-cols-3 md:gap-5">
           {benefits.map(({ icon: Icon, title, text }, i) => (
-            <StaggerItem as="li" key={title} className="group flex gap-4 p-5 sm:p-6 md:flex-col md:gap-3">
-              <Pop delay={0.15 + i * 0.12} className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-sky text-forest transition-[background-color,color,rotate] duration-300 group-hover:-rotate-6 group-hover:bg-forest group-hover:text-sun"><Icon size={24} /></Pop>
+            <StaggerItem as="li" key={title} className="group flex gap-4 rounded-[1.25rem] border border-mist bg-white p-5 transition-[box-shadow,translate] duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_-22px_rgb(23_39_30/0.45)] sm:p-6 md:flex-col md:gap-3">
+              <Pop delay={0.15 + i * 0.12} className={`grid h-12 w-12 shrink-0 place-items-center rounded-full ${["bg-mint", "bg-butter", "bg-peach"][i]} text-forest transition-[background-color,color,rotate] duration-300 group-hover:-rotate-6 group-hover:bg-leaf group-hover:text-white`}><Icon size={22} /></Pop>
               <div className="min-w-0">
-                <h3 className="text-xl font-semibold">{title}</h3>
+                <h3 className="text-xl font-bold text-forest-deep">{title}</h3>
                 <p className="mt-1 text-muted">{text}</p>
               </div>
             </StaggerItem>
@@ -48,17 +48,17 @@ export default function VendorLoginPage() {
         </Stagger>
       </section>
 
-      <section className="border-y border-mist bg-sky">
-        <div className="wrap grid gap-8 py-12 sm:py-16 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] lg:gap-12">
+      <section className="wrap">
+        <div className="grid gap-8 rounded-[2rem] bg-aqua p-6 sm:p-10 lg:grid-cols-[minmax(0,4fr)_minmax(0,8fr)] lg:gap-12">
           <div>
-            <h2 className="text-3xl font-bold sm:text-4xl"><SplitWords text="How it works" inView /></h2>
+            <h2 className="text-3xl font-bold text-forest-deep sm:text-4xl"><SplitWords text="How it works" inView /></h2>
             <Reveal as="p" delay={0.15} y={16} className="mt-3 text-muted">Three steps from application to your first listing.</Reveal>
           </div>
-          <Stagger as="ol" gap={0.12} className="divide-y divide-mist border-y border-mist sm:grid sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+          <Stagger as="ol" gap={0.12} className="grid gap-3 sm:grid-cols-3 sm:gap-4">
             {steps.map((s, i) => (
-              <StaggerItem as="li" key={s.title} className="py-5 sm:px-6 sm:first:pl-0 sm:last:pr-0">
-                <span aria-hidden className="font-display text-3xl font-bold leading-none tabular-nums text-forest">{i + 1}</span>
-                <h3 className="mt-2 text-xl font-semibold"><span className="sr-only">Step {i + 1}: </span>{s.title}</h3>
+              <StaggerItem as="li" key={s.title} className="rounded-[1.25rem] bg-white p-5">
+                <span aria-hidden className="grid h-11 w-11 place-items-center rounded-full bg-leaf font-display text-2xl font-bold leading-none tabular-nums text-white">{i + 1}</span>
+                <h3 className="mt-3 text-xl font-bold text-forest-deep"><span className="sr-only">Step {i + 1}: </span>{s.title}</h3>
                 <p className="mt-1 text-muted">{s.text}</p>
               </StaggerItem>
             ))}
@@ -68,13 +68,15 @@ export default function VendorLoginPage() {
 
       <section className="wrap pb-6 pt-12 sm:pb-8 sm:pt-16">
         <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-10">
-          <Reveal id="login" className="card scroll-mt-32 p-5 sm:p-8 lg:sticky lg:top-28">
-            <h2 className="text-2xl font-bold sm:text-3xl">Vendor login</h2>
+          <Reveal id="login" className="scroll-mt-32 rounded-[1.75rem] bg-butter p-3 sm:p-4 lg:sticky lg:top-28">
+            <div className="rounded-[1.5rem] border border-mist bg-white p-5 sm:p-7">
+            <h2 className="text-2xl font-bold text-forest-deep sm:text-3xl">Vendor login</h2>
             <p className="mb-6 mt-2 text-muted">Already selling here? Sign in to reach your dashboard.</p>
             <VendorLoginForm />
+            </div>
           </Reveal>
-          <Reveal id="apply" delay={0.12} className="card scroll-mt-32 p-5 sm:p-8">
-            <h2 className="text-2xl font-bold sm:text-3xl">New here? Apply to sell</h2>
+          <Reveal id="apply" delay={0.12} className="scroll-mt-32 rounded-[1.75rem] border border-mist bg-white p-5 sm:p-8">
+            <h2 className="text-2xl font-bold text-forest-deep sm:text-3xl">New here? Apply to sell</h2>
             <p className="mb-6 mt-2 text-muted">
               Fill in your details below to create a vendor account and claim your shop URL. A link to set your password is emailed to you.
             </p>

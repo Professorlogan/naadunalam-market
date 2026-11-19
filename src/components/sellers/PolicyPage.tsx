@@ -19,7 +19,7 @@ export default function PolicyPage({ slug }: { slug: string }) {
     <>
       <PageHero title={heading} intro={intro ?? undefined} crumbs={[{ label: heading }]}>
         {updated && (
-          <p className="inline-flex items-center gap-2 rounded-full bg-sky px-4 py-2 text-[15px] text-forest-deep">
+          <p className="inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-2 text-[15px] text-forest-deep">
             <CalendarDays size={17} aria-hidden />
             <span>Last updated {updated.iso ? <time dateTime={updated.iso}>{updated.label}</time> : updated.label}</span>
           </p>
@@ -30,7 +30,7 @@ export default function PolicyPage({ slug }: { slug: string }) {
         {toc.length > 0 && <PolicyToc toc={toc} />}
 
         <div className="min-w-0">
-          <Reveal as="article" id="policy-text" y={20} delay={0.2} className="w-fit max-w-full rounded-xl border border-mist bg-white p-5 sm:p-8 lg:p-10">
+          <Reveal as="article" id="policy-text" y={20} delay={0.2} className="w-fit max-w-full rounded-[1.5rem] border border-mist bg-white p-5 sm:p-8 lg:p-10">
             <Prose html={body} className="[&>:first-child]:!mt-0 [&_li>span:first-child]:mr-2 [&_li>span:first-child]:font-semibold [&_li>span:first-child]:text-forest-deep" />
           </Reveal>
           <HeadingReveal scope="#policy-text" />
@@ -39,7 +39,7 @@ export default function PolicyPage({ slug }: { slug: string }) {
             <Reveal><h2 id="policy-more" className="text-2xl font-bold">Other policies</h2></Reveal>
             <Stagger as="ul" gap={0.08} className="mt-4 flex flex-wrap gap-3">
               {others.map(([s, p]) => (
-                <StaggerItem as="li" key={s} y={14}><Link href={`/${s}`} className="btn btn-ghost">{p.title}</Link></StaggerItem>
+                <StaggerItem as="li" key={s} y={14}><Link href={`/${s}`} className="inline-flex min-h-11 items-center rounded-full border border-mist bg-white px-5 font-semibold text-forest-deep transition-colors hover:border-leaf hover:text-leaf">{p.title}</Link></StaggerItem>
               ))}
             </Stagger>
             <Reveal as="p" delay={0.2} y={14} className="mt-6 text-muted">

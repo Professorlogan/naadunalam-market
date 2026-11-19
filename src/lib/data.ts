@@ -6,8 +6,10 @@ import policiesJson from "../data/policies.json";
 import type { Category, Policy, Post, Product, Store } from "./types";
 import { categoryPhotos, productPhotos } from "./photos";
 
-export const products = (productsJson as Product[]).map((p) =>
+const allProducts = (productsJson as Product[]).map((p) =>
   productPhotos[p.slug] ? { ...p, images: [productPhotos[p.slug], ...p.images] } : p);
+/** Products with the new scene photos come first everywhere a list uses the default order. */
+export const products = [...allProducts.filter((p) => productPhotos[p.slug]), ...allProducts.filter((p) => !productPhotos[p.slug])];
 export const categories = (categoriesJson as Category[]).map((c) =>
   categoryPhotos[c.slug] ? { ...c, image: categoryPhotos[c.slug] } : c);
 export const stores = storesJson as Store[];
@@ -30,7 +32,7 @@ export const site = {
   tagline: "Our Inclusive Well-Being",
   phone: "+91 90921 14630",
   phoneHref: "tel:+919092114630",
-  whatsapp: "https://wa.me/919092114630",
+  whatsapp: "https://t.me/+919092114630", // the client moved chat to Telegram
   email: "hello@naadunalam.in",
   address: "Chennai, Tamil Nadu 600001, India",
   hours: "Monday to Saturday, 9:00 AM – 6:00 PM",

@@ -55,8 +55,8 @@ function ProtoForm({ form, title, intro, submitLabel, validate, done, children }
     setNotice(true);
   };
   return (
-    <section aria-labelledby={`${form}-title`} className="card flex h-full flex-col p-5 sm:p-8">
-      <h2 id={`${form}-title`} className="text-2xl font-bold sm:text-3xl">{title}</h2>
+    <section aria-labelledby={`${form}-title`} className="flex h-full flex-col rounded-[1.5rem] border border-mist bg-white p-5 sm:p-8">
+      <h2 id={`${form}-title`} className="text-2xl font-bold text-forest-deep sm:text-3xl">{title}</h2>
       <p className="mt-2 text-muted">{intro}</p>
       <form noValidate onSubmit={submit} className="mt-5 flex flex-1 flex-col gap-5">
         {children(errors, shake)}
@@ -66,7 +66,7 @@ function ProtoForm({ form, title, intro, submitLabel, validate, done, children }
         <div aria-live="polite">
           <AnimatePresence initial={false}>
             {notice && (
-              <motion.p key="notice" className="mt-4 rounded-xl border border-sun bg-sun/15 px-4 py-3"
+              <motion.p key="notice" className="mt-4 rounded-[1.25rem] bg-butter px-4 py-3"
                 initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.3, ease: EASE }}>
                 <strong className="font-semibold">{NOTICE}.</strong> {done}
               </motion.p>
@@ -99,11 +99,11 @@ export default function AccountForms() {
   }, [tab, animate, scope, reduce]);
   return (
     <div ref={scope}>
-      <div role="group" aria-label="Choose a form" className="mb-5 grid grid-cols-2 rounded-full border border-mist bg-sky p-1 md:hidden">
+      <div role="group" aria-label="Choose a form" className="mb-5 grid grid-cols-2 rounded-full border border-mist bg-mint p-1 md:hidden">
         {tabs.map((t) => (
           <button key={t.id} type="button" aria-pressed={tab === t.id} onClick={() => setTab(t.id)}
             className={`relative min-h-11 rounded-full px-3 font-display font-semibold transition-colors duration-200 ${tab === t.id ? "text-white" : "text-forest"}`}>
-            {tab === t.id && <motion.span layoutId="account-tab" aria-hidden className="absolute inset-0 rounded-full bg-forest" transition={{ type: "spring", stiffness: 420, damping: 34 }} />}
+            {tab === t.id && <motion.span layoutId="account-tab" aria-hidden className="absolute inset-0 rounded-full bg-leaf" transition={{ type: "spring", stiffness: 420, damping: 34 }} />}
             <span className="relative">{t.label}</span>
           </button>
         ))}

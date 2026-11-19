@@ -3,13 +3,13 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { Banknote, LoaderCircle } from "lucide-react";
+import { Banknote, Check, LoaderCircle, ShoppingBasket } from "lucide-react";
 import { site } from "../../lib/data";
 import { inr } from "../../lib/format";
 import { useStore, type Order } from "../../lib/store";
 import { EASE, Reveal } from "../motion";
 import { FieldError, Shake, Ticker } from "./fx";
-import { EmptyState, groupBySeller, lineKey, PrototypeNote, Skeleton, summaryTitle, Totals } from "./shared";
+import { EmptyState, groupBySeller, lineKey, marketCard, pastelPanel, PrototypeNote, Skeleton, summaryTitle, Totals } from "./shared";
 
 type Values = Order["customer"];
 type Key = keyof Values;
@@ -75,8 +75,8 @@ export default function CheckoutForm() {
   const groups = groupBySeller(cart);
   if (groups.length === 0) {
     return (
-      <EmptyState title="There is nothing to check out yet" text="Your basket is empty. Add products from the shop and come back here to place your order.">
-        <Link href="/shop" className="btn btn-primary">Browse the shop</Link>
+      <EmptyState icon={ShoppingBasket} title="There is nothing to check out yet" text="Your basket is empty. Add products from the shop and come back here to place your order.">
+        <Link href="/shop" className="btn btn-primary">Start shopping</Link>
         <Link href="/my-orders" className="btn btn-ghost">See my orders</Link>
       </EmptyState>
     );
@@ -123,7 +123,7 @@ export default function CheckoutForm() {
 
   /** Rendered twice (end of the form and in the summary); both submit the same form. */
   const placeButton = (
-    <button type="submit" aria-disabled={placing || undefined} className={`btn btn-primary w-full ${placing ? "cursor-progress" : ""}`}>
+    <button type="submit" aria-disabled={placing || undefined} className={`btn btn-primary !min-h-14 w-full text-lg ${placing ? "cursor-progress" : ""}`}>
       <AnimatePresence mode="wait" initial={false}>
         {placing ? (
           <motion.span key="placing" className="inline-flex items-center gap-2" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.18 }}>
@@ -150,7 +150,7 @@ export default function CheckoutForm() {
           </Reveal>
 
           <Reveal delay={0.12}>
-            <fieldset className="card p-5 sm:p-7">
+            <fieldset className={`${marketCard} p-5 sm:p-7`}>
               <legend className={legend}>Contact</legend>
               <div className="clear-both grid gap-5 sm:grid-cols-2">
                 <div className="sm:col-span-2">
@@ -174,7 +174,7 @@ export default function CheckoutForm() {
           </Reveal>
 
           <Reveal delay={0.2}>
-            <fieldset className="card p-5 sm:p-7">
+            <fieldset className={`${marketCard} p-5 sm:p-7`}>
               <legend className={legend}>Delivery address</legend>
               <div className="clear-both grid gap-5 sm:grid-cols-2">
                 <div className="sm:col-span-2">
@@ -203,7 +203,7 @@ export default function CheckoutForm() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <fieldset className="card p-5 sm:p-7">
+            <fieldset className={`${marketCard} p-5 sm:p-7`}>
               <legend className={legend}>Order notes</legend>
               <div className="clear-both">
                 <label htmlFor="co-notes" className="label">Anything the seller should know? <span className="font-normal text-muted">(optional)</span></label>
@@ -213,19 +213,20 @@ export default function CheckoutForm() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <fieldset className="card p-5 sm:p-7">
+            <fieldset className={`${marketCard} p-5 sm:p-7`}>
               <legend className={legend}>Payment</legend>
-              <label className="clear-both flex min-h-11 cursor-pointer items-start gap-3 rounded-xl border-[1.5px] border-leaf bg-sky p-4">
+              <label className="relative clear-both flex min-h-11 cursor-pointer items-start gap-3 rounded-[1.25rem] border-2 border-leaf bg-mint/60 p-4 pr-14 ring-4 ring-leaf/15 sm:p-5 sm:pr-16">
                 {/* The wrapper is exactly one line of the label tall, so the 20px control centres on the first line. */}
                 <span className="flex h-[1lh] shrink-0 items-center">
                   <input type="radio" name="payment" value="cod" checked readOnly aria-describedby="co-pay-hint" className="m-0 h-5 w-5 accent-[#0f804a]" />
                 </span>
                 <span>
-                  <span className="flex items-center gap-2 font-semibold text-forest-deep"><Banknote size={20} aria-hidden /> {site.payment}</span>
+                  <span className="flex items-center gap-2.5 font-display text-lg font-bold text-forest-deep"><span aria-hidden className="grid h-10 w-10 place-items-center rounded-full bg-white text-forest"><Banknote size={20} /></span> {site.payment}</span>
                   <span id="co-pay-hint" className="mt-1 block text-base text-muted">
                     You pay in cash when the order reaches your door. Nothing is charged now, and no card or UPI details are needed. It is the only payment method on the marketplace at present.
                   </span>
                 </span>
+                <span aria-hidden className="absolute right-4 top-4 grid h-7 w-7 place-items-center rounded-full bg-leaf text-white sm:right-5 sm:top-5"><Check size={16} strokeWidth={3} /></span>
               </label>
             </fieldset>
           </Reveal>
@@ -236,17 +237,17 @@ export default function CheckoutForm() {
         {/* Sticky on a plain wrapper: the summary stays in view beside the form on desktop. */}
         <div className="lg:sticky lg:top-28 lg:self-start">
         <Reveal delay={0.18}>
-          <aside aria-labelledby="co-summary" className="card p-5 sm:p-6">
+          <aside aria-labelledby="co-summary" className={`${pastelPanel} bg-butter`}>
             <h2 id="co-summary" className={summaryTitle}>Your order</h2>
             <div className="space-y-4">
               {groups.map((g) => (
                 <div key={g.slug}>
-                  <p className="text-sm text-muted">Sold by <span className="font-semibold text-forest">{g.name}</span></p>
+                  <p className="text-sm text-ink/70">Sold by <span className="font-semibold text-forest">{g.name}</span></p>
                   <ul className="mt-1.5 space-y-2.5">
                     {g.lines.map(({ line: l, info: i }) => (
                       <li key={lineKey(l)} className="flex gap-3">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={i.product.images[0]?.src} alt="" width={52} height={52} className="h-13 w-13 shrink-0 rounded-lg bg-sky object-cover" />
+                        <img src={i.product.images[0]?.src} alt="" width={52} height={52} className="h-13 w-13 shrink-0 rounded-xl bg-white object-cover" />
                         <div className="min-w-0 flex-1 leading-snug">
                           <p className="font-semibold">{i.product.name}</p>
                           {i.product.nameTa && <p lang="ta" className="ta text-sm text-leaf">{i.product.nameTa}</p>}
@@ -259,7 +260,7 @@ export default function CheckoutForm() {
                 </div>
               ))}
             </div>
-            <div className="mt-5 border-t border-mist pt-4"><Totals subtotal={subtotal} delivery={delivery} total={total} /></div>
+            <div className="mt-5 border-t border-ink/10 pt-4"><Totals subtotal={subtotal} delivery={delivery} total={total} /></div>
             {/*
               The slot above the button always has the height of the error summary (an invisible copy holds it open),
               so the button stays exactly where it is when the summary comes and goes.
@@ -271,7 +272,7 @@ export default function CheckoutForm() {
               <div aria-live="polite" className="col-start-1 row-start-1 grid">
                 <AnimatePresence initial={false} mode="wait">
                   {showSummary ? (
-                    <motion.p key="errors" className="self-stretch rounded-xl bg-soil/10 px-4 py-3 text-[15px] font-semibold text-soil"
+                    <motion.p key="errors" className="self-stretch rounded-xl bg-white px-4 py-3 text-[15px] font-semibold text-soil"
                       initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.25, ease: EASE }}>
                       {errorCount === 1 ? "One detail needs" : `${errorCount} details need`} your attention before the order can be placed.
                     </motion.p>

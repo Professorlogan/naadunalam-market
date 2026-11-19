@@ -9,8 +9,8 @@ import { longDate } from "@/lib/format";
  */
 export default function BlogLead({ post }: { post: Post }) {
   return (
-    <article className="card group relative grid gap-6 p-4 focus-within:outline focus-within:outline-[3px] focus-within:outline-offset-2 focus-within:outline-water sm:p-6 md:grid-cols-2 md:items-center md:gap-10">
-      <div className="h-56 max-h-[420px] overflow-hidden rounded-[1.25rem] bg-sky sm:h-72 md:h-[22rem] lg:h-[420px]">
+    <article className="group relative grid gap-6 rounded-[1.5rem] border border-mist bg-white p-4 transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_-22px_rgb(23_39_30/0.45)] focus-within:outline focus-within:outline-[3px] focus-within:outline-offset-2 focus-within:outline-water sm:p-6 md:grid-cols-2 md:items-center md:gap-10">
+      <div className="h-56 max-h-[420px] overflow-hidden rounded-[1.25rem] bg-mint sm:h-72 md:h-[22rem] lg:h-[420px]">
         <img src={post.image} alt="" width={1024} height={768} className="h-full w-full object-cover mix-blend-multiply transition-transform duration-700 ease-out group-hover:scale-[1.04]" />
       </div>
       <div className="px-2 pb-2 sm:px-0 sm:pb-0 md:pr-4">

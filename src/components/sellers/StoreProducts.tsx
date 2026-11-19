@@ -41,8 +41,8 @@ export default function StoreProducts({ products, newest, cats, storeName }: {
     const active = cat === value;
     return (
       <button key={value} type="button" aria-pressed={active} onClick={() => setCat(value)}
-        className={`inline-flex min-h-11 shrink-0 items-center gap-2 rounded-lg border px-3.5 text-[15px] font-semibold transition-colors duration-150 ${
-          active ? "border-forest bg-forest text-white" : "border-mist bg-white text-forest-deep hover:border-forest"}`}>
+        className={`inline-flex min-h-11 shrink-0 items-center gap-2 rounded-full border px-4 text-[15px] font-semibold transition-colors duration-150 ${
+          active ? "border-leaf bg-leaf text-white" : "border-mist bg-white text-forest-deep hover:text-leaf"}`}>
         {label} <span className={`text-sm font-normal tabular-nums ${active ? "text-white/80" : "text-muted"}`}>{count}</span>
       </button>
     );
@@ -51,8 +51,8 @@ export default function StoreProducts({ products, newest, cats, storeName }: {
   return (
     <>
       {newest.length > 0 && products.length > newest.length && (
-        <div className="border-b border-mist">
-          <ProductRail id="store-newest" title="Newest" blurb={`The products ${storeName} listed most recently.`}
+        <div>
+          <ProductRail id="store-newest" title="Our picks" blurb={`Favourites from ${storeName}.`}
             products={newest} />
         </div>
       )}

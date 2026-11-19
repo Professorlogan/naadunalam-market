@@ -37,8 +37,8 @@ export default function EventsPage() {
           <p>Nothing is scheduled at the moment. Once a date is confirmed, this page will carry the event, where it is, what time it starts and how to join.</p>
         </EmptyState>
       </section>
-      <section className="border-y border-mist bg-white">
-        <div className="wrap grid gap-8 py-12 sm:py-16 lg:grid-cols-[20rem_minmax(0,1fr)] lg:gap-14">
+      <section className="wrap py-4 sm:py-6">
+        <div className="rounded-[2rem] bg-sky grid gap-8 px-6 py-10 sm:px-10 sm:py-12 lg:grid-cols-[20rem_minmax(0,1fr)] lg:gap-14">
           <Reveal>
             <h2 className="text-3xl font-bold sm:text-4xl">The kinds of events we plan to run</h2>
             <p className="mt-3 text-muted">None of these are scheduled yet. This is what an entry on this page will look like when one is.</p>
@@ -46,8 +46,8 @@ export default function EventsPage() {
           <Stagger as="ul" gap={0.12} className="grid gap-4">
             {kinds.map(({ icon: Icon, title, text }, i) => (
               <StaggerItem as="li" key={title}>
-                <Lift className="flex h-full gap-4 rounded-[1.25rem] border border-mist bg-sky p-5 transition-shadow duration-300 hover:shadow-lift sm:gap-6 sm:p-6">
-                  <Pop delay={0.15 + i * 0.12} className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-forest text-white sm:h-14 sm:w-14"><Icon size={24} /></Pop>
+                <Lift className="flex h-full gap-4 rounded-[1.5rem] border border-mist bg-white p-5 transition-shadow duration-300 hover:shadow-[0_18px_40px_-22px_rgb(23_39_30/0.45)] sm:gap-6 sm:p-6">
+                  <Pop delay={0.15 + i * 0.12} className={`grid h-12 w-12 shrink-0 place-items-center rounded-full text-forest sm:h-14 sm:w-14 ${["bg-mint", "bg-butter", "bg-peach", "bg-aqua"][i % 4]}`}><Icon size={24} /></Pop>
                   <div>
                     <h3 className="text-xl font-bold sm:text-2xl">{title}</h3>
                     <p className="mt-1 max-w-xl text-muted">{text}</p>
@@ -62,8 +62,8 @@ export default function EventsPage() {
       <ClosingBand
         title="Hear about the next one"
         actions={<>
-          <Link href="/contact" className="btn btn-sun">Contact us</Link>
-          <Link href="/blog" className="btn btn-light">Read the blog</Link>
+          <Link href="/contact" className="btn btn-primary">Contact us</Link>
+          <Link href="/blog" className="btn btn-ghost">Read the blog</Link>
         </>}
       >
         Write to us and we will let you know when a date is set. In the meantime, the blog is where we write about the food itself.

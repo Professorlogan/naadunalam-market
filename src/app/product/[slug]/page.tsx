@@ -66,8 +66,8 @@ function jsonLd(p: Product, category: Category | undefined, sellerName: string |
 const RAIL = 12;
 /** Monogram backgrounds, one per seller in catalogue order. */
 const AVATAR = ["bg-forest", "bg-soil", "bg-water-deep", "bg-leaf"];
-const TH = "w-28 py-2.5 pr-3 align-top font-normal text-muted";
-const TD = "py-2.5 text-ink";
+const TH = "w-28 py-3 pr-3 align-top font-normal text-muted";
+const TD = "py-3 text-ink";
 /** Sub-headings inside the CMS description stay below the accordion title: 16px semibold, body face. */
 const DESCRIPTION = "[&_h2]:!font-body [&_h2]:!text-base [&_h2]:!font-semibold [&_h2]:!leading-snug [&_h3]:!font-body [&_h3]:!text-base [&_h3]:!font-semibold [&_h3]:!leading-snug [&_h4]:!font-body [&_h4]:!text-base [&_h4]:!font-semibold";
 
@@ -111,34 +111,36 @@ export default async function ProductPage({ params }: Props) {
 
           <div className="min-w-0 md:sticky md:top-28 lg:top-36">
             {seller && (
-              <div className="flex items-center gap-3 border-b border-mist pb-3">
-                <span aria-hidden className={`grid h-10 w-10 shrink-0 place-items-center rounded-full font-display text-lg font-bold text-white ${avatar}`}>{seller.name.charAt(0).toUpperCase()}</span>
+              <div className="mb-4 flex items-center gap-3 rounded-[1.5rem] bg-butter px-4 py-3 sm:px-5">
+                <span aria-hidden className={`grid h-11 w-11 shrink-0 place-items-center rounded-full font-display text-lg font-bold text-white ${avatar}`}>{seller.name.charAt(0).toUpperCase()}</span>
                 <p className="min-w-0 flex-1 leading-snug">
-                  <span className="block text-[15px] text-muted">Sold by <Link href={`/store/${seller.slug}`} className="font-semibold text-ink hover:text-forest hover:underline">{seller.name}</Link></span>
+                  <span className="block text-[15px] text-muted">Sold by <Link href={`/store/${seller.slug}`} className="font-semibold text-ink hover:text-leaf hover:underline">{seller.name}</Link></span>
                   <span className="block text-sm text-muted">{countLabel}</span>
                 </p>
-                <Link href={`/store/${seller.slug}`} className="link inline-flex min-h-11 shrink-0 items-center text-sm font-semibold">Visit store</Link>
+                <Link href={`/store/${seller.slug}`} className="inline-flex min-h-11 shrink-0 items-center rounded-full bg-white px-4 text-sm font-semibold text-forest transition-colors hover:bg-leaf hover:text-white">Visit store</Link>
               </div>
             )}
 
-            <h1 className="mt-4 text-[28px] font-bold leading-tight sm:text-[32px]">{p.name}</h1>
-            {p.nameTa && <p lang="ta" className="ta mt-1 font-display text-lg font-medium text-leaf">{p.nameTa}</p>}
+            <div className="rounded-[1.5rem] border border-mist bg-white p-5 sm:p-7">
+              <h1 className="text-[30px] font-bold leading-tight text-forest-deep sm:text-[36px]">{p.name}</h1>
+              {p.nameTa && <p lang="ta" className="ta mt-1 font-display text-xl font-semibold text-leaf">{p.nameTa}</p>}
 
-            <div className="mt-4">
-              <BuyBox product={{ id: p.id, name: p.name, price: p.price, pack: p.pack, variants: p.variants, inStock: p.inStock, stock: p.stock, maxQty: p.maxQty }} />
+              <div className="mt-5">
+                <BuyBox product={{ id: p.id, name: p.name, price: p.price, pack: p.pack, variants: p.variants, inStock: p.inStock, stock: p.stock, maxQty: p.maxQty }} />
+              </div>
+              <div className="mt-4 rounded-[1.25rem] bg-sky p-4"><PinCheck /></div>
             </div>
-            <div className="mt-3 border-t border-mist pt-4"><PinCheck /></div>
           </div>
         </div>
       </div>
 
-      <section aria-label="Product information" className="border-t border-mist">
-        <div className="wrap grid gap-8 py-8 sm:py-10 lg:grid-cols-[22rem_minmax(0,1fr)] lg:gap-12">
-          {/* Beside the accordion this block opens on the same rule and its heading sits on the first title's line. */}
-          <div className="lg:border-t lg:border-mist">
-            <h2 className="flex items-center font-body text-base font-semibold text-ink lg:min-h-14">Product details</h2>
-            <table className="mt-2 w-full border-t border-mist text-left text-[15px] lg:mt-0">
-              <tbody className="divide-y divide-mist border-b border-mist">
+      <section aria-label="Product information">
+        <div className="wrap grid items-start gap-6 py-8 sm:py-10 lg:grid-cols-[22rem_minmax(0,1fr)] lg:gap-10">
+          {/* A pastel panel beside the accordion stack; its heading sits on the first accordion title's line. */}
+          <div className="rounded-[1.5rem] bg-aqua px-5 py-2 sm:px-6">
+            <h2 className="flex min-h-16 items-center font-display text-lg font-bold text-forest-deep">Product details</h2>
+            <table className="w-full text-left text-[15px]">
+              <tbody className="divide-y divide-white">
                 {seller && <tr><th scope="row" className={TH}>Sold by</th><td className={TD}><Link href={`/store/${seller.slug}`} className="link">{seller.name}</Link></td></tr>}
                 <tr><th scope="row" className={TH}>Pack</th><td className={TD}>{packLabel(p)}</td></tr>
                 {perUnit.length > 0 && (
@@ -161,7 +163,7 @@ export default async function ProductPage({ params }: Props) {
             </table>
           </div>
 
-          <div className="border-t border-mist">
+          <div className="space-y-3">
             <Accordion title="About this product" icon={<FileText size={18} />} defaultOpen>
               <p className="max-w-[68ch]">{p.short}</p>
               {p.descriptionHtml && (
@@ -205,14 +207,14 @@ export default async function ProductPage({ params }: Props) {
       </section>
 
       {seller && fromSeller.length > 0 && (
-        <div className="border-t border-mist">
+        <div>
           <ProductRail id="more-from-seller" title={`More from ${seller.name}`} href={`/store/${seller.slug}`} linkLabel="Visit store" products={fromSeller} />
         </div>
       )}
       {category && inCategory.length > 0 && (
-        <div className="border-t border-mist">
+        <div className="wrap my-4"><div className="rounded-[2rem] bg-mint/60">
           <ProductRail id="more-in-category" title={`More in ${category.name}`} titleTa={category.nameTa} href={`/product-category/${category.slug}`} products={inCategory} />
-        </div>
+        </div></div>
       )}
       <RecentlyViewed currentId={p.id} />
     </div>

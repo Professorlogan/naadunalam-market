@@ -33,10 +33,10 @@ export default function PinCheck() {
     <form onSubmit={check} noValidate>
       <label htmlFor="pin-check" className="mb-1.5 block text-sm font-semibold text-ink">Check delivery to your PIN code <span className="font-normal text-muted">(estimate)</span></label>
       <div className="flex gap-2">
-        <input id="pin-check" className="field max-w-44" inputMode="numeric" autoComplete="postal-code" maxLength={6} placeholder="6-digit PIN"
+        <input id="pin-check" className="field max-w-44 !rounded-full !px-4" inputMode="numeric" autoComplete="postal-code" maxLength={6} placeholder="6-digit PIN"
           value={pin} aria-invalid={result?.tone === "error" ? true : undefined} aria-describedby="pin-check-note"
           onChange={(e) => { setPin(e.target.value.replace(/\D/g, "").slice(0, 6)); setResult(null); }} />
-        <button type="submit" className="btn btn-ghost shrink-0">Check PIN</button>
+        <button type="submit" className="btn btn-ghost shrink-0 !rounded-full">Check PIN</button>
       </div>
       <div id="pin-check-note" aria-live="polite">
         {result && look && (

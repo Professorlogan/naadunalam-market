@@ -65,8 +65,8 @@ function Notice({ title, children }: { title: string; children: React.ReactNode 
     <motion.div ref={ref} role="status" tabIndex={-1}
       initial={{ opacity: 0, y: 18, scale: 0.97 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -8 }}
       transition={{ duration: 0.45, ease: EASE }}
-      className="flex scroll-my-32 gap-3 rounded-2xl border-[1.5px] border-water bg-[#eaf6fc] p-4 text-ink">
-      <motion.span aria-hidden className="mt-0.5 shrink-0 text-water-deep" initial={{ scale: 0, rotate: -40 }} animate={{ scale: 1, rotate: 0 }}
+      className="flex scroll-my-32 gap-3 rounded-[1.25rem] bg-aqua p-4 text-ink sm:p-5">
+      <motion.span aria-hidden className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-white text-water-deep" initial={{ scale: 0, rotate: -40 }} animate={{ scale: 1, rotate: 0 }}
         transition={{ type: "spring", stiffness: 420, damping: 14, delay: 0.15 }}>
         <Info size={22} />
       </motion.span>
@@ -130,7 +130,7 @@ export function VendorLoginForm() {
           onBlur={onBlur("password")} onChange={() => { setDone(false); setErrors((p) => ({ ...p, password: undefined })); }} />
       </Field>
       <label className="flex min-h-11 cursor-pointer items-center gap-3">
-        <input type="checkbox" name="remember" className="h-5 w-5 accent-forest" />
+        <input type="checkbox" name="remember" className="h-5 w-5 accent-[#0f804a]" />
         <span>Remember me</span>
       </label>
 
@@ -260,8 +260,8 @@ export function VendorApplyForm() {
         <input {...a11y(id("slug"), errors.slug, true)} type="text" autoCapitalize="none" spellCheck={false} required value={values.slug}
           onChange={(e) => { setSlugEdited(true); set("slug", e.target.value.toLowerCase().replace(/\s+/g, "-")); }} onBlur={blur("slug")} />
         {/* The address may wrap only after a "/". Each change to the URL gives the preview a quick highlight tick. */}
-        <p className="relative mt-2 overflow-hidden rounded-xl bg-sky px-3 py-2 text-base">
-          <motion.span key={values.slug} aria-hidden className="pointer-events-none absolute inset-0 bg-sun/45"
+        <p className="relative mt-2 overflow-hidden rounded-full bg-mint px-4 py-2 text-base">
+          <motion.span key={values.slug} aria-hidden className="pointer-events-none absolute inset-0 bg-butter"
             initial={{ opacity: values.slug ? 1 : 0 }} animate={{ opacity: 0 }} transition={{ duration: 0.7, ease: "easeOut" }} />
           <span className="relative text-muted">Your shop address: </span>
           <span className="relative font-semibold text-forest-deep">

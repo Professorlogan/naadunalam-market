@@ -28,7 +28,10 @@ export const plural = (n: number, one: string, many: string) => `${n} ${n === 1 
 
 /** Everything the seller pages derive from a store's own products. */
 export function storeSummary(store: Store) {
-  const items: Product[] = productsByStore(store.slug);
+  const all: Product[] = productsByStore(store.slug);
+  const hasNew = (p: Product) => p.images[0]?.src.startsWith("/img/m/");
+  // Products with the new scene photos lead the store, the rest keep their order.
+  const items: Product[] = [...all.filter(hasNew), ...all.filter((p) => !hasNew(p))];
 
   const counts = new Map<string, number>();
   for (const p of items) for (const c of p.categories) counts.set(c, (counts.get(c) ?? 0) + 1);
@@ -43,8 +46,14 @@ export function storeSummary(store: Store) {
   const photoOf = (p: Product) => p.images.find((im) => !isLabel(im.src))?.src;
   const used = new Set<string>();
   const usedCats = new Set<string>();
+  // At most one new studio photo per strip, so the tiles stay varied; the seller's own photos fill the rest.
+  const photoFor = (into: string[], p: Product) => {
+    const ok = p.images.filter((im) => !isLabel(im.src)).map((im) => im.src);
+    const oneNew = into.some((x) => x.startsWith("/img/m/"));
+    return ok.find((x) => !(oneNew && x.startsWith("/img/m/")) && !used.has(x));
+  };
   const pick = (into: string[], p?: Product) => {
-    const src = p && photoOf(p);
+    const src = p && photoFor(into, p);
     if (!p || !src || used.has(src) || into.length >= 4) return;
     used.add(src);
     p.categories.forEach((c) => usedCats.add(c));
@@ -72,7 +81,7 @@ export function storeSummary(store: Store) {
   for (const p of items) pick(more, p);
 
   // Newest first: the catalogue has no "added on" date, so the product id (assigned in order of creation) stands in.
-  const newest = [...items].sort((a, b) => b.id - a.id).slice(0, 8);
+  const newest = items.slice(0, 8);
 
   return {
     items,

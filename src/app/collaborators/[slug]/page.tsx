@@ -65,8 +65,8 @@ export default async function CollaboratorPage({ params }: Props) {
       <ClosingBand
         title="Want to know more?"
         actions={<>
-          <Link href="/contact" className="btn btn-sun">Contact us</Link>
-          <Link href="/collaborators" className="btn btn-light">All collaborators</Link>
+          <Link href="/contact" className="btn btn-primary">Contact us</Link>
+          <Link href="/collaborators" className="btn btn-ghost">All collaborators</Link>
         </>}
       >
         Questions about {c.name}, or about collaborating with Naadu Nalam? We would like to hear from you.

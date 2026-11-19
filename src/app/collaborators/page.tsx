@@ -43,8 +43,8 @@ export default function CollaboratorsPage() {
           {collaborators.map((c, i) => (
             <StaggerItem as="li" key={c.slug}>
               <Tilt max={6} className="h-full">
-                <Link href={`/collaborators/${c.slug}`} className="card group flex h-full min-h-44 flex-col justify-start gap-5 p-6 transition-[border-color,box-shadow] duration-300 hover:border-leaf hover:shadow-lift">
-                  <Pop delay={0.2 + i * 0.09} className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-forest font-display text-xl font-bold text-white">{initials(c.name)}</Pop>
+                <Link href={`/collaborators/${c.slug}`} className="group flex h-full min-h-44 flex-col justify-start gap-5 rounded-[1.5rem] border border-mist bg-white p-6 transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:border-leaf hover:shadow-[0_18px_40px_-22px_rgb(23_39_30/0.45)]">
+                  <Pop delay={0.2 + i * 0.09} className={`grid h-14 w-14 shrink-0 place-items-center rounded-full font-display text-xl font-bold text-forest ${["bg-mint", "bg-butter", "bg-peach", "bg-aqua", "bg-clay"][i % 5]}`}>{initials(c.name)}</Pop>
                   <span>
                     <span className="block font-display text-2xl font-bold leading-tight text-forest-deep transition-colors group-hover:text-leaf">{c.name}</span>
                     <span className="mt-1 block text-sm text-muted">Community organisation · details coming soon</span>
@@ -55,19 +55,19 @@ export default function CollaboratorsPage() {
           ))}
           <StaggerItem as="li">
             <Tilt max={6} className="h-full">
-              <Link href="/store-listing" className="group flex h-full min-h-44 flex-col justify-start gap-5 rounded-xl bg-forest p-6 text-white transition-colors hover:bg-forest-deep">
-                <Pop delay={0.2 + collaborators.length * 0.09} className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-white/15 text-white"><Store size={24} /></Pop>
+              <Link href="/store-listing" className="group flex h-full min-h-44 flex-col justify-start gap-5 rounded-[1.5rem] bg-butter p-6 text-forest-deep transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_-22px_rgb(23_39_30/0.45)]">
+                <Pop delay={0.2 + collaborators.length * 0.09} className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-white text-forest"><Store size={24} /></Pop>
                 <span>
                   <span className="block font-display text-2xl font-bold leading-tight">Browse our sellers</span>
-                  <span className="mt-1 block text-sm text-white/80">The stores already selling on the marketplace</span>
+                  <span className="mt-1 block text-sm text-ink/75">The stores already selling on the marketplace</span>
                 </span>
               </Link>
             </Tilt>
           </StaggerItem>
         </Stagger>
       </section>
-      <section className="border-y border-mist bg-white">
-        <div className="wrap py-12 sm:py-16">
+      <section className="wrap py-4 sm:py-6">
+        <div className="rounded-[2rem] bg-sky px-6 py-10 sm:px-10 sm:py-12">
           <SectionHeading title="How collaboration works here" intro="Three things are true of every seller on the marketplace today." />
           <Stagger as="ul" gap={0.12} className="grid gap-x-10 gap-y-8 md:grid-cols-3">
             {points.map(({ icon: Icon, title, text }, i) => (
@@ -84,8 +84,8 @@ export default function CollaboratorsPage() {
       <ClosingBand
         title="Want to work with us?"
         actions={<>
-          <Link href="/vendor-login" className="btn btn-sun">Apply to sell</Link>
-          <Link href="/contact" className="btn btn-light">Contact us</Link>
+          <Link href="/vendor-login" className="btn btn-primary">Apply to sell</Link>
+          <Link href="/contact" className="btn btn-ghost">Contact us</Link>
         </>}
       >
         If you grow, make or gather something that belongs on Naadu Nalam — or you represent a group that does — we would like to hear from you.

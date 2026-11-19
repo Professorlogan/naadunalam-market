@@ -8,9 +8,21 @@ import { footerNav } from "./nav";
 
 export default function Footer() {
   return (
-    <footer className="bg-forest-deep text-white/85">
+    <footer className="pt-2">
+      {/* Pastel newsletter block inside the page container, overlapping the top of the dark footer. */}
+      <div className="wrap relative z-10">
+        <Reveal className="grid gap-5 rounded-[2rem] bg-butter px-6 py-8 sm:px-10 sm:py-10 md:grid-cols-[minmax(0,1fr)_minmax(0,28rem)] md:items-center md:gap-10">
+          <div>
+            <h2 className="text-2xl font-bold text-forest-deep sm:text-3xl">Offers and stories from our farmers</h2>
+            <p className="mt-2 text-ink/75">Join the Naadu Nalam list. <Link href="/newsletter" className="font-semibold text-forest underline decoration-forest/40 underline-offset-4 hover:decoration-forest">About the newsletter</Link></p>
+          </div>
+          {/* The dark variant keeps the footer form's own field id; the colours are set here for the light block. */}
+          <div className="[&_.btn]:!bg-forest [&_.btn]:!text-white [&_.btn:hover]:!bg-leaf [&_[role=status]]:!text-forest [&_input]:bg-white"><NewsletterForm dark /></div>
+        </Reveal>
+      </div>
+      <div className="-mt-16 bg-forest-deep text-white/85">
       <ElementStrip />
-      <div className="wrap grid gap-10 py-12 lg:grid-cols-[1fr_2.4fr]">
+      <div className="wrap grid gap-10 pb-12 pt-24 lg:grid-cols-[1fr_2.4fr]">
         <Reveal>
           <div className="flex items-center gap-3">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -20,14 +32,10 @@ export default function Footer() {
           <ul className="mt-6 space-y-2.5">
             <li className="flex gap-3"><MapPin size={19} className="mt-1 shrink-0 text-sun" /> {site.address}</li>
             <li className="flex gap-3"><Phone size={19} className="mt-1 shrink-0 text-sun" /> <a href={site.phoneHref} className="hover:text-white hover:underline">{site.phone}</a></li>
-            <li className="flex gap-3"><MessageCircle size={19} className="mt-1 shrink-0 text-sun" /> <a href={site.whatsapp} className="hover:text-white hover:underline">Chat on WhatsApp</a></li>
+            <li className="flex gap-3"><MessageCircle size={19} className="mt-1 shrink-0 text-sun" /> <a href={site.whatsapp} className="hover:text-white hover:underline">Chat on Telegram</a></li>
             <li className="flex gap-3"><Mail size={19} className="mt-1 shrink-0 text-sun" /> <a href={`mailto:${site.email}`} className="hover:text-white hover:underline">{site.email}</a></li>
             <li className="flex gap-3"><Clock size={19} className="mt-1 shrink-0 text-sun" /> {site.hours}</li>
           </ul>
-          <div className="mt-7">
-            <h2 className="mb-2 text-lg font-semibold !text-white">Offers and stories from our farmers</h2>
-            <NewsletterForm dark />
-          </div>
         </Reveal>
         <Stagger className="grid grid-cols-2 gap-8 sm:grid-cols-4">
           {Object.entries(footerNav).map(([title, links]) => (
@@ -47,6 +55,7 @@ export default function Footer() {
           <p>© 2026 Naadu Nalam. All rights reserved.</p>
           <p>{site.deliveryLine}. {site.payment}.</p>
         </div>
+      </div>
       </div>
     </footer>
   );

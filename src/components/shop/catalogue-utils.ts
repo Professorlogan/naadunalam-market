@@ -77,8 +77,15 @@ export function matches(p: Product, f: Filters, skip?: keyof Filters) {
   return true;
 }
 
-export function sortProducts(list: Product[], sort: SortKey) {
-  if (sort === "featured") return list;
+/** Has the product got one of the new market photos as its lead image? */
+export const hasNewPhoto = (p: Product) => p.images[0]?.src.startsWith("/img/m/") ?? false;
+
+/**
+ * "Featured" keeps the catalogue order but lifts products with a new photo to the front (a stable split),
+ * so listings open with the best pictures. Pass `photoFirst: false` to keep a given order as-is (search relevance).
+ */
+export function sortProducts(list: Product[], sort: SortKey, photoFirst = true) {
+  if (sort === "featured") return photoFirst ? [...list.filter(hasNewPhoto), ...list.filter((p) => !hasNewPhoto(p))] : list;
   const out = [...list];
   if (sort === "price-asc") out.sort((a, b) => a.price - b.price);
   else if (sort === "price-desc") out.sort((a, b) => b.price - a.price);

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 import { motion } from "motion/react";
+import { SearchX } from "lucide-react";
 import { site } from "../../lib/data";
 import { inr } from "../../lib/format";
 import { useStore } from "../../lib/store";
@@ -27,6 +28,8 @@ export default function OrderReceived() {
   if (!order) {
     return (
       <EmptyState
+        icon={SearchX}
+        tint="bg-peach"
         title={number ? "We could not find that order" : "No order to show"}
         text={number
           ? `Order ${number} is not saved in this browser. Orders in this prototype are kept only on the device where they were placed.`
@@ -40,20 +43,20 @@ export default function OrderReceived() {
   return (
     <>
       <section className="wrap py-8 sm:py-12">
-        <div className="card">
-          <div className="flex flex-wrap items-start gap-4 rounded-t-[1.2rem] bg-forest p-5 text-white sm:p-8">
-            <span className="relative shrink-0 text-sun">
-              <DrawnCheck />
+        <div className="rounded-[1.75rem] border border-mist bg-white">
+          <div className="flex flex-wrap items-center gap-5 rounded-t-[1.7rem] bg-aqua p-5 sm:p-8">
+            <span className="relative grid h-24 w-24 shrink-0 place-items-center rounded-full bg-leaf text-white">
+              <DrawnCheck size={60} />
               <LeafBurst />
             </span>
             <motion.div className="min-w-0 flex-1" initial={{ opacity: 0, x: -14 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, ease: EASE, delay: 0.5 }}>
-              <h2 className="text-2xl font-bold !text-white sm:text-3xl">Thank you, {order.customer.name}. Your order is in.</h2>
-              <p lang="ta" className="ta mt-1 font-display text-lg text-sun">நன்றி</p>
+              <h2 className="text-2xl font-bold text-forest-deep sm:text-3xl">Thank you, {order.customer.name}. Your order is in.</h2>
+              <p lang="ta" className="ta mt-1 font-display text-lg text-leaf">நன்றி</p>
             </motion.div>
-            <motion.dl className="grid w-full grid-cols-2 gap-x-6 gap-y-3 sm:w-auto sm:grid-cols-3" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.8 }}>
-              <div><dt className="text-sm text-white/75">Order number</dt><dd className="whitespace-nowrap font-display text-xl font-bold"><RevealChars text={order.number} delay={1} /></dd></div>
-              <div><dt className="text-sm text-white/75">Placed on</dt><dd className="font-display text-xl font-bold">{orderDate(order.date)}</dd></div>
-              <div><dt className="text-sm text-white/75">To pay on delivery</dt><dd className="whitespace-nowrap font-display text-xl font-bold tabular-nums">{inr(order.total)}</dd></div>
+            <motion.dl className="grid w-full grid-cols-2 gap-x-6 gap-y-3 rounded-[1.25rem] bg-white p-4 sm:w-auto sm:grid-cols-3 sm:px-6" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.8 }}>
+              <div><dt className="text-sm text-muted">Order number</dt><dd className="whitespace-nowrap font-display text-xl font-bold text-forest-deep"><RevealChars text={order.number} delay={1} /></dd></div>
+              <div><dt className="text-sm text-muted">Placed on</dt><dd className="font-display text-xl font-bold text-forest-deep">{orderDate(order.date)}</dd></div>
+              <div><dt className="text-sm text-muted">To pay on delivery</dt><dd className="whitespace-nowrap font-display text-xl font-bold tabular-nums text-forest-deep">{inr(order.total)}</dd></div>
             </motion.dl>
           </div>
           <Reveal y={18} delay={0.2} className="p-5 sm:p-8"><OrderDetail order={order} /></Reveal>
@@ -63,9 +66,9 @@ export default function OrderReceived() {
         </Reveal>
       </section>
 
-      <section className="border-y border-mist bg-white">
-        <div className="wrap pb-6 pt-10 sm:pb-8 sm:pt-14">
-          <h2 className="text-3xl font-bold sm:text-4xl"><SplitWords text="What happens next" inView /></h2>
+      <section className="wrap pb-6 sm:pb-8">
+        <div className="rounded-[2rem] bg-butter px-5 pb-8 pt-10 sm:px-8 sm:pb-10 sm:pt-12 lg:px-10">
+          <h2 className="text-3xl font-bold text-forest-deep sm:text-4xl"><SplitWords text="What happens next" inView /></h2>
           <motion.ol className="mt-6 grid gap-6 md:grid-cols-3" initial="hidden" whileInView="show" viewport={{ once: true, margin: "0px 0px -8% 0px" }}
             variants={{ hidden: {}, show: { transition: { staggerChildren: 0.22, delayChildren: 0.15 } } }}>
             {steps.map((s, i) => (

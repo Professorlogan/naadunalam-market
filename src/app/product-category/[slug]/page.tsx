@@ -41,13 +41,14 @@ export default async function CategoryPage({ params }: Props) {
   if (!c) notFound();
   return (
     <>
-      <ListingHeader title={c.name} titleTa={c.nameTa} intro={introFor(c)} crumbs={[{ label: "Shop", href: "/shop" }, { label: c.name }]} />
+      <ListingHeader title={c.name} titleTa={c.nameTa} intro={introFor(c)} crumbs={[{ label: "Shop", href: "/shop" }, { label: c.name }]}
+        image={c.image || undefined} imageAlt={`${c.name} (${c.nameTa})`} />
       <section className="wrap py-6 sm:py-8">
         <Catalogue lockedCategory={c.slug} />
       </section>
-      <section aria-labelledby="other-categories" className="border-t border-mist bg-white">
-        <div className="wrap py-6">
-          <h2 id="other-categories" className="mb-3 font-body text-base font-semibold text-ink">Browse categories</h2>
+      <section aria-labelledby="other-categories" className="wrap pb-10 sm:pb-14">
+        <div className="rounded-[2rem] bg-peach px-6 py-7 sm:px-10">
+          <h2 id="other-categories" className="mb-4 font-display text-2xl font-bold text-forest-deep">Browse categories</h2>
           <CategoryLinks current={c.slug} label="Browse categories" />
         </div>
       </section>

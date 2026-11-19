@@ -44,11 +44,11 @@ export default function ProductGallery({ images, name }: { images: Img[]; name: 
   if (!main) return null;
   return (
     <div>
-      {/* Every image gets the same square, off-white, hairline-bordered frame; on short screens the frame shrinks, staying square. */}
-      <div className={`relative aspect-square w-full overflow-hidden rounded-xl border border-mist bg-sky ${several ? "md:max-w-[calc(100svh-17rem)]" : "md:max-w-[calc(100svh-11rem)]"}`}>
+      {/* Every image gets the same big square frame on a soft mint tint; on short screens the frame shrinks, staying square. */}
+      <div className={`relative aspect-square w-full overflow-hidden rounded-[1.75rem] bg-mint ${several ? "md:max-w-[calc(100svh-17rem)]" : "md:max-w-[calc(100svh-11rem)]"}`}>
         <button type="button" onClick={() => { rest(); setOpen(true); }} onPointerMove={track} onPointerLeave={rest}
           aria-haspopup="dialog" aria-label={`Open a larger photo of ${name}`}
-          className="relative block h-full w-full cursor-zoom-in overflow-hidden rounded-xl">
+          className="relative block h-full w-full cursor-zoom-in overflow-hidden rounded-[1.75rem]">
           <AnimatePresence mode="popLayout" initial={false}>
             <motion.span key={main.src} className="block h-full w-full" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}>
@@ -57,18 +57,18 @@ export default function ProductGallery({ images, name }: { images: Img[]; name: 
                 className={`h-full w-full ${fit(main.src)}`} />
             </motion.span>
           </AnimatePresence>
-          <span aria-hidden className="pointer-events-none absolute bottom-3 right-3 inline-flex items-center gap-1.5 rounded-full border border-mist bg-white px-3 py-1.5 text-sm font-semibold text-forest">
+          <span aria-hidden className="pointer-events-none absolute bottom-4 right-4 inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-1.5 shadow-[0_10px_24px_-16px_rgb(23_39_30/0.5)] text-sm font-semibold text-forest">
             <ZoomIn size={16} /> <span className="md:hidden">Tap to zoom</span><span className="max-md:hidden">Click to enlarge</span>
           </span>
         </button>
       </div>
 
       {several && (
-        <ul aria-label={`${name} photos`} className="mt-3 flex flex-wrap gap-2.5">
+        <ul aria-label={`${name} photos`} className="mt-4 flex flex-wrap gap-3">
           {images.map((img, i) => (
             <li key={img.src}>
               <button type="button" onClick={() => setActive(i)} aria-pressed={i === active} aria-label={`Show photo ${i + 1} of ${images.length}`}
-                className={`relative block overflow-hidden rounded-lg border bg-sky transition-colors duration-150 ${i === active ? "border-forest ring-1 ring-forest" : "border-mist hover:border-forest/50"}`}>
+                className={`relative block overflow-hidden rounded-xl bg-mint transition-shadow duration-150 ${i === active ? "ring-[3px] ring-leaf ring-offset-2" : "ring-1 ring-mist hover:ring-leaf/50"}`}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={img.src} alt="" width={88} height={88} loading="lazy" className={`h-20 w-20 ${fit(img.src)} transition-opacity duration-200 sm:h-22 sm:w-22 ${i === active ? "" : "opacity-75 hover:opacity-100"}`} />
               </button>

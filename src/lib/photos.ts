@@ -30,13 +30,10 @@ export const productPhotos: Record<string, { src: string; alt: string }> = {
 };
 
 export const categoryPhotos: Record<string, string> = {
-  "rice-grains": "/img/m/p-mappillai-samba.webp",
-  "aval-flakes": "/img/m/p-kavuni-aval.webp",
   "oil-vinegers": "/img/m/p-gingelly-oil.webp",
   "natural-sweeteners": "/img/m/p-karupatti.webp",
   "siruthaniyam": "/img/m/p-kambu.webp",
   "health-mixes": "/img/m/p-kali-kanji.webp",
-  "paruppu-pulses": "/img/m/p-toor-dal.webp",
   "masala-podi": "/img/m/p-sambar.webp",
   "honey": "/img/m/p-honey.webp",
 };

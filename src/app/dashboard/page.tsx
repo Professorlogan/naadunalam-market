@@ -30,16 +30,16 @@ export default function DashboardPage() {
       <section className="wrap py-10 sm:py-14">
         <div className="grid gap-8 lg:grid-cols-[18rem_minmax(0,1fr)] lg:gap-12">
           <div>
-            <h2 className="text-3xl font-bold sm:text-4xl"><SplitWords text="What sellers do here" inView /></h2>
+            <h2 className="text-3xl font-bold text-forest-deep sm:text-4xl"><SplitWords text="What sellers do here" inView /></h2>
             <Reveal as="p" y={14} delay={0.15} className="mt-3 text-muted">Naadu Nalam is a multi-vendor marketplace. Every seller has their own storefront and looks after their own shop.</Reveal>
           </div>
           <Stagger as="ul" gap={0.1} className="grid gap-5 sm:grid-cols-2">
             {features.map(({ Icon, title, text }) => (
               <StaggerItem as="li" key={title} className="h-full">
-                <div className="card flex h-full gap-4 p-5">
-                  <Icon size={28} aria-hidden className="mt-0.5 shrink-0 text-forest" />
+                <div className="flex h-full gap-4 rounded-[1.25rem] border border-mist bg-white p-5 transition-[box-shadow,translate] duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_-22px_rgb(23_39_30/0.45)] sm:p-6">
+                  <span aria-hidden className={`grid h-12 w-12 shrink-0 place-items-center rounded-full ${["bg-mint", "bg-butter", "bg-aqua", "bg-peach"][features.findIndex((f) => f.title === title)]} text-forest`}><Icon size={22} /></span>
                   <div>
-                    <h3 className="text-xl font-bold">{title}</h3>
+                    <h3 className="text-xl font-bold text-forest-deep">{title}</h3>
                     <p className="mt-1.5 text-muted">{text}</p>
                   </div>
                 </div>
@@ -49,15 +49,15 @@ export default function DashboardPage() {
         </div>
       </section>
 
-      <section className="border-y border-mist bg-white">
-        <div className="wrap grid gap-8 py-10 sm:py-14 md:grid-cols-2 md:gap-12">
+      <section className="wrap">
+        <div className="grid gap-8 rounded-[2rem] bg-mint p-6 sm:p-10 md:grid-cols-2 md:gap-12">
           <div>
-            <h2 className="text-3xl font-bold sm:text-4xl"><SplitWords text="Shops on the marketplace today" inView /></h2>
+            <h2 className="text-3xl font-bold text-forest-deep sm:text-4xl"><SplitWords text="Shops on the marketplace today" inView /></h2>
             <Reveal as="p" y={14} delay={0.15} className="mt-3 text-muted">Each shop below is run from its own seller dashboard.</Reveal>
-            <Stagger as="ul" gap={0.1} delay={0.15} className="mt-5 divide-y divide-mist border-y border-mist">
+            <Stagger as="ul" gap={0.1} delay={0.15} className="mt-5 space-y-2.5">
               {stores.map((s) => (
                 <StaggerItem as="li" key={s.slug} y={14}>
-                  <Link href={`/store/${s.slug}`} className="group flex min-h-14 items-center justify-between gap-4 py-3 hover:text-leaf">
+                  <Link href={`/store/${s.slug}`} className="group flex min-h-14 items-center justify-between gap-4 rounded-full bg-white px-5 py-3 transition-shadow hover:text-leaf hover:shadow-[0_18px_40px_-22px_rgb(23_39_30/0.45)]">
                     <span className="font-display text-xl font-semibold text-forest-deep transition-transform duration-300 group-hover:translate-x-1.5 group-hover:text-leaf">{s.name}</span>
                     <span className="whitespace-nowrap text-muted"><CountUp to={s.productCount} /> products</span>
                   </Link>
@@ -65,8 +65,8 @@ export default function DashboardPage() {
               ))}
             </Stagger>
           </div>
-          <Reveal x={24} y={0} delay={0.1} className="card self-start p-5 sm:p-6">
-            <h2 className="text-2xl font-bold sm:text-3xl">Are you a customer?</h2>
+          <Reveal x={24} y={0} delay={0.1} className="self-start rounded-[1.5rem] border border-mist bg-white p-5 sm:p-7">
+            <h2 className="text-2xl font-bold text-forest-deep sm:text-3xl">Are you a customer?</h2>
             <p className="mt-3 text-muted">You do not need the seller dashboard. Your orders, wishlist and basket are under My account.</p>
             <div className="mt-5 flex flex-wrap gap-3">
               <Link href="/my-account" className="btn btn-primary">Go to My account</Link>

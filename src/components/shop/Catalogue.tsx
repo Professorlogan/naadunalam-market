@@ -123,7 +123,7 @@ function CatalogueView({ lockedCategory, items, featuredLabel = "Featured", urlQ
   const changeSort = (s: SortKey) => apply({ filters, sort: s });
   const clearAll = () => change(NO_FILTERS);
 
-  const results = useMemo(() => sortProducts(base.filter((p) => matches(p, filters)), sort), [base, filters, sort]);
+  const results = useMemo(() => sortProducts(base.filter((p) => matches(p, filters)), sort, !items), [base, filters, sort, items]);
   const visible = results.slice(0, shown);
   const remaining = results.length - visible.length;
 
@@ -185,7 +185,7 @@ function CatalogueView({ lockedCategory, items, featuredLabel = "Featured", urlQ
     : `Showing ${visible.length} of ${results.length} ${results.length === 1 ? "product" : "products"}`;
 
   const pill = (on: boolean) =>
-    `inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full border px-4 text-sm font-semibold transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-45 lg:max-xl:px-3 lg:max-xl:text-[13px] ${on ? "border-forest bg-forest text-white" : "border-mist bg-white text-ink hover:border-forest"}`;
+    `inline-flex min-h-11 shrink-0 items-center gap-1.5 rounded-full border px-4 text-sm font-semibold transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-45 lg:max-xl:px-3 lg:max-xl:text-[13px] ${on ? "border-leaf bg-leaf text-white" : "border-mist bg-white text-ink hover:border-leaf hover:text-leaf"}`;
 
   return (
     <div>
@@ -210,9 +210,9 @@ function CatalogueView({ lockedCategory, items, featuredLabel = "Featured", urlQ
 
     <div className="lg:grid lg:grid-cols-[15rem_minmax(0,1fr)] lg:items-start lg:gap-8">
       <aside aria-label="Filters" className={`hidden lg:block ${sideFits ? "sticky top-36" : ""}`}>
-        <div ref={side} className="rounded-xl border border-mist bg-white px-4 py-3">
+        <div ref={side} className="rounded-[1.5rem] bg-sky px-5 py-4">
           <div className="flex min-h-9 items-center justify-between">
-            <h2 className="font-body text-base font-semibold text-ink">Filters</h2>
+            <h2 className="font-display text-lg font-bold text-forest-deep">Filters</h2>
             {chips.length > 0 && <button type="button" className="link text-sm" onClick={clearAll}>Clear all</button>}
           </div>
           <FilterPanel idPrefix="side" {...panelProps} />
@@ -232,10 +232,10 @@ function CatalogueView({ lockedCategory, items, featuredLabel = "Featured", urlQ
           {/* On phones and tablets the button and the sort select share one row, half each, both 44px tall. */}
           <div className="flex w-full items-center gap-2 sm:w-auto">
             <button ref={trigger} type="button" onClick={() => setDrawer(true)} aria-haspopup="dialog" aria-expanded={drawer}
-              className="btn btn-ghost h-11 !min-h-11 min-w-0 flex-1 basis-0 whitespace-nowrap !px-3 !py-0 !text-sm sm:flex-none sm:basis-auto sm:!px-4 sm:!text-[15px] lg:hidden">
+              className="btn btn-ghost h-11 !min-h-11 min-w-0 flex-1 basis-0 whitespace-nowrap !rounded-full !px-3 !py-0 !text-sm sm:flex-none sm:basis-auto sm:!px-4 sm:!text-[15px] lg:hidden">
               <SlidersHorizontal size={17} aria-hidden className="shrink-0" /> Filter and sort
               {chips.length > 0 && (
-                <span className="grid h-5 min-w-5 shrink-0 place-items-center rounded-full bg-forest px-1 text-xs text-white">
+                <span className="grid h-5 min-w-5 shrink-0 place-items-center rounded-full bg-leaf px-1 text-xs text-white">
                   <span className="sr-only">Active filters: </span>{chips.length}
                 </span>
               )}
@@ -249,9 +249,9 @@ function CatalogueView({ lockedCategory, items, featuredLabel = "Featured", urlQ
         </div>
 
         {results.length === 0 && (
-          <div className="mt-5 rounded-xl border border-mist bg-white p-6 sm:p-8">
-            <SearchX size={26} aria-hidden className="mb-3 text-forest" />
-            <h2 className="text-xl font-bold">Nothing matches those filters</h2>
+          <div className="mt-5 rounded-[1.5rem] bg-butter p-6 sm:p-8">
+            <span aria-hidden className="mb-4 grid h-12 w-12 place-items-center rounded-full bg-white text-forest"><SearchX size={24} /></span>
+            <h2 className="font-display text-xl font-bold text-forest-deep">Nothing matches those filters</h2>
             <p className="mt-2 max-w-xl text-[15px] text-muted">
               Try removing a filter. Most products come in one pack size, so combining pack size, price and seller narrows things quickly.
             </p>
@@ -271,7 +271,7 @@ function CatalogueView({ lockedCategory, items, featuredLabel = "Featured", urlQ
 
         {remaining > 0 && (
           <div className="mt-8 flex flex-col items-center gap-2">
-            <button type="button" className="btn btn-ghost" onClick={() => setShown((n) => n + PAGE)}>
+            <button type="button" className="btn btn-ghost !rounded-full" onClick={() => setShown((n) => n + PAGE)}>
               Show {Math.min(PAGE, remaining)} more {Math.min(PAGE, remaining) === 1 ? "product" : "products"}
             </button>
             <p className="text-sm text-muted">{remaining} more to see</p>
@@ -285,11 +285,11 @@ function CatalogueView({ lockedCategory, items, featuredLabel = "Featured", urlQ
             <div key="drawer" className="fixed inset-0 z-50 lg:hidden" role="dialog" aria-modal="true" aria-labelledby="filter-drawer-title">
               <motion.button type="button" tabIndex={-1} aria-label="Close filters" className="absolute inset-0 bg-ink/50" onClick={closeDrawer}
                 initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }} />
-              <motion.div ref={panel} className="absolute inset-y-0 left-0 flex w-[min(23rem,100vw)] flex-col border-r border-mist bg-white"
+              <motion.div ref={panel} className="absolute inset-y-0 left-0 flex w-[min(23rem,100vw)] flex-col overflow-hidden rounded-r-[1.5rem] bg-sky shadow-[0_18px_40px_-22px_rgb(23_39_30/0.45)]"
                 initial={{ x: "-100%" }} animate={{ x: 0 }} exit={{ x: "-100%" }} transition={{ duration: 0.25, ease: "easeOut" }}>
-                <div className="flex items-center justify-between border-b border-mist px-5 py-2.5">
-                  <h2 id="filter-drawer-title" className="text-lg font-bold">Filter and sort</h2>
-                  <button type="button" aria-label="Close filters" onClick={closeDrawer} className="grid h-11 w-11 place-items-center rounded-full transition-colors duration-150 hover:bg-sky"><X aria-hidden /></button>
+                <div className="flex items-center justify-between px-5 py-2.5">
+                  <h2 id="filter-drawer-title" className="font-display text-lg font-bold text-forest-deep">Filter and sort</h2>
+                  <button type="button" aria-label="Close filters" onClick={closeDrawer} className="grid h-11 w-11 place-items-center rounded-full bg-white text-forest transition-colors duration-150 hover:text-leaf"><X aria-hidden /></button>
                 </div>
                 <div className="flex-1 overflow-y-auto overscroll-contain px-5 pb-6">
                   <Group title="Sort by">
@@ -297,7 +297,7 @@ function CatalogueView({ lockedCategory, items, featuredLabel = "Featured", urlQ
                       const text = s.id === "featured" ? featuredLabel : s.label;
                       return (
                         <label key={s.id} className="flex min-h-11 cursor-pointer items-center gap-3 text-[15px]">
-                          <input type="radio" name="drawer-sort" aria-label={`Sort by ${text}`} className="h-5 w-5 accent-forest" checked={sort === s.id} onChange={() => changeSort(s.id)} />
+                          <input type="radio" name="drawer-sort" aria-label={`Sort by ${text}`} className="h-5 w-5 accent-leaf" checked={sort === s.id} onChange={() => changeSort(s.id)} />
                           <span>{text}</span>
                         </label>
                       );
@@ -305,7 +305,7 @@ function CatalogueView({ lockedCategory, items, featuredLabel = "Featured", urlQ
                   </Group>
                   <FilterPanel idPrefix="drawer" {...panelProps} />
                 </div>
-                <div className="flex gap-3 border-t border-mist bg-white px-5 py-3">
+                <div className="flex gap-3 rounded-t-[1.25rem] bg-white px-5 py-3">
                   <button type="button" className="btn btn-ghost flex-1" disabled={chips.length === 0} onClick={clearAll}>Clear all</button>
                   <button type="button" className="btn btn-primary flex-[1.6]" onClick={closeDrawer}>
                     {results.length === 0 ? "No products match" : `Show ${results.length} ${results.length === 1 ? "product" : "products"}`}
@@ -349,7 +349,7 @@ function FilterPanel({ idPrefix, filters, facets, lockedCategory, toggle, change
   return (
     <div>
       {locked && (
-        <div className={`py-3 text-[15px] ${groups > 0 ? "border-b border-mist" : ""}`}>
+        <div className={`my-2 rounded-[1.25rem] bg-white px-4 py-3 text-[15px] ${groups > 0 ? "mb-1" : ""}`}>
           <p className="text-sm text-muted">Category</p>
           <p className="mt-0.5 font-semibold leading-snug text-ink">
             {locked.name}
@@ -408,10 +408,10 @@ function Group({ title, children, last = false, defaultOpen = true }: {
   const [open, setOpen] = useState(defaultOpen);
   const body = useId();
   return (
-    <fieldset className={`min-w-0 py-1.5 ${last ? "" : "border-b border-mist"}`}>
+    <fieldset className={`min-w-0 py-1.5 ${last ? "" : "border-b border-white"}`}>
       <legend className="float-left w-full">
         <button type="button" aria-expanded={open} aria-controls={body} onClick={() => setOpen((v) => !v)}
-          className="flex min-h-11 w-full items-center justify-between gap-3 rounded-lg text-left text-[15px] font-semibold text-ink transition-colors duration-150 hover:text-forest">
+          className="flex min-h-11 w-full items-center justify-between gap-3 rounded-lg text-left text-[15px] font-semibold text-forest-deep transition-colors duration-150 hover:text-leaf">
           {title}
           <ChevronDown size={17} aria-hidden className={`shrink-0 text-muted transition-transform duration-200 ${open ? "rotate-180" : ""}`} />
         </button>
@@ -431,14 +431,14 @@ function Row({ type, name, checked, disabled = false, onChange, label, labelTa, 
   // The accessible name is the option itself plus its count in words, rather than a bare trailing number.
   const accessibleName = n === undefined ? label : `${label}, ${n} ${n === 1 ? "product" : "products"}`;
   return (
-    <label className={`flex min-h-11 items-center gap-3 rounded-lg py-1 text-[15px] transition-colors duration-150 ${disabled ? "text-muted" : "cursor-pointer hover:text-forest"}`}>
+    <label className={`flex min-h-11 items-center gap-3 rounded-lg py-1 text-[15px] transition-colors duration-150 ${disabled ? "text-muted" : "cursor-pointer hover:text-leaf"}`}>
       <input type={type} name={name} checked={checked} disabled={disabled} onChange={onChange} aria-label={accessibleName}
-        className="h-[18px] w-[18px] shrink-0 accent-forest" />
+        className="h-[18px] w-[18px] shrink-0 accent-leaf" />
       <span className="min-w-0 flex-1 leading-snug">
         {label}
         {labelTa && <span lang="ta" className="ta block text-[13px] text-muted">{labelTa}</span>}
       </span>
-      {n !== undefined && <span aria-hidden className="text-sm tabular-nums text-muted">{n}</span>}
+      {n !== undefined && <span aria-hidden className="grid min-w-7 place-items-center rounded-full bg-white px-1.5 py-0.5 text-xs tabular-nums text-muted">{n}</span>}
     </label>
   );
 }

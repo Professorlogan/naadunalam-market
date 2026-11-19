@@ -19,17 +19,17 @@ export default function ProductRail({ title, titleTa, blurb, href, linkLabel = "
     <section aria-labelledby={id} className="wrap grid gap-x-8 gap-y-4 py-10 lg:grid-cols-[15rem_minmax(0,1fr)]">
       <div className="flex flex-wrap items-end justify-between gap-3 lg:flex-col lg:items-start lg:justify-start">
         <div>
-          <h2 id={id} className="text-2xl font-bold [text-wrap:balance]">{title}</h2>
+          <h2 id={id} className="font-display text-2xl font-bold text-forest-deep [text-wrap:balance] sm:text-3xl">{title}</h2>
           {titleTa && <p lang="ta" className="ta mt-0.5 text-[15px] font-medium text-leaf">{titleTa}</p>}
           {blurb && <p className="mt-2 text-[15px] text-muted max-lg:hidden">{blurb}</p>}
         </div>
         <div className="flex items-center gap-2 lg:mt-4">
           {href && <Link href={href} className="link mr-2 text-[15px] font-semibold">{linkLabel}</Link>}
-          {products.length > 4 && <><button type="button" aria-label={`Previous products in ${title}`} onClick={() => page(-1)} className="grid h-11 w-11 place-items-center rounded-full border border-mist bg-white text-forest transition-colors hover:border-forest"><ChevronLeft size={20} /></button>
-          <button type="button" aria-label={`Next products in ${title}`} onClick={() => page(1)} className="grid h-11 w-11 place-items-center rounded-full border border-mist bg-white text-forest transition-colors hover:border-forest"><ChevronRight size={20} /></button></>}
+          {products.length > 4 && <><button type="button" aria-label={`Previous products in ${title}`} onClick={() => page(-1)} className="grid h-11 w-11 place-items-center rounded-full bg-mint text-forest transition-colors hover:bg-leaf hover:text-white"><ChevronLeft size={20} /></button>
+          <button type="button" aria-label={`Next products in ${title}`} onClick={() => page(1)} className="grid h-11 w-11 place-items-center rounded-full bg-mint text-forest transition-colors hover:bg-leaf hover:text-white"><ChevronRight size={20} /></button></>}
         </div>
       </div>
-      <ul ref={track} tabIndex={0} aria-label={title} className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 [scrollbar-width:none] sm:gap-4 [&::-webkit-scrollbar]:hidden">
+      <ul ref={track} tabIndex={0} aria-label={title} className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-4 pt-1 [scrollbar-width:none] sm:gap-4 [&::-webkit-scrollbar]:hidden">
         {products.map((p) => (
           <li key={p.id} className="w-[44%] shrink-0 snap-start sm:w-[30%] xl:w-[calc((100%-3rem)/4.3)]"><ProductCard product={p} /></li>
         ))}

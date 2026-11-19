@@ -15,7 +15,7 @@ export function OrderItems({ order }: { order: Order }) {
           <li key={`${l.id}-${l.variantId ?? 0}`} className="flex gap-3 py-3">
             {p?.images[0] && (
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={p.images[0].src} alt="" width={56} height={56} loading="lazy" className="h-14 w-14 shrink-0 rounded-lg bg-sky object-cover" />
+              <img src={p.images[0].src} alt="" width={56} height={56} loading="lazy" className="h-14 w-14 shrink-0 rounded-xl bg-sky object-cover" />
             )}
             <div className="min-w-0 flex-1 leading-snug">
               <p className="font-semibold">
@@ -53,7 +53,7 @@ export function OrderDetail({ order }: { order: Order }) {
         <div className="mt-1"><OrderItems order={order} /></div>
         <div className="mt-3 border-t border-mist pt-4"><Totals subtotal={order.subtotal} delivery={order.delivery} total={order.total} /></div>
       </div>
-      <div className="space-y-5">
+      <div className="space-y-5 self-start rounded-[1.5rem] bg-mint p-5 sm:p-6">
         <div>
           <h3 className="text-xl font-bold">Deliver to</h3>
           <div className="mt-2"><OrderAddress order={order} /></div>

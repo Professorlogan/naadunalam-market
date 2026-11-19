@@ -4,11 +4,11 @@ export default function Breadcrumbs({ items }: { items: { label: string; href?: 
   return (
     <nav aria-label="Breadcrumb" className="text-sm text-muted">
       <ol className="flex flex-wrap items-center gap-x-2 gap-y-1">
-        <li><Link href="/" className="hover:text-forest hover:underline">Home</Link></li>
+        <li><Link href="/" className="hover:text-leaf hover:underline">Home</Link></li>
         {items.map((it) => (
           <li key={it.label} className="flex items-center gap-2">
             <span aria-hidden>/</span>
-            {it.href ? <Link href={it.href} className="hover:text-forest hover:underline">{it.label}</Link> : <span aria-current="page" className="text-ink">{it.label}</span>}
+            {it.href ? <Link href={it.href} className="hover:text-leaf hover:underline">{it.label}</Link> : <span aria-current="page" className="font-semibold text-forest-deep">{it.label}</span>}
           </li>
         ))}
       </ol>

@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 
 /**
  * Accessible tabs (WAI-ARIA tabs pattern, automatic activation): arrow keys, Home and End move between tabs,
- * and the underline slides to the chosen one. Both panels stay in the page; the inactive one is hidden.
+ * and the active pill slides to the chosen one. Both panels stay in the page; the inactive one is hidden.
  */
 export default function StoreTabs({ label, tabs }: { label: string; tabs: { key: string; label: string; panel: ReactNode }[] }) {
   const [active, setActive] = useState(tabs[0].key);
@@ -23,17 +23,17 @@ export default function StoreTabs({ label, tabs }: { label: string; tabs: { key:
 
   return (
     <>
-      <div className="border-b border-mist bg-white">
-        <div role="tablist" aria-label={label} className="wrap flex gap-6">
+      <div className="wrap pt-6 sm:pt-8">
+        <div role="tablist" aria-label={label} className="flex flex-wrap gap-2">
           {tabs.map((t, i) => {
             const on = t.key === active;
             return (
               <button key={t.key} ref={(el) => { refs.current[i] = el; }} type="button" role="tab" id={`${uid}-tab-${t.key}`}
                 aria-selected={on} aria-controls={`${uid}-panel-${t.key}`} tabIndex={on ? 0 : -1}
                 onClick={() => setActive(t.key)} onKeyDown={(e) => onKey(e, i)}
-                className={`relative min-h-12 px-0.5 text-base font-semibold transition-colors duration-150 ${on ? "text-forest-deep" : "text-muted hover:text-forest"}`}>
+                className={`relative isolate min-h-12 rounded-full px-6 text-base font-semibold transition-colors duration-150 ${on ? "text-white" : "border border-mist text-forest-deep hover:text-leaf"}`}>
+                {on && <motion.span layoutId={`${uid}-pill`} aria-hidden className="absolute inset-0 -z-10 rounded-full bg-leaf" transition={{ duration: 0.2, ease: "easeOut" }} />}
                 {t.label}
-                {on && <motion.span layoutId={`${uid}-line`} aria-hidden className="absolute inset-x-0 -bottom-px h-0.5 bg-forest" transition={{ duration: 0.2, ease: "easeOut" }} />}
               </button>
             );
           })}

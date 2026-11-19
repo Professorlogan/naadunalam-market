@@ -28,9 +28,9 @@ export default function YearGrid({ months }: { months: Month[] }) {
         const now = i === current;
         return (
           <li key={m.name} aria-current={now ? "date" : undefined}
-            className={`relative flex flex-col rounded-xl bg-white sm:min-h-36 ${now ? "border-2 border-forest p-[11px] sm:p-[19px]" : "border border-mist p-3 sm:p-5"}`}>
+            className={`relative flex flex-col rounded-[1.25rem] bg-white sm:min-h-36 ${now ? "border-2 border-leaf p-[11px] sm:p-[19px]" : "border border-mist p-3 sm:p-5"}`}>
             {now && (
-              <span className="absolute -top-3 right-3 rounded-full bg-forest px-2.5 py-0.5 text-xs font-semibold leading-5 text-white">This month</span>
+              <span className="absolute -top-3 right-3 rounded-full bg-leaf px-2.5 py-0.5 text-xs font-semibold leading-5 text-white">This month</span>
             )}
             <h3 className="text-lg font-bold leading-tight sm:text-2xl">{m.name}</h3>
             <p className="mt-0.5 text-sm text-muted sm:mt-1">{seasons[m.season].label}</p>

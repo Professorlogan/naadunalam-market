@@ -15,12 +15,12 @@ export const metadata: Metadata = {
 };
 
 const services = [
-  { icon: Wheat, title: "Traditional and natural products", text: "Explore a carefully selected range of traditional rice, siruthaniyam, pulses, natural sweeteners, spices, oils and other everyday essentials.", link: { href: "/shop", label: "Explore products" } },
-  { icon: Sprout, title: "Traditional food choices", text: "Discover traditional grains and ingredients that are closely connected to Tamil Nadu’s food heritage and everyday cooking.", link: { href: "/product-category/siruthaniyam", label: "Discover millets" } },
-  { icon: Truck, title: "Doorstep delivery", text: "We make it convenient to order your favourite products online and have them delivered to your doorstep.", fact: site.deliveryLine },
-  { icon: Banknote, title: "Cash on delivery", text: "Choose Cash on Delivery at checkout.", fact: "Pay when your order arrives" },
-  { icon: Tractor, title: "Direct from growers", text: "We aim to create a stronger connection between the people who grow our food and the families who enjoy it.", fact: "Fewer hands between farm and kitchen" },
-  { icon: Leaf, title: "Natural choices", text: "Discover products selected with a focus on traditional food practices and natural ingredients.", fact: "Always free from chemicals and pesticides" },
+  { tint: "bg-mint", icon: Wheat, title: "Traditional and natural products", text: "Explore a carefully selected range of traditional rice, siruthaniyam, pulses, natural sweeteners, spices, oils and other everyday essentials.", link: { href: "/shop", label: "Explore products" } },
+  { tint: "bg-butter", icon: Sprout, title: "Traditional food choices", text: "Discover traditional grains and ingredients that are closely connected to Tamil Nadu’s food heritage and everyday cooking.", link: { href: "/product-category/siruthaniyam", label: "Discover millets" } },
+  { tint: "bg-peach", icon: Truck, title: "Doorstep delivery", text: "We make it convenient to order your favourite products online and have them delivered to your doorstep.", fact: site.deliveryLine },
+  { tint: "bg-aqua", icon: Banknote, title: "Cash on delivery", text: "Choose Cash on Delivery at checkout.", fact: "Pay when your order arrives" },
+  { tint: "bg-clay", icon: Tractor, title: "Direct from growers", text: "We aim to create a stronger connection between the people who grow our food and the families who enjoy it.", fact: "Fewer hands between farm and kitchen" },
+  { tint: "bg-mint", icon: Leaf, title: "Natural choices", text: "Discover products selected with a focus on traditional food practices and natural ingredients.", fact: "Always free from chemicals and pesticides" },
 ];
 
 const steps = [
@@ -52,8 +52,8 @@ export default function ServicesPage() {
   return (
     <>
       {/* Opening: text beside a tall field photograph */}
-      <header className="border-b border-mist bg-white">
-        <div className="wrap grid gap-8 py-8 sm:py-12 md:grid-cols-[1fr_auto] md:items-center md:gap-14">
+      <header className="wrap pt-4 sm:pt-6">
+        <div className="grid gap-8 rounded-[2rem] bg-gradient-to-br from-mint via-mint to-butter px-6 py-8 sm:px-10 sm:py-10 md:grid-cols-[1fr_auto] md:items-center md:gap-14">
           <div>
             <Reveal y={10}><Breadcrumbs items={[{ label: "How ordering works" }]} /></Reveal>
             <h1 className="mt-5 max-w-2xl text-4xl font-bold sm:text-5xl lg:text-6xl"><SplitWords text="How ordering works" delay={0.05} /></h1>
@@ -69,17 +69,17 @@ export default function ServicesPage() {
               <Link href="/contact" className="btn btn-ghost">Contact us</Link>
             </Reveal>
             <Stagger delay={0.5} className="relative mt-8 pt-5">
-              <RuleLine className="absolute inset-x-0 top-0 h-px bg-mist" />
+              <RuleLine className="absolute inset-x-0 top-0 h-px bg-forest/15" />
               <p className="flex flex-wrap gap-x-6 gap-y-1 font-semibold text-forest">
                 <StaggerItem as="span" y={10}>{site.deliveryLine}</StaggerItem>
                 <StaggerItem as="span" y={10}>{site.payment}</StaggerItem>
               </p>
             </Stagger>
           </div>
-          <WipeImage panel="bg-sun" className="h-72 w-full rounded-[1.75rem] md:h-[30rem] md:w-64 lg:w-80">
+          <WipeImage panel="bg-leaf" className="h-72 w-full rounded-[1.75rem] md:h-[30rem] md:w-64 lg:w-80">
             <img
               src="/img/sona-masoori-rice-fix-scaled.jpg" width={1152} height={2560}
-              alt="A hand holding freshly picked paddy stalks in a rice field"
+              alt="A hand holding newly picked paddy stalks in a rice field"
               className="h-full w-full object-cover object-[50%_60%]"
             />
           </WipeImage>
@@ -94,11 +94,10 @@ export default function ServicesPage() {
             From carefully bringing traditional products together to getting them to your doorstep, we focus on making your shopping experience simple and reliable.
           </p>
         </Reveal>
-        <Stagger as="ul" gap={0.1} className="mt-8 grid gap-x-12 md:grid-cols-2">
-          {services.map(({ icon: Icon, ...s }) => (
-            <StaggerItem as="li" key={s.title} className="group relative flex gap-4 py-6">
-              <RuleLine className="absolute inset-x-0 top-0 h-px bg-mist" />
-              <Pop className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-forest text-white">
+        <Stagger as="ul" gap={0.1} className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {services.map(({ icon: Icon, tint, ...s }) => (
+            <StaggerItem as="li" key={s.title} className="group relative flex gap-4 rounded-[1.5rem] border border-mist bg-white p-5 transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_-22px_rgb(23_39_30/0.45)] sm:p-6">
+              <Pop className={`grid h-12 w-12 shrink-0 place-items-center rounded-full text-forest ${tint}`}>
                 <Icon aria-hidden size={22} className="transition-transform duration-300 ease-out group-hover:-rotate-12 group-hover:scale-125" />
               </Pop>
               <div>
@@ -117,9 +116,9 @@ export default function ServicesPage() {
       </section>
 
       {/* The four steps: a real sequence, so it is numbered */}
-      <section className="bg-forest text-white">
-        <div className="wrap py-12 sm:py-16">
-          <h2 className="text-3xl font-bold !text-white sm:text-4xl"><SplitWords text="Simple from start to finish" inView /></h2>
+      <section className="wrap">
+        <div className="rounded-[2rem] bg-butter px-6 py-10 sm:px-10 sm:py-12">
+          <h2 className="text-3xl font-bold text-forest-deep sm:text-4xl"><SplitWords text="Simple from start to finish" inView /></h2>
           {/* Signature moment: the line draws from step to step and each one lights up in turn. */}
           <StepsSequence steps={steps} />
         </div>
@@ -134,7 +133,7 @@ export default function ServicesPage() {
               <Link href={`/product-category/${k.slug}`} className="group block">
                 <Tilt max={6}>
                   {/* Cropped a little past the frame so nothing in the photograph's corners shows. */}
-                  <span className="block aspect-[4/5] overflow-hidden rounded-2xl bg-mist">
+                  <span className="block aspect-[4/5] overflow-hidden rounded-[1.25rem] bg-mist">
                     <img src={k.img} width={1024} height={1024} loading="lazy" alt={k.alt} className="h-full w-full scale-[1.08] object-cover transition-transform duration-700 ease-out group-hover:scale-[1.14]" />
                   </span>
                 </Tilt>
@@ -147,22 +146,22 @@ export default function ServicesPage() {
       </section>
 
       {/* Why choose, with the values alongside */}
-      <section className="overflow-x-clip border-y border-mist bg-white">
-        <div className="wrap grid gap-12 py-12 sm:py-16 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-16">
+      <section className="overflow-x-clip">
+        <div className="wrap grid gap-12 py-4 sm:py-6 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-16">
           <div>
             <Reveal><h2 className="text-3xl font-bold sm:text-4xl">Why choose Naadu Nalam?</h2></Reveal>
             <Stagger as="dl" gap={0.12} className="mt-6 grid gap-x-10 sm:grid-cols-2">
               {why.map((w) => (
                 <StaggerItem key={w.title} className="relative py-4">
-                  <dt className="font-display text-xl font-bold text-forest-deep"><RuleLine className="absolute inset-x-0 top-0 h-0.5 bg-forest" />{w.title}</dt>
+                  <dt className="font-display text-xl font-bold text-forest-deep"><RuleLine className="absolute inset-x-0 top-0 h-0.5 bg-leaf" />{w.title}</dt>
                   <dd className="mt-1 text-muted">{w.text}</dd>
                 </StaggerItem>
               ))}
             </Stagger>
           </div>
-          <Reveal x={32} y={0} className="rounded-[1.75rem] bg-sky p-6 sm:p-8">
+          <Reveal x={32} y={0} className="rounded-[2rem] bg-aqua p-6 sm:p-8">
             <h2 className="text-2xl font-bold">Our values</h2>
-            <Stagger as="ul" gap={0.16} delay={0.2} className="mt-4 divide-y divide-mist">
+            <Stagger as="ul" gap={0.16} delay={0.2} className="mt-4 divide-y divide-forest/10">
               {values.map((v) => (
                 <StaggerItem as="li" key={v.en} y={16} className="flex flex-col gap-0.5 py-3 sm:flex-row sm:items-baseline sm:justify-between sm:gap-x-4">
                   <span lang="ta" className={`ta font-display text-3xl font-bold ${v.colour}`}>{v.ta}</span>
@@ -176,7 +175,15 @@ export default function ServicesPage() {
       </section>
 
       {/* Convenience */}
-      <section className="wrap grid gap-8 py-12 sm:py-16 md:grid-cols-2 md:gap-14">
+      <section className="wrap grid items-center gap-8 py-12 sm:py-16 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-14">
+        <WipeImage panel="bg-peach" className="aspect-[4/3] w-full rounded-[1.75rem]">
+          <img
+            src="/img/m/hero-packs.webp" width={1800} height={972} loading="lazy"
+            alt="Naadu Nalam packs of Karuppu Kavuni rice, Mappillai Samba rice, pearl millet and toor dal with clay bowls of grain"
+            className="h-full w-full object-cover object-[78%_50%]"
+          />
+        </WipeImage>
+        <div>
         <Reveal>
           <h2 className="text-3xl font-bold sm:text-4xl">Your convenience matters</h2>
           <p className="mt-4 text-lg">Shopping for traditional and natural products should be simple.</p>
@@ -184,23 +191,24 @@ export default function ServicesPage() {
             That is why we focus on making the experience easy, from discovering products and placing an order to receiving it at your doorstep.
           </p>
         </Reveal>
-        <div className="md:pt-2">
+        <div className="mt-6">
           {/* The checklist ticks itself, one item after another. */}
           <LeafList ticks className="font-display text-xl font-semibold text-forest-deep" items={["Easy product discovery", "Simple ordering", "Convenient delivery"]} />
           <Reveal delay={0.5} y={16} className="mt-7"><Link href="/shop" className="btn btn-primary">Start shopping</Link></Reveal>
         </div>
+        </div>
       </section>
 
       {/* Help */}
-      <section className="bg-forest text-white">
-        <div className="wrap flex flex-col gap-6 py-12 md:flex-row md:items-center md:justify-between">
+      <section className="wrap pb-12 sm:pb-16">
+        <div className="flex flex-col gap-6 rounded-[2rem] bg-mint px-6 py-10 sm:px-10 md:flex-row md:items-center md:justify-between">
           <Reveal>
-            <h2 className="text-3xl font-bold !text-white">Need help with your order?</h2>
-            <p className="mt-2 text-white/85">Have a question about a product, order or delivery? We’re here to help.</p>
+            <h2 className="text-3xl font-bold text-forest-deep">Need help with your order?</h2>
+            <p className="mt-2 text-ink/75">Have a question about a product, order or delivery? We’re here to help.</p>
           </Reveal>
           <Reveal delay={0.15} className="flex shrink-0 flex-wrap gap-3">
-            <Link href="/contact" className="btn btn-sun">Contact us</Link>
-            <Link href="/shop" className="btn btn-light">Shop now</Link>
+            <Link href="/contact" className="btn btn-primary">Contact us</Link>
+            <Link href="/shop" className="btn btn-ghost">Shop now</Link>
           </Reveal>
         </div>
       </section>

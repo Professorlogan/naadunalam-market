@@ -17,7 +17,7 @@ function ReadMore() {
 /** Large lead story: image and text side by side from tablet up. */
 export function PostLead({ post }: { post: Post }) {
   return (
-    <article className={`card group relative grid overflow-hidden shadow-lift md:grid-cols-2 ${ring}`}>
+    <article className={`group relative grid overflow-hidden rounded-[1.25rem] border border-mist bg-white md:grid-cols-2 transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_-22px_rgb(23_39_30/0.45)] ${ring}`}>
       <div className="relative aspect-[4/3] overflow-hidden bg-mist md:aspect-auto md:min-h-[24rem]">
         {/* The photo is a little taller than its frame so it can drift as the page scrolls. */}
         <Parallax amount={22} className="absolute inset-x-0 -inset-y-6">
@@ -39,11 +39,11 @@ export function PostLead({ post }: { post: Post }) {
 /** Index row: thumbnail left, text right. Used for the rest of the blog list. */
 export function PostRow({ post }: { post: Post }) {
   return (
-    <article className={`group relative flex gap-4 rounded-2xl py-6 sm:gap-6 ${ring}`}>
-      <div className="h-24 w-24 shrink-0 overflow-hidden rounded-2xl bg-mist sm:h-40 sm:w-56">
+    <article className={`group relative flex gap-4 rounded-[1.25rem] border border-mist bg-white p-3 sm:gap-6 sm:p-4 transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_-22px_rgb(23_39_30/0.45)] ${ring}`}>
+      <div className="h-24 w-24 shrink-0 overflow-hidden rounded-[1rem] bg-mist sm:h-40 sm:w-56">
         <img src={post.image} alt="" width={448} height={320} loading="lazy" className={zoom} />
       </div>
-      <div className="min-w-0">
+      <div className="min-w-0 self-center">
         <time dateTime={post.date} className="text-sm text-muted">{longDate(post.date)}</time>
         <h3 className="mt-1 text-xl font-bold sm:text-2xl">
           <Link href={`/${post.slug}`} className={`${stretched} ${draw} group-hover:text-leaf`}>{post.title}</Link>
@@ -58,7 +58,7 @@ export function PostRow({ post }: { post: Post }) {
 /** Upright card for three-across rows ("Keep reading", "From the blog in the meantime"). */
 export function PostCard({ post, as: Tag = "h3" }: { post: Post; as?: "h2" | "h3" }) {
   return (
-    <article className={`card group relative flex h-full flex-col overflow-hidden ${ring}`}>
+    <article className={`group relative flex h-full flex-col overflow-hidden rounded-[1.25rem] border border-mist bg-white transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_-22px_rgb(23_39_30/0.45)] ${ring}`}>
       <div className="aspect-[3/2] overflow-hidden bg-mist">
         <img src={post.image} alt="" width={600} height={400} loading="lazy" className={zoom} />
       </div>
